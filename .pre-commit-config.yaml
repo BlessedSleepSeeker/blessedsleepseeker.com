@@ -1,0 +1,22 @@
+﻿# Provided by Camille GOUNEAU
+# 12/09/2022
+# My template Django pre-commit setup using black, blacken-docs, flake8 and some base hooks
+# See .flake8 file for flake8 configuration !
+# See https://pre-commit.com for more information
+# See https://pre-commit.com/hooks.html for more hooks
+repos:
+  - repo: https://github.com/psf/black
+    rev: 22.8.0
+    hooks:
+      - id: black
+        args: [--extend-exclude=/migrations/]
+  - repo: https://github.com/asottile/blacken-docs
+    rev: v1.12.1
+    hooks:
+      - id: blacken-docs
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.3.0
+    hooks:
+      - id: trailing-whitespace
+      - id: check-yaml
+      - id: check-added-large-files
