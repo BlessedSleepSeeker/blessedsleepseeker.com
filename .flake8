@@ -4,6 +4,5 @@
 [flake8]
 max-line-length = 120
 exclude =
-    cgonline/cgonline/settings,
-    .git,
-    .venv,
+    cgonline/cgonline/settings/*.py,
+

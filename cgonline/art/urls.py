@@ -7,3 +7,5 @@ urlpatterns = [
     path("<slug:album>", views.album, name="art_album"),
     path("<slug:album>/<slug:piece>", views.piece, name="art_piece"),
 ]
+
+app_name = "art"

@@ -1,0 +1,62 @@
+{% load static %}
+{% load i18n %}
+<!DOCTYPE html>
+<html class="h-100" data-bs-theme="light">
+  <head>
+    <title>{% block title %}{% endblock %} - Camille Gouneau</title>
+	  <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <!-- Bootstrap CSS & config -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body class="d-flex flex-column h-100">
+  {% block navigation %}
+  <header>
+	<nav class="navbar navbar-expand-lg bg-body-tertiary" role="navigation">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'main:index' %}" class="">
+          <img src={% static 'images/logo.png' %} height="70px">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item"><a class="nav-link" href="{% url 'blog:blog_main' %}">{% translate "Blog" %}</a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'art:art_galery' %}">{% translate "Art" %}</a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'dev:dev_main' %}">{% translate "Code" %}</a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'diy:diy_main' %}">{% translate "DIY" %}</a></li>
+          </ul>
+          <button type="button" class="btn btn-light"><i class="bi bi-moon-stars-fill" style="font-size: 2rem; color: midnightblue"></i></button>
+          <!--<i class="bi bi-brightness-high-fill" style="font-size: 2rem;"></i>-->
+
+        </div>
+      </div>
+    </nav>
+		</div>
+	</nav>
+  </header>
+  {% endblock navigation %}
+
+
+
+    <main class="flex-shrink-0">
+		  <div class="container">
+			  {% block content %}{% endblock %}
+		  </div>
+	  </main>
+
+
+    {% block footer %}
+	  <footer class="footer mt-auto py-3 bg-body-tertiary">
+      <div class="container">
+        lso6
+      </div>
+    </footer>
+    {% endblock footer %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+  </body>
+</html>
