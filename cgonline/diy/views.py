@@ -3,4 +3,5 @@ from django.shortcuts import render
 
 # Create your views here.
 def diy_main(request):
-    return HttpResponse("diy")
+    context = {}
+    return render(request, "diy/main.html", context)

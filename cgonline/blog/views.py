@@ -3,4 +3,5 @@ from django.shortcuts import render
 
 # Create your views here.
 def blog_main(request):
-    return HttpResponse("blog")
+    context = {}
+    return render(request, "blog/main.html", context)

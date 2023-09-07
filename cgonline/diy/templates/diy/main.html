@@ -1,16 +1,11 @@
 {% extends 'base.html' %}
 {% load static %}
 {% load i18n %}
-{% load bootstrap5 %}
 {% block title %}
-	Art
+DIY
 {% endblock title %}
 {% block content %}
 <div>
-    {% for article in page_obj %}
-        <div>
-
-        </div>
-    {% endfor %}
+    <h1 class="text-center">{% translate "Browse my DIY Projects" %}</h1>
 </div>
 {% endblock content %}

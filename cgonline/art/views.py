@@ -3,12 +3,15 @@ from django.shortcuts import render
 
 # Create your views here.
 def art_galery(request):
-    return HttpResponse("artgalery")
+    context = {}
+    return render(request, "art/main_galery.html", context)
 
 
 def album(request, album):
-    return HttpResponse(album)
+    context = {}
+    return render(request, "art/generic_galery.html", context)
 
 
 def piece(request, album, piece):
-    return HttpResponse(album + piece)
+    context = {}
+    return render(request, "art/generic_piece.html", context)
