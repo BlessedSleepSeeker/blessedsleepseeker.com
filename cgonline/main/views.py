@@ -1,6 +1,8 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 
+from .models import Presentation
+
 # Create your views here.
 def index(request):
     context = {}
@@ -8,7 +10,10 @@ def index(request):
 
 
 def whoami(request):
-    context = {}
+    infos = Presentation.objects.get(pk=1)
+
+    context = {"picture": infos.picture, "text": infos.textEN}
+    print(infos.picture)
     return render(request, "main/whoami.html", context)
 
 

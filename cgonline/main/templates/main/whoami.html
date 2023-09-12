@@ -7,5 +7,11 @@
 {% block content %}
 <div>
 	<h1 class="text-center">{% translate "About me" %}</h1>
+	{% if picture %}
+        <img src="{{picture.url}}" style="">
+    {% endif %}
+	<div>
+		{{ text }}
+	</div>
 </div>
 {% endblock content %}

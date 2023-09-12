@@ -34,4 +34,5 @@ document.getElementById('btnSwitch').addEventListener('click',()=>{
     updateTheme()
 })
 
+
 updateTheme()
