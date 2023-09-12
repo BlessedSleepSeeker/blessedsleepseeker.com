@@ -1,0 +1,21 @@
+@font-face {
+    font-family: "Sci-Bi";
+    src: url("../../static/base/fonts/sci-bi.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Sci-Bi Glitched";
+    src: url("../../static/base/fonts/sci-bi-glitched.ttf") format("truetype");
+}
+
+.sci-bi {
+    font-family: "Sci-Bi";
+}
+
+.sci-bi-glitched {
+    font-family: "Sci-Bi Glitched";
+}
+
+.homepage-title {
+    font-size: 8em;
+}
