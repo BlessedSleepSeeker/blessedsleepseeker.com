@@ -16,7 +16,7 @@ class Project(models.Model):
 
     name = models.CharField(max_length=2000)
     short_description = models.TextField(blank=True)
-    vignette = models.ImageField(blank=True)
+    vignette = models.ImageField(upload_to="upload/dev", blank=True)
     upload_date = models.DateTimeField(default=timezone.now)
     update_date = models.DateTimeField(default=timezone.now)
     tags = models.TextField(blank=True, validators=[validate_tags])
@@ -25,4 +25,4 @@ class Project(models.Model):
     languages = models.CharField(max_length=200)
     active = models.BooleanField(default=False)
 
-    source = models.FileField(upload_to="dev/")
+    source = models.FileField(upload_to="upload/dev/sources")

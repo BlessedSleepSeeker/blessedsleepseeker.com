@@ -4,8 +4,8 @@ from . import views
 
 urlpatterns = [
     path("", views.art_galery, name="art_galery"),
-    path("<slug:album>", views.album, name="art_album"),
-    path("<slug:album>/<slug:piece>", views.piece, name="art_piece"),
+    path("<slug:album_url>", views.album, name="album"),
+    path("<slug:album_url>/<slug:piece_url>", views.piece, name="piece"),
 ]
 
 app_name = "art"

@@ -15,7 +15,7 @@ class Article(models.Model):
     title = models.CharField(max_length=200)
     # used for url creation, do not put maj char, space or special characters in it
     short_title = models.CharField(max_length=30, unique=True)
-    vignette = models.ImageField(upload_to="%Y/%m", null=True, blank=True)
+    vignette = models.ImageField(upload_to="upload/blog", null=True, blank=True)
 
     def validate_tags(value):
         if " " in value:

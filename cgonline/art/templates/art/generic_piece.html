@@ -1,11 +1,19 @@
 {% extends 'base.html' %}
 {% load static %}
 {% load i18n %}
+{% load humanize %}
 {% block title %}
 	Art
 {% endblock title %}
 {% block content %}
 <div>
-    <h1 class="text-center">{% translate "Piece Name" %}</h1>
+    <a class="nav-link m-2" href="{% url 'art:album' album.url %}"><i id="" class="bi bi-arrow-left-short" style=""></i>{% translate "Back to " %}{{ album.name }}</a>
+</div>
+<div>
+    <img src="{{ piece.file.url }}" class="img-thumbnail mx-auto d-block">
+    <div class="p-5">
+        <h4 class="text-center">"{{ piece.name }}" - {{ piece.authors}}</h4>
+        <h5 class="text-center text-muted">{% translate "Unveiled" %} {{piece.upload_date|naturaltime}}</h5>
+    </div>
 </div>
 {% endblock content %}

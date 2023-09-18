@@ -7,8 +7,12 @@
 {% block content %}
 <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column text-center">
     <main class="px-3">
-        <h1 class="bitsumishi">{% translate "A journey"%}<br> {% translate "in creation" %}</h1>
-        <h2 class="bitsumishi text-muted">{% translate "Autotelic Art/Code/Wood Work" %}</h2>
+        <h1 class="bitsumishi display-1">{% translate "A journey"%}<br> {% translate "in creation" %}</h1>
+        <h2 class="bitsumishi text-muted display-4">{% translate "Autotelic " %}<span id="changing-text"></span></h2>
     </main>
 </div>
 {% endblock content %}
+{% block scripts %}
+{{block.super}}
+<script src="{% static 'homepage.js' %}"></script>
+{% endblock scripts %}
