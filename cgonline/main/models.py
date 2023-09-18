@@ -9,7 +9,7 @@ class Question(models.Model):
     picture = models.ImageField(upload_to="upload/questions/", blank=True)
 
     def __str__(self):
-        return self.name
+        return self.questionEN
 
 
 class Friend(models.Model):

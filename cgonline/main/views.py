@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 
-from .models import Presentation
+from .models import Friend, Presentation, Question
 
 # Create your views here.
 def index(request):
@@ -18,7 +18,10 @@ def whoami(request):
 
 
 def faq(request):
-    context = {}
+    questions = Question.objects.all()
+    context = {
+        "questions": questions,
+    }
     return render(request, "main/faq.html", context)
 
 
@@ -28,5 +31,9 @@ def contact(request):
 
 
 def friend(request):
-    context = {}
+    friends = Friend.objects.all()
+
+    context = {
+        "friends": friends,
+    }
     return render(request, "main/friends.html", context)

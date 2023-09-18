@@ -5,7 +5,26 @@
     {% translate "Friends" %}
 {% endblock title %}
 {% block content %}
-<div>
-	<h1 class="text-center">{% translate "Cool persons all around !" %}</h1>
+<div class="m-5">
+    <div>
+        <h1 class="pb-2 border-bottom">{% translate "Cool persons all around !" %}</h1>
+    </div>
+	<div class="row g-4 p-5 row-cols-1 row-cols-lg-4">
+        {% for friend in friends %}
+            <div class="feature-col">
+                <div class="feature-icon d-inline-flex align-items-center justify-content-center fs-2 mb-3">
+                    <img src="{{friend.picture.url}}" class="" style="max-height: auto; max-width: 4em;">
+                </div>
+                <h3 class="fs-2 text-body-emphasis">{{friend.name}}</h3>
+                <p>{{friend.short_descriptionEN}}</p>
+                <a class="icon-link" href="{{ friend.link }}">
+                    <i class="bi bi-link"></i>
+                </a>
+            </div>
+        {% endfor %}
+	</div>
 </div>
 {% endblock content %}
+{% block easteregg %}
+    {% translate "All of your friends are belong to us !!!" %}
+{% endblock easteregg %}

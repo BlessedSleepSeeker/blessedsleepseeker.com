@@ -1,17 +1,22 @@
 {% extends 'base.html' %}
 {% load static %}
 {% load i18n %}
+{% load markdown_extras %}
 {% block title %}
 	{% translate "Who am I" %}
 {% endblock title %}
 {% block content %}
-<div>
-	<h1 class="text-center">{% translate "About me" %}</h1>
-	{% if picture %}
-        <img src="{{picture.url}}" style="">
-    {% endif %}
-	<div>
-		{{ text }}
+<div class="m-5">
+	<div class="row g-4 p-5 row-cols-1 row-cols-lg-2">
+		{% if picture %}
+        	<img src="{{picture.url}}" class="img-fluid rounded-circle">
+    	{% endif %}
+		<div class="">
+			{{ text | markdown | safe }}
+		</div>
 	</div>
 </div>
 {% endblock content %}
+{% block easteregg %}
+{% translate "Did you know ? My favorite pokemon isn't Bidoof but Oshawott !" %}
+{% endblock easteregg %}

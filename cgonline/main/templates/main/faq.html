@@ -1,11 +1,20 @@
 {% extends 'base.html' %}
 {% load static %}
 {% load i18n %}
+{% load markdown_extras %}
 {% block title %}
 	FAQs
 {% endblock title %}
 {% block content %}
-<div>
-	<h1 class="text-center">{% translate "Any questions ?" %}</h1>
+<div class="m-3">
+	<h1 class="text-center">{% translate "FAQ" %}</h1>
+	<div class="row g-4 py-5 row-cols-1 row-cols-lg-1">
+		{% for question in questions %}
+			<div class="feature col">
+				<h3>{{ question.questionEN }}</h3>
+				<p>{{ question.answerEN | markdown | safe }}</p>
+			</div>
+		{% endfor %}
+	</div>
 </div>
 {% endblock content %}
