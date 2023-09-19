@@ -6,14 +6,19 @@
 	FAQs
 {% endblock title %}
 {% block content %}
-<div class="m-3">
-	<h1 class="text-center">{% translate "FAQ" %}</h1>
-	<div class="row g-4 py-5 row-cols-1 row-cols-lg-1">
+<div class="container py-3">
+	<h1 class="header text-center mx-auto">{% translate "FAQ" %}</h1>
+	<div class="my-5" id="accordion">
 		{% for question in questions %}
-			<div class="feature col">
+		<div class="card my-1">
+			<button class="btn btn-secondary w-100" type="button" data-bs-toggle="collapse" data-bs-target="#{{question.pk}}">
 				<h3>{{ question.questionEN }}</h3>
-				<p>{{ question.answerEN | markdown | safe }}</p>
+			</button>
+
+			<div class="collapse mx-3 h5" id="{{question.pk}}" data-parent="#accordion" style="--bs-card-spacer-y: 0rem;">
+				<p class="card-body">{{ question.answerEN | markdown | safe }}</p>
 			</div>
+		</div>
 		{% endfor %}
 	</div>
 </div>

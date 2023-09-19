@@ -9,14 +9,14 @@
 <div class="container py-3">
 	<div class="header text-center p-3 pb-md-4 mx-auto">
 		<h1 class="display-4 fw-normal text-body-emphasis">{% translate "Contact" %}</h1>
-		<div class="fs-5 text-body-secondary">{{ opt.message | markdown | safe }}</div>
+		<div class="fs-5 text-body-secondary">{{ msg.message | markdown | safe }}</div>
 	</div>
 	<div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
 		{% for link in links %}
 
 		<div class="col">
-			<div class="card mb-4 rounded-3 shadow-sm {% if link.primary == true %}border-primary{% endif %}">
-				<div class="card-header">
+			<div class="card m-3 rounded-3 shadow-sm {% if link.emphasis %}border-primary{% endif %}">
+				<div class="card-header {% if link.emphasis %}border-primary{% endif %}">
 					<h4 class="my-0 fw-normal">{{ link.title }}</h4>
 				</div>
 				<div class="card-body">
@@ -25,9 +25,11 @@
 				{% comment %}
 					add an on click "reveal of the usernames"
 				{% endcomment %}
-				<button class="w-100 btn btn-lg btn-primary">
-					{{ link.username }}
-				</button>
+				<a href="{{link.direct_link}}">
+					<button class="mb-3 w-75 btn btn-lg btn-primary">
+						{{ link.username }}
+					</button>
+				</a>
 			</div>
 		</div>
 		{% endfor %}
