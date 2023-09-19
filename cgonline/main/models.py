@@ -23,11 +23,22 @@ class Friend(models.Model):
         return self.name
 
 
-class ContactOption(models.Model):
-    email = models.EmailField(max_length=2000, blank=True)
-    twitter = models.URLField(max_length=2000, blank=True)
-    instagram = models.URLField(max_length=2000, blank=True)
-    discord = models.URLField(max_length=2000, blank=True)
+class ContactMessage(models.Model):
+    message = models.TextField()
+
+    def __str__(self):
+        return self.message
+
+
+class ContactLink(models.Model):
+    title = models.CharField(max_length=200)
+    username = models.CharField(max_length=200)
+    direct_link = models.CharField(max_length=2000)
+    comment = models.TextField(max_length=2000)
+    emphasis = models.BooleanField()
+
+    def __str__(self):
+        return self.title
 
 
 class Presentation(models.Model):

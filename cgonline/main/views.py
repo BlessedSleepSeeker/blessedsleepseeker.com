@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 
-from .models import Friend, Presentation, Question
+from .models import ContactLink, ContactMessage, Friend, Presentation, Question
 
 # Create your views here.
 def index(request):
@@ -26,7 +26,13 @@ def faq(request):
 
 
 def contact(request):
-    context = {}
+    msg = ContactMessage.objects.get(pk=1)
+    links = ContactLink.objects.all()
+
+    context = {
+        "msg": msg,
+        "links": links,
+    }
     return render(request, "main/contact.html", context)
 
 
