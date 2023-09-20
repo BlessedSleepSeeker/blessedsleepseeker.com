@@ -6,7 +6,7 @@
 	FAQs
 {% endblock title %}
 {% block content %}
-<div class="container py-3">
+<div class="container">
 	<h1 class="header text-center mx-auto">{% translate "FAQ" %}</h1>
 	<div class="my-5" id="accordion">
 		{% for question in questions %}
@@ -25,3 +25,7 @@
 	</div>
 </div>
 {% endblock content %}
+
+{% block easteregg %}
+{% translate "The [MISSING AUTHORIZATION] Incident took place in [REDACTED] on the 8 [DATA EXPUNGED]. Casualties were estimated to a total of [BIG NUMBER] dead." %}
+{% endblock easteregg %}

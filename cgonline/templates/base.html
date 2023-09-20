@@ -17,7 +17,7 @@
   <body class="d-flex flex-column h-100">
   {% block navigation %}
   <header>
-	<nav class="navbar navbar-expand-lg bg-body-tertiary mb-5" role="navigation">
+	<nav class="navbar navbar-expand-lg bg-body-tertiary" role="navigation">
       <div class="container-fluid">
         <a class="navbar-brand" href="{% url 'main:index' %}" class="">
           <img id="navLogoLight" src={% static 'base/8x8b800.png' %}>
@@ -43,24 +43,32 @@
   </header>
   {% endblock navigation %}
 
-
-  {% block content %}
-  {% endblock content %}
-
+  <div class="my-5">
+    {% block content %}
+    {% endblock content %}
+  </div>
 
 
     {% block footer %}
-	  <footer class="footer mt-auto py-3 bg-body-tertiary">
-      <div class="py-3 my-4">
-        <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-          <li class="nav-item"><a class="nav-link px-2 text-muted" href="{% url 'main:index' %}">{% translate "Home" %}</a></li>
-          <li class="nav-item"><a class="nav-link px-2 text-muted" href="{% url 'main:whoami' %}">{% translate "About me" %}</a></li>
-          <li class="nav-item"><a class="nav-link px-2 text-muted" href="{% url 'main:faq' %}">{% translate "FAQs" %}</a></li>
-          <li class="nav-item"><a class="nav-link px-2 text-muted" href="{% url 'main:friends' %}">{% translate "Friends" %}</a></li>
-          <li class="nav-item"><a class="nav-link px-2 text-muted" href="{% url 'main:contact' %}">{% translate "Contact" %}</a></li>
-        </ul>
+	  <footer class="footer mt-auto">
+      <div class="mb-4">
+        <nav class="d-flex justify-content-center">
+          <div class="">
 
-        <p class="text-center text-muted">{% block easteregg %}{% translate "This is where I would put my easter eggs, if I had some." %}{% endblock easteregg %}</p>
+          </div>
+          <ul class="nav justify-content-center border-top py-3 w-50">
+            <li class="nav-item"><a class="nav-link px-2 text-muted" href="{% url 'main:index' %}">{% translate "Home" %}</a></li>
+            <li class="nav-item"><a class="nav-link px-2 text-muted" href="{% url 'main:whoami' %}">{% translate "About me" %}</a></li>
+            <li class="nav-item"><a class="nav-link px-2 text-muted" href="{% url 'main:faq' %}">{% translate "FAQ" %}</a></li>
+            <li class="nav-item"><a class="nav-link px-2 text-muted" href="{% url 'main:friends' %}">{% translate "Friends" %}</a></li>
+            <li class="nav-item"><a class="nav-link px-2 text-muted" href="{% url 'main:contact' %}">{% translate "Contact" %}</a></li>
+          </ul>
+        </nav>
+
+        <div class="d-flex justify-content-center">
+          <p class="text-center text-muted border-top pt-3 w-25 ">{% block easteregg %}{% translate "This is where I would put my easter eggs, if I had some." %}{% endblock easteregg %}</p>
+        </div>
+
       </div>
     </footer>
     {% endblock footer %}
