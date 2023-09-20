@@ -7,9 +7,9 @@
 {% endblock title %}
 {% block content %}
 <div class="m-5">
-	<div class="row g-4 p-5 row-cols-1 row-cols-lg-2">
+	<div class="g-4 p-5 column">
 		{% if picture %}
-        	<img src="{{picture.url}}" class="img-fluid rounded-circle">
+        	<img src="{{picture.url}}" class="img-thumbnail rounded-circle" style="max-height: 20rem;">
     	{% endif %}
 		<div class="">
 			{{ text | markdown | safe }}

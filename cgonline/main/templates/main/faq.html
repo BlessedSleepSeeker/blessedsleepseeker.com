@@ -10,13 +10,15 @@
 	<h1 class="header text-center mx-auto">{% translate "FAQ" %}</h1>
 	<div class="my-5" id="accordion">
 		{% for question in questions %}
-		<div class="card my-1">
-			<button class="btn btn-secondary w-100" type="button" data-bs-toggle="collapse" data-bs-target="#{{question.pk}}">
-				<h3>{{ question.questionEN }}</h3>
-			</button>
+		<div class="card my-2">
+			<div class="2">
+				<button class="btn btn-outline-light w-100" type="button" data-bs-toggle="collapse" data-bs-target="#{{question.pk}}">
+					<span class="h3">{{ question.questionEN }}</span><i class="bi bi-caret-down-fill float-end"></i>
+				</button>
+			</div>
 
-			<div class="collapse mx-3 h5" id="{{question.pk}}" data-parent="#accordion" style="--bs-card-spacer-y: 0rem;">
-				<p class="card-body">{{ question.answerEN | markdown | safe }}</p>
+			<div class="collapse mx-3 h5 card-body" id="{{question.pk}}" data-parent="#accordion" style="--bs-card-spacer-y: 0rem;">
+				<p class="">{{ question.answerEN | markdown | safe }}</p>
 			</div>
 		</div>
 		{% endfor %}
