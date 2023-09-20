@@ -13,7 +13,7 @@
 				{% for piece in pieces %}
 					<div class="col">
 						<a class="nav-link" href="{% url 'art:piece' album.url piece.url %}">
-						<div class="card shadow-sm" style="">
+						<div class="card shadow-sm hover-zoom-card" style="">
 							<img src="{{ piece.file.url }}" class="img-fluid card-img-top">
 							<div class="card-body">
 								<p class="card-text">{{ piece.name }} {% if piece.was_published_recently %}<span class="badge">{% translate "New !" %}</span>{% endif %}</p>

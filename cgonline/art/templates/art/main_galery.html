@@ -13,7 +13,7 @@
 				{% for album, vignette in content %}
 					<div class="col">
 						<a class="nav-link" href="{% url 'art:album' album.url %}">
-						<div class="card shadow-sm" style="">
+						<div class="card shadow-sm hover-zoom-card">
 							<img src="{{ vignette.file.url }}" class="img-fluid card-img-top">
 							<div class="card-body">
 								<p class="card-text">{{ album.name }} {% if album.was_published_recently %}<span class="badge">{% translate "New !" %}</span>{% endif %}</p>

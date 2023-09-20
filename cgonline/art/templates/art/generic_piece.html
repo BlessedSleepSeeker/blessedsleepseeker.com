@@ -7,13 +7,31 @@
 {% endblock title %}
 {% block content %}
 <div>
-    <a class="nav-link m-2" href="{% url 'art:album' album.url %}"><i id="" class="bi bi-arrow-left-short" style=""></i>{% translate "Back to " %}{{ album.name }}</a>
+    <a class="nav-link mx-5" href="{% url 'art:album' album.url %}"><i id="" class="bi bi-arrow-left-short" style=""></i>{% translate "Back to " %}{{ album.name }}</a>
 </div>
 <div>
     <img src="{{ piece.file.url }}" class="img-thumbnail mx-auto d-block">
-    <div class="p-5">
+    <div class="mt-5">
         <h4 class="text-center">"{{ piece.name }}" - {{ piece.authors}}</h4>
-        <h5 class="text-center text-muted">{% translate "Unveiled" %} {{piece.upload_date|naturaltime}}</h5>
+        <h5 class="text-center text-muted">{% translate "Unveiled" %} {{piece.upload_date|naturaltime}} - {{piece.upload_date|date:'d/m/Y'}}</h5>
+        {% if piece.comment %}
+        <div class="d-flex justify-content-center flex-column mt-3">
+            <div class="mx-auto">
+                <button class="btn collapse show" type="button" data-bs-toggle="collapse" data-bs-target="#pieceComment">
+                    <span class="">{% translate "Learn more " %}</span><i class="bi bi-body-text"></i>
+                </button>
+            </div>
+            <div class="mx-auto collapse" id="pieceComment">
+                <p class="text-muted">{{piece.comment}}</p>
+            </div>
+        </div>
+        {% endif %}
+        <div class="d-flex justify-content-center pt-3">
+            <div class="btn-group" role="group">
+                <a href="{{piece.file.url}}" download="{{piece.file.name}}" class="btn btn-outline-info">Piece <i class="bi bi-download"></i></a>
+                <a href="{{piece.source_file.url}}" download="{{piece.source_file.name}}" class="btn btn-outline-info">Source <i class="bi bi-download"></i></a>
+            </div>
+        </div>
     </div>
 </div>
 {% endblock content %}

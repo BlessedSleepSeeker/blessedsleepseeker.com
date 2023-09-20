@@ -13,13 +13,14 @@
         {% for friend in friends %}
             <div class="feature-col">
                 <div class="feature-icon d-inline-flex align-items-center justify-content-center fs-2 mb-3">
-                    <img src="{{friend.picture.url}}" class="" style="max-height: auto; max-width: 4em;">
+                    <a class="" href="{{ friend.link }}">
+                        <img src="{{friend.picture.url}}" class="img-thumbnail rounded-circle hover-zoom" style="height: 4em; width: 4em;">
+                    </a>
                 </div>
+
                 <h3 class="fs-2 text-body-emphasis">{{friend.name}}</h3>
-                <p>{{friend.short_descriptionEN}}</p>
-                <a class="icon-link" href="{{ friend.link }}">
-                    <i class="bi bi-link"></i>
-                </a>
+                <p class="">{{friend.short_descriptionEN}}</p>
+
             </div>
         {% endfor %}
 	</div>

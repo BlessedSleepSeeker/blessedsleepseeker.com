@@ -10,6 +10,7 @@ class Piece(models.Model):
     authors = models.TextField()
     comment = models.TextField(blank=True, help_text="Optional")
     file = models.ImageField(upload_to="upload/art/")
+    source_file = models.FileField(upload_to="upload/art/sources/")
     album = models.ForeignKey("Album", on_delete=models.CASCADE)
 
     @property
