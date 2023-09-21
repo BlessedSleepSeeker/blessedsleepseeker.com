@@ -54,3 +54,8 @@
 .w-15 {
     width: 15% !important;
 }
+
+.modal-piece {
+    transform: scale(2.0);
+    image-rendering: pixelated;
+}

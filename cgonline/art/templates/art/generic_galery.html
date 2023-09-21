@@ -5,7 +5,10 @@
 	Art
 {% endblock title %}
 {% block content %}
-<div>
+<div class="pb-5 d-flex">
+    <a class="nav-link mx-5" href="{% url 'art:art_galery' %}"><i id="" class="bi bi-arrow-left-short" style=""></i>{% translate "Back to the galery" %}</a>
+</div>
+<div class="pt-5">
 	<h1 class="text-center">{{ album.name }}</h1>
 	<div class="album py-5">
 		<div class="container">

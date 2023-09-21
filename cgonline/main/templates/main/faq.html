@@ -7,10 +7,12 @@
 {% endblock title %}
 {% block content %}
 <div class="container">
-	<h1 class="header text-center mx-auto">{% translate "FAQ" %}</h1>
-	<div class="my-5" id="accordion">
+	<div>
+        <h1 class="pb-2 border-bottom">{% translate "Frequently Asked Questions" %}</h1>
+    </div>
+	<div class="m-5" id="accordion">
 		{% for question in questions %}
-		<div class="card my-2">
+		<div class="card my-2 mx-5">
 			<div class="2">
 				<button class="btn btn-outline-light w-100" type="button" data-bs-toggle="collapse" data-bs-target="#{{question.pk}}">
 					<span class="h3">{{ question.questionEN }}</span><i class="bi bi-caret-down-fill float-end"></i>

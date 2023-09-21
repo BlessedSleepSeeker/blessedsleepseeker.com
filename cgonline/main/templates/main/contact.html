@@ -7,10 +7,10 @@
 {% endblock title %}
 {% block content %}
 <div class="container">
-	<div class="header text-center p-3 pb-md-4 mx-auto">
-		<h1 class="display-4 fw-normal text-body-emphasis">{% translate "Contact" %}</h1>
+	<div>
+        <h1 class="pb-2 border-bottom">{% translate "Contact Informations" %}</h1>
 		<div class="fs-5 text-body-secondary">{{ msg.message | markdown | safe }}</div>
-	</div>
+    </div>
 	<div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
 		{% for link in links %}
 
