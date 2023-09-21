@@ -4,15 +4,22 @@
 {% block title %}
 {% translate "Home" %}
 {% endblock title %}
+{% block css %}
+    <link href="{% static 'homepage.css' %}" rel="stylesheet" type="text/css">
+{% endblock css %}
 {% block content %}
 <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column text-center">
     <main class="px-3">
         <h1 class="bitsumishi display-1">{% translate "A journey"%}<br> {% translate "in creation" %}</h1>
-        <h2 class="bitsumishi text-muted display-4">{% translate "Autotelic " %}<span id="changing-text"></span></h2>
+        <div class="">
+            <div class="bitsumishi text-muted display-4 changing-text-container d-flex flex-row justify-content-center mx-auto">
+                {% translate "Autotelic " %}
+                <ul class="changing-text-list" id="changingText"></ul>
+            </div>
+        </div>
     </main>
 </div>
 {% endblock content %}
 {% block scripts %}
-{{block.super}}
-<script src="{% static 'homepage.js' %}"></script>
+    <script src="{% static 'homepage.js' %}"></script>
 {% endblock scripts %}

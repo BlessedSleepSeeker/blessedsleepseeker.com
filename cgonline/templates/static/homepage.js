@@ -1,7 +1,8 @@
 const wordlistEN = [
-    'code',
-    'art',
-    'DIY',
+    'development',
+    'pixel art',
+    'tinkering',
+    'schmoovement'
 ]
 
 const wordlistFR = [
@@ -20,12 +21,24 @@ function getNext(language) {
 }
 
 function changeText(new_word) {
-    document.getElementById('changing-text').textContent = new_word
+    //document.getElementById('changing-text').textContent = new_word
 }
 
 function animate() {
-    changeText(getNext(wordlistEN))
+    //changeText(getNext(wordlistEN))
 }
 
-animate()
-setInterval(animate, 3000)
+function addTextAsChild(wordlist) {
+    for (const word of wordlist) {
+        let elem = document.createElement('li')
+        elem.classList.add('changing-text-item')
+        elem.classList.add('list-unstyled')
+        elem.textContent = word
+        document.getElementById('changingText').appendChild(elem)
+    }
+}
+
+addTextAsChild(wordlistEN)
+
+//animate()
+//setInterval(animate, 3000)
