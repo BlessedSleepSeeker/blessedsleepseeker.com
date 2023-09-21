@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load static %}
+{% block title %}
+{% translate "Specials Projects" %}
+{% endblock title %}
+{% block content %}
+<div class="cover-container d-flex p-3 mx-auto flex-column text-center">
+    <main class="px-3">
+        <h1 class="">{% translate "Specials Projects"%}</h1>
+        <h2 class="text-muted">{% translate "For they do not perfectly fit in the others categories"%}</h2>
+    </main>
+</div>
+<div class="album py-5">
+    <div class="container">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            {% for proj in projs %}
+                <div class="col">
+                    <a class="nav-link" href="{% url 'special:special_project' proj.url %}">
+                    <div class="card shadow-sm hover-zoom-card">
+                        <img src="{{ proj.picture.url }}" class="img-fluid card-img-top">
+                        <div class="card-body">
+                            <p class="card-text">{{ proj.name }} {% if proj.was_published_recently %}<span class="badge">{% translate "New !" %}</span>{% endif %}</p>
+                            <p class="card-text text-muted">{{ proj.description }}</p>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock content %}

@@ -25,6 +25,7 @@ urlpatterns = [
     path("art/", include("art.urls", namespace="art")),
     path("dev/", include("dev.urls", namespace="dev")),
     path("diy/", include("diy.urls", namespace="diy")),
+    path("special/", include("special.urls", namespace="special")),
     path("admin/", admin.site.urls),
 ]
 
