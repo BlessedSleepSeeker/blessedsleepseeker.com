@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load static %}
+{% block title %}
+{% translate "Specials Projects" %}
+{% endblock title %}
+{% block content %}
+<div class="cover-container d-flex p-3 mx-auto flex-column text-center justify-content-center">
+    <main class="px-3">
+        <h1 class="sci-bi display-1">{% translate "Sci-Bi"%}</h1>
+        <div class="d-flex justify-content-center">
+            <div class="pt-4 border-top w-15">
+                <div class="btn-group" role="group">
+                    <a href="{% static 'base/fonts/sci-bi.ttf' %}" download="sci-bi.tff" class="btn btn-outline-info">Regular <i class="bi bi-download"></i></a>
+                    <a href="{% static 'base/fonts/sci-bi-glitched.ttf' %}" download="sci-bi-glitched.tff" class="btn btn-outline-info">Glitched <i class="bi bi-download"></i></a>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+<div class="d-flex px-5 justify-content-center">
+    <p class="text-justify text-muted text-center" style="font-size: 2rem;">
+        <span class="fst-italic">Sci-Bi</span> {% translate " and "%}
+        <span class="fst-italic">{% translate "Sci-Bi Glitched" %}</span>
+        {% translate "are two pixel-art fonts inspired by Science Fiction and old-school digital typography" %}<br/>
+        {% translate "I recommend that you set a higher font size than 20 to have an enjoyable reading experience in your software of choice" %}
+    </p>
+</div>
+<div class="container my-5">
+    <div class="row">
+        <div class="col align-items-start text-justify sci-bi px-5" style="font-size: 2rem;">
+            {% translate "This is Sci-Bi Regular." %}<br/>
+            {% translate "I've used it in a few game projects and am using it for taking notes regularly." %}
+        </div>
+        <div class="col text-justify sci-bi-glitched px-5" style="font-size: 2rem;">
+            {% translate "This is Sci-Bi Glitched." %}<br/>
+            {% translate "This is a lot less readable than Regular but the flair might just be what you want !" %}
+        </div>
+    </div>
+</div>
+<div class="d-flex px-5 justify-content-center">
+    <div class="btn-group" role="group">
+        <a class="btn btn-outline-secondary" href="https://github.com/Camille-Gouneau/Sci-Bi">{% translate "More examples" %}</a>
+        <a class="btn btn-outline-secondary" href="http://creativecommons.org/licenses/by-sa/3.0/">{% translate "Licensing" %}</a>
+    </div>
+
+</div>
+{% endblock content %}
+{% block easteregg %}
+    Making a font is really fun, you should try it !
+{% endblock easteregg %}

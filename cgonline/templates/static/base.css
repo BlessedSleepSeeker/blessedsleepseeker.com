@@ -50,3 +50,7 @@
 .hover-zoom-card:hover {
     transform: scale(1.05);
 }
+
+.w-15 {
+    width: 15% !important;
+}
