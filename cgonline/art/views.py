@@ -36,3 +36,20 @@ def piece(request, album_url, piece_url):
         "piece": piece,
     }
     return render(request, "art/generic_piece.html", context)
+
+
+def latest(request):
+
+    context = {
+        "pieces": Piece.objects.all().order_by("-upload_date")[:6],
+    }
+    return render(request, "art/latest.html", context)
+
+
+def art_random(request):
+    piece = random.choice(Piece.objects.all())
+    context = {
+        "piece": random.choice(Piece.objects.all()),
+        "album": piece.album,
+    }
+    return render(request, "art/generic_piece.html", context)

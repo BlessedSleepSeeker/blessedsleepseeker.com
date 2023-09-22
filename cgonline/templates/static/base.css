@@ -57,5 +57,20 @@
 
 .modal-piece {
     transform: scale(2.0);
+}
+
+.auto {
+    image-rendering: auto;
+}
+
+.crisp-edges {
+    image-rendering: crisp-edges;
+}
+
+.pixelated {
     image-rendering: pixelated;
+}
+
+.smooth {
+    image-rendering: smooth;
 }

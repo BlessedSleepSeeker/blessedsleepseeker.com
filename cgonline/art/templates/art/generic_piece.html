@@ -10,7 +10,7 @@
     <a class="nav-link mx-5" href="{% url 'art:album' album.url %}"><i id="" class="bi bi-arrow-left-short" style=""></i>{% translate "Back to " %}{{ album.name }}</a>
 </div>
 <div class="pt-5">
-    <button class="img-thumbnail mx-auto d-block"><img src="{{ piece.file.url }}" data-bs-toggle="modal" data-bs-target="#pieceModal" ></button>
+    <button class="img-thumbnail mx-auto d-block" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="{% translate 'Click me !' %}"><img src="{{ piece.file.url }}" data-bs-toggle="modal" data-bs-target="#pieceModal" ></button>
 
     <div class="mt-5">
         <h4 class="text-center">"{{ piece.name }}" - {{ piece.authors}}</h4>
@@ -39,7 +39,7 @@
 {% block modal %}
     <div class="modal fade" id="pieceModal" tabindex="-1">
         <div class="modal-dialog modal-xl modal-dialog-centered d-flex justify-content-center">
-                <img src="{{ piece.file.url }}" class="modal-piece" style="">
+                <img src="{{ piece.file.url }}" class="modal-piece pixelated" style="">
         </div>
     </div>
 {% endblock modal %}

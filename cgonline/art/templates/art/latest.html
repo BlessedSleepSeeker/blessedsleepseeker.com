@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% block title %}
+	Art
+{% endblock title %}
+{% block content %}
+<div>
+	<div class="pb-5 d-flex">
+        <a class="nav-link mx-5" href="{% url 'art:art_galery' %}"><i id="" class="bi bi-arrow-left-short" style=""></i>{% translate "Back to the galery" %}</a>
+    </div>
+    <div class="pt-5">
+        <h1 class="text-center">{% translate "Latest Posts" %}</h1>
+        <div class="album py-5">
+            <div class="container">
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                    {% for piece in pieces %}
+                        <div class="col">
+                            <a class="nav-link" href="{% url 'art:piece' piece.album.url piece.url %}">
+                            <div class="card shadow-sm hover-zoom-card" style="">
+                                <img src="{{ piece.file.url }}" class="img-fluid card-img-top {{ piece.scaling_method }}">
+                                <div class="card-body">
+                                    <p class="card-text">{{ piece.name }} {% if piece.was_published_recently %}<span class="badge">{% translate "New !" %}</span>{% endif %}</p>
+                                    <p class="card-text text-muted">{{ piece.description }}</p>
+                                </div>
+                            </div>
+                            </a>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+{% block easteregg %}
+    <a href="https://www.youtube.com/@BJGpixel" class="nav-link"> Hello There ! My name's Camille and I make picture out of tiny squares !</a>
+{% endblock easteregg %}
