@@ -30,7 +30,7 @@
     </div>
     <div class="mt-5">
         <h4 class="text-center">"{{ piece.name }}" - {{ piece.authors}}</h4>
-        <h5 class="text-center text-muted">{% translate "Unveiled" %} {{piece.upload_date|naturaltime}} - {{piece.upload_date|date:'d/m/Y'}}</h5>
+        <h5 class="text-center text-muted">{% translate "Unveiled" %} {{piece.upload_date|naturaltime}} - {{piece.upload_date|date:'d/m/Y - H:i e'}}</h5>
         <div class="d-flex justify-content-center pt-3">
             <div class="btn-group" role="group">
                 <a href="{{piece.file.url}}" download="{{piece.file.name}}" class="btn btn-outline-info">Piece <i class="bi bi-download"></i></a>

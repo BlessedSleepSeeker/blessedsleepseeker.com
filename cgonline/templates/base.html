@@ -50,6 +50,35 @@
     {% block content %}
     {% endblock content %}
   </div>
+  {% block pagination %}
+  {% if page_obj.paginator.num_pages > 1 %}
+    <div class="mb-5">
+        <div class="d-flex justify-content-center pt-3">
+            <div class="btn-group" role="group">
+                {% if page_obj.has_previous %}
+                    {% if page_obj.number is not 2 %}
+                        <a href="?page=1" class="btn btn-outline-info">1</a>
+                            {% if page_obj.number is not 3 %}
+                                <a href="?page={{page_obj.number|add:"-2"}}" class="btn btn-outline-info">...</a>
+                            {% endif %}
+                    {% endif %}
+                    <a href="?page={{ page_obj.previous_page_number }}" class="btn btn-outline-info">{{ page_obj.previous_page_number }}</a>
+                {% endif %}
+                <a class="btn btn-info">{{ page_obj.number }}</a>
+                {% if page_obj.has_next %}
+                    {% if page_obj.number|add:"1" < page_obj.paginator.num_pages %}
+                        <a class="btn btn-outline-info" href="?page={{ page_obj.next_page_number }}">{{ page_obj.next_page_number }}</a>
+                        {% if page_obj.number|add:"2" < page_obj.paginator.num_pages %}
+                            <a href="?page={{page_obj.number|add:"2"}}" class="btn btn-outline-info">...</a>
+                        {% endif %}
+                    {% endif %}
+                    <a href="?page={{page_obj.paginator.num_pages}}" class="btn btn-outline-info last">{{page_obj.paginator.num_pages}}</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    {% endif %}
+  {% endblock pagination %}
 
   {% block modal %}
   {% endblock modal%}

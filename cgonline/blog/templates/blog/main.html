@@ -1,14 +1,80 @@
 {% extends 'base.html' %}
 {% load static %}
 {% load i18n %}
+{% load humanize %}
+{% load markdown_extras %}
 {% block title %}
 Blog
 {% endblock title %}
 {% block content %}
-<div class="cover-container d-flex mx-auto flex-column text-center">
+{% if tag %}
+<div class="container mb-5">
+    <h1 class="pb-2 border-bottom">{% translate "All entries tagged with " %}{{ tag }} :</h1>
+</div>
+{% else %}
+<div class="d-flex mx-auto flex-column text-center mb-5">
     <main class="">
         <h1 class="display-1">{% translate "The Digi-Feed" %}</h1>
         <h2 class="text-muted">{% translate "All the news, directly into your brain !"%}</h2>
     </main>
+</div>
+{% endif %}
+
+{% if page_obj.number > 1 %}
+    <div class="mb-5">
+        <div class="d-flex justify-content-center pt-3">
+            <div class="btn-group" role="group">
+                {% if page_obj.has_previous %}
+                    {% if page_obj.number is not 2 %}
+                        <a href="?page=1" class="btn btn-outline-info">1</a>
+                            {% if page_obj.number is not 3 %}
+                                <a href="?page={{page_obj.number|add:"-2"}}" class="btn btn-outline-info">...</a>
+                            {% endif %}
+                    {% endif %}
+                    <a href="?page={{ page_obj.previous_page_number }}" class="btn btn-outline-info">{{ page_obj.previous_page_number }}</a>
+                {% endif %}
+                <a class="btn btn-info">{{ page_obj.number }}</a>
+                {% if page_obj.has_next %}
+                    {% if page_obj.number|add:"1" < page_obj.paginator.num_pages %}
+                        <a class="btn btn-outline-info" href="?page={{ page_obj.next_page_number }}">{{ page_obj.next_page_number }}</a>
+                        {% if page_obj.number|add:"2" < page_obj.paginator.num_pages %}
+                            <a href="?page={{page_obj.number|add:"2"}}" class="btn btn-outline-info">...</a>
+                        {% endif %}
+                    {% endif %}
+                    <a href="?page={{page_obj.paginator.num_pages}}" class="btn btn-outline-info last">{{page_obj.paginator.num_pages}}</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endif %}
+<div class="container">
+    <div class="row row-cols-1 g-3">
+        {% for article in page_obj %}
+        <div class="col">
+            <div class="card my-1">
+                <div class="card-body">
+                    <h3 class="card-title">
+                        <a class="text-decoration-none link-primary" href="{% url 'blog:entry' article.short_title %}">
+                            {{ article.title }}
+                        </h3>
+                    </a>
+                    <div class="text-muted d-inline-flex" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="{{article.upload_date|date:'d/m/Y - H:i e'}}">
+                        {% translate "Unveiled" %} {{article.upload_date|naturaltime}}
+                    </div>
+                    <div class="d-inline-flex">
+                        {% for tag in article.tags_formated %}
+                            <div class="badge rounded-pill bg-secondary mx-1 d-flex-inline align-content-center ">
+                                <a class="link-light text-decoration-none" href={% url 'blog:tags' tag %}>{{tag}}</a>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <p class="card-text">
+                        {{ article.body | markdown | safe | truncatewords_html:40 }}
+                    </p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
 </div>
 {% endblock content %}
