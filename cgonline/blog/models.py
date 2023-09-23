@@ -15,7 +15,8 @@ class Article(models.Model):
     title = models.CharField(max_length=200)
     # used for url creation, do not put maj char, space or special characters in it
     short_title = models.CharField(max_length=30, unique=True)
-    vignette = models.ImageField(upload_to="upload/blog", null=True, blank=True)
+    body = models.TextField()
+    short_description = models.TextField()
 
     def validate_tags(value):
         if " " in value:
@@ -28,16 +29,12 @@ class Article(models.Model):
 
     tags = models.TextField(blank=True, validators=[validate_tags])
 
-    language = models.CharField(max_length=10, choices=LANGUAGE_CHOICES)
-
-    # an inactive article isn't accessible and return a 404 when searched directly
-    active = models.BooleanField(default=True)
     # an article is only accessible when the datetime is past visible_starting
     visible_starting = models.DateTimeField(default=timezone.now)
     upload_date = models.DateTimeField(default=timezone.now)
     update_date = models.DateTimeField(auto_now=True)
 
-    body = models.TextField(blank=True)
+    
 
     def is_active(self):
         return self.active

@@ -2,6 +2,7 @@
 {% load static %}
 {% load i18n %}
 {% load humanize %}
+{% load tz %}
 {% load markdown_extras %}
 {% block title %}
 Blog
@@ -47,29 +48,33 @@ Blog
         </div>
     </div>
 {% endif %}
+
+
 <div class="container">
     <div class="row row-cols-1 g-3">
         {% for article in page_obj %}
         <div class="col">
             <div class="card my-1">
                 <div class="card-body">
-                    <h3 class="card-title">
-                        <a class="text-decoration-none link-primary" href="{% url 'blog:entry' article.short_title %}">
-                            {{ article.title }}
-                        </h3>
-                    </a>
-                    <div class="text-muted d-inline-flex" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="{{article.upload_date|date:'d/m/Y - H:i e'}}">
-                        {% translate "Unveiled" %} {{article.upload_date|naturaltime}}
+                    <div class="pb-2 border-bottom">
+                        <h3 class="card-title">
+                            <a class="text-decoration-none link-primary" href="{% url 'blog:entry' article.short_title %}">
+                                {{ article.title }}
+                            </h3>
+                        </a>
+                        <div class="text-muted d-inline-flex" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="{{article.visible_starting|date:'d/m/Y - H:i e'}}">
+                            {% translate "Unveiled" %} {{article.visible_starting|naturaltime}}
+                        </div>
+                        <div class="d-inline-flex">
+                            {% for tag in article.tags_formated %}
+                                <div class="badge rounded-pill bg-secondary mx-1 d-flex-inline align-content-center ">
+                                    <a class="link-light text-decoration-none" href={% url 'blog:tags' tag %}>{{tag}}</a>
+                                </div>
+                            {% endfor %}
+                        </div>
                     </div>
-                    <div class="d-inline-flex">
-                        {% for tag in article.tags_formated %}
-                            <div class="badge rounded-pill bg-secondary mx-1 d-flex-inline align-content-center ">
-                                <a class="link-light text-decoration-none" href={% url 'blog:tags' tag %}>{{tag}}</a>
-                            </div>
-                        {% endfor %}
-                    </div>
-                    <p class="card-text">
-                        {{ article.body | markdown | safe | truncatewords_html:40 }}
+                    <p class="card-text mt-2">
+                        {{ article.short_description}}
                     </p>
                 </div>
             </div>

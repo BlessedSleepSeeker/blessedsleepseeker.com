@@ -1,6 +1,7 @@
-from django.http import HttpResponse
+from django.http import Http404
 from django.shortcuts import get_object_or_404, render
 from django.core.paginator import Paginator
+from django.utils import timezone
 
 from .models import Article
 
@@ -8,13 +9,12 @@ ITEM_PER_PAGE = 10
 
 # Create your views here.
 def blog_main(request):
-    articles = Article.objects.all().order_by("-upload_date")
-    paginator = Paginator(articles, ITEM_PER_PAGE)
+    all_articles = Article.objects.filter(visible_starting__lt=timezone.now()).order_by("-upload_date")
+    paginator = Paginator(all_articles, ITEM_PER_PAGE)
 
     page_nbr = request.GET.get("page")
     page_obj = paginator.get_page(page_nbr)
-
-    print(page_obj.paginator.num_pages)
+    
     context = {
         "page_obj": page_obj,
     }
@@ -22,14 +22,17 @@ def blog_main(request):
 
 
 def blog_entry(request, entry_url):
+    article = get_object_or_404(Article, short_title=entry_url)
+    if not article.should_display(): #means it's not ready to be uploaded
+        raise Http404("Article should not be visible")
     context = {
-        "article": get_object_or_404(Article, short_title=entry_url),
+        "article": article,
     }
-    return render(request, "blog/main.html", context)
+    return render(request, "blog/article.html", context)
 
 
 def search_tags(request, tag):
-    articles = Article.objects.filter(tags__contains=tag).order_by("-upload_date")
+    articles = Article.objects.filter(tags__contains=tag, visible_starting__lt=timezone.now()).order_by("-upload_date")
     paginator = Paginator(articles, ITEM_PER_PAGE)
 
     page_nbr = request.GET.get("page")
