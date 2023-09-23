@@ -6,7 +6,7 @@ from django.utils import timezone
 # Create your models here.
 class Piece(models.Model):
     name = models.CharField(max_length=2000)
-    url = models.CharField(max_length=200)
+    url = models.CharField(max_length=200, unique=True)
     upload_date = models.DateTimeField(default=timezone.now)
     authors = models.TextField()
     comment = models.TextField(blank=True, help_text="Optional")

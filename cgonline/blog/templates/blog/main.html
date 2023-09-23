@@ -5,12 +5,15 @@
 {% load tz %}
 {% load markdown_extras %}
 {% block title %}
+{% if tag %}
+{{ tag }} -
+{% endif %}
 Blog
 {% endblock title %}
 {% block content %}
 {% if tag %}
 <div class="container mb-5">
-    <h1 class="pb-2 border-bottom">{% translate "All entries tagged with " %}{{ tag }} :</h1>
+    <h1 class="pb-2 border-bottom">{% translate "All blog entries tagged with " %}{{ tag }} :</h1>
 </div>
 {% else %}
 <div class="d-flex mx-auto flex-column text-center mb-5">

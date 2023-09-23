@@ -2,13 +2,86 @@
 {% load static %}
 {% load i18n %}
 {% block title %}
+{% if tag %}
+{{ tag }} -
+{% endif %}
 Code
 {% endblock title %}
 {% block content %}
-<div class="cover-container d-flex mx-auto flex-column text-center">
-    <main class="">
-        <h1 class="display-1">{% translate "The Code Vault" %}</h1>
-        <h2 class="text-muted">{% translate "Shouldn't a vault be closed ?"%}</h2>
-    </main>
+
+{% if tag %}
+<div class="container mb-5">
+    <h1 class="pb-2 border-bottom">{% translate "All projects tagged with " %}{{ tag }} :</h1>
 </div>
+{% else %}
+<h1 class="text-center display-1">{% translate "The Code Vault" %}</h1>
+<h2 class="text-center text-muted">{% translate "Shouldn't a vault be closed ?" %}</h1>
+<div class="d-flex justify-content-center py-3">
+	<div class="btn-group" role="group">
+		<a href="{% url 'dev:latest' %}" class="btn btn-outline-info" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Latest Projects"><i class="bi bi-patch-exclamation-fill"></i></a>
+		<a href="{% url 'dev:random' %}" class="btn btn-outline-info" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Random"><i class="bi bi-shuffle"></i></a>
+	</div>
+</div>
+{% endif %}
+
+
+
+{% if page_obj.number > 1 %}
+<div class="mb-5">
+    <div class="d-flex justify-content-center pt-3">
+        <div class="btn-group" role="group">
+            {% if page_obj.has_previous %}
+                {% if page_obj.number is not 2 %}
+                    <a href="?page=1" class="btn btn-outline-info">1</a>
+                        {% if page_obj.number is not 3 %}
+                            <a href="?page={{page_obj.number|add:"-2"}}" class="btn btn-outline-info">...</a>
+                        {% endif %}
+                {% endif %}
+                <a href="?page={{ page_obj.previous_page_number }}" class="btn btn-outline-info">{{ page_obj.previous_page_number }}</a>
+            {% endif %}
+            <a class="btn btn-info">{{ page_obj.number }}</a>
+            {% if page_obj.has_next %}
+                {% if page_obj.number|add:"1" < page_obj.paginator.num_pages %}
+                    <a class="btn btn-outline-info" href="?page={{ page_obj.next_page_number }}">{{ page_obj.next_page_number }}</a>
+                    {% if page_obj.number|add:"2" < page_obj.paginator.num_pages %}
+                        <a href="?page={{page_obj.number|add:"2"}}" class="btn btn-outline-info">...</a>
+                    {% endif %}
+                {% endif %}
+                <a href="?page={{page_obj.paginator.num_pages}}" class="btn btn-outline-info last">{{page_obj.paginator.num_pages}}</a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endif %}
+
+<div class="container">
+	<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+		{% for project in page_obj %}
+			<div class="col d-flex align-self-stretch">
+				<a class="nav-link d-flex" href="{% url 'dev:project' project.url %}">
+				    <div class="card shadow-sm hover-zoom-card">
+				    	<img src="{{ project.miniature.url }}" class="img-fluid card-img-top">
+				    	<div class="card-body">
+                            {% if project.was_updated_recently %}<span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">!{% if project.was_published_recently %}?{% endif %}</span>{% endif %}
+                            <h2 class="card-title">{{ project.title }}</h2>
+                            <div class="d-inline-flex">
+                                {% for tag in project.tags_formated %}
+                                    <div class="badge rounded-pill bg-secondary mx-1 d-flex-inline align-content-center ">
+                                        <a class="link-light text-decoration-none" href={% url 'dev:tags' tag %}>{{tag}}</a>
+                                    </div>
+                                {% endfor %}
+                            </div>
+				    		<p class="card-text text-muted">{{ project.short_description }}</p>
+				    	</div>
+				    </div>
+				</a>
+			</div>
+		{% endfor %}
+	</div>
+</div>
+
 {% endblock content %}
+
+{% block easteregg %}
+    {% translate "Write it, Cut it, Paste it, Save it, Load it, Check it, Quick Rewrite it" %}
+{% endblock easteregg %}

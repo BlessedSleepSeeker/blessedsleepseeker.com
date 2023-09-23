@@ -5,35 +5,34 @@
 	Art
 {% endblock title %}
 {% block content %}
-<div>
-	<h1 class="text-center display-1">{% translate "The Art Galery" %}</h1>
-	<div class="d-flex justify-content-center pt-3">
-		<div class="btn-group" role="group">
-			<a href="{% url 'art:latest' %}" class="btn btn-outline-info" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Latest Pieces"><i class="bi bi-patch-exclamation-fill"></i></a>
-			<a href="{% url 'art:random' %}" class="btn btn-outline-info" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Random"><i class="bi bi-shuffle"></i></a>
-		</div>
-	</div>
-	<div class="album py-5">
-		<div class="container">
-			<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-				{% for album, vignette in content %}
-					<div class="col">
-						<a class="nav-link" href="{% url 'art:album' album.url %}">
-						<div class="card shadow-sm hover-zoom-card">
-							<img src="{{ vignette.file.url }}" class="img-fluid card-img-top {{ vignette.scaling_method }} ">
-							<div class="card-body">
-								<p class="card-text">{{ album.name }} {% if album.was_published_recently %}<span class="badge">{% translate "New !" %}</span>{% endif %}</p>
-								<p class="card-text text-muted">{{ album.description }}</p>
-							</div>
-						</div>
-						</a>
-					</div>
-				{% endfor %}
-			</div>
-		</div>
+<h1 class="text-center display-1">{% translate "The Art Galery" %}</h1>
+<div class="d-flex justify-content-center py-3">
+	<div class="btn-group" role="group">
+		<a href="{% url 'art:latest' %}" class="btn btn-outline-info" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Latest Pieces"><i class="bi bi-patch-exclamation-fill"></i></a>
+		<a href="{% url 'art:random' %}" class="btn btn-outline-info" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Random"><i class="bi bi-shuffle"></i></a>
 	</div>
 </div>
+<div class="container">
+	<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+		{% for album, vignette in content %}
+			<div class="col d-flex align-self-stretch">
+				<a class="nav-link d-flex w-100" href="{% url 'art:album' album.url %}">
+					<div class="card shadow-sm hover-zoom-card w-100">
+						{% if album.was_published_recently %}<span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">{% translate "?!" %}</span>{% endif %}
+						<img src="{{ vignette.file.url }}" class="img-fluid card-img-top {{ vignette.scaling_method }} ">
+						<div class="card-body">
+							<h3 class="card-text text-center pb-3 border-bottom">{{ album.name }} </h3>
+							<p class="card-text text-muted">{{ album.description }}</p>
+						</div>
+					</div>
+				</a>
+			</div>
+		{% endfor %}
+	</div>
+</div>
+
 {% endblock content %}
+
 {% block easteregg %}
     <a href="https://www.youtube.com/@BJGpixel" class="nav-link"> Hello There ! My name's Camille and I make picture out of tiny squares !</a>
 {% endblock easteregg %}

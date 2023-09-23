@@ -20,7 +20,7 @@
                     <div class="card shadow-sm hover-zoom-card">
                         <img src="{{ proj.picture.url }}" class="img-fluid card-img-top">
                         <div class="card-body">
-                            <p class="card-text">{{ proj.name }} {% if proj.was_published_recently %}<span class="badge">{% translate "New !" %}</span>{% endif %}</p>
+                            <p class="card-text">{{ proj.name }} {% if proj.was_published_recently %}<span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">{% translate "!?" %}</span>{% endif %}</p>
                             <p class="card-text text-muted">{{ proj.descriptionEN }}</p>
                         </div>
                     </div>
