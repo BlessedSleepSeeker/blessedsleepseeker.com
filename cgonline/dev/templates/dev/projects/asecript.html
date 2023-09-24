@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load static %}
+{% block title %}
+{% translate "Asecript - Dev" %}
+{% endblock title %}
+{% block content %}
+<div class="cover-container d-flex p-3 mx-auto flex-column text-center justify-content-center">
+    <main class="px-3">
+        <h1 class="display-1">{% translate "Asecript"%}</h1>
+        <div class="d-flex justify-content-center">
+            <div class="pt-4 border-top w-15">
+                <div class="btn-group" role="group">
+                    <a href="https://github.com/Camille-Gouneau/AsecriptHub" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="{% translate 'Github' %}" class="btn btn-outline-info"><i class="bi bi-github"></i></a>
+                    <a href="{{ project.release.url }}" download="AsecriptHub.zip" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="{% translate 'Release' %}" class="btn btn-outline-info"><i class="bi bi-download"></i></a>
+                    <a href="{{ project.source.url }}" download="AsecriptSource.zip" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="{% translate 'Source' %}" class="btn btn-outline-info"><i class="bi bi-file-earmark-binary"></i></a>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+<div class="container py-3">
+    <p class="text-justify display-5 text-muted text-center">
+        {% translate "Do you need to centralise all of your Aseprite automation in one command ? I did, so I created Asecript." %}
+    </p>
+</div>
+<div class="container px-4 py-5">
+    <div class="row g-4 py-5 row-cols-1 row-cols-lg-2">
+        <div class="col d-flex align-items-start">
+            <div class="text-body-emphasis d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+                <i class="bi bi-globe-europe-africa text-info"></i>
+            </div>
+            <div>
+                <h3 class="text-body-emphasis fs-2">
+                    {% translate "Available anywhere" %}
+                </h3>
+                <p class="text-muted">
+                    {% translate "Add the script to your alias list and simply type 'Asecript' in your terminal to launch it." %}
+                </p>
+                <code class="">
+                    <div>New-Alias -Name Asecript -Value &lt;Path to your AsecriptHub.ps1&gt;</div>
+                </code>
+            </div>
+        </div>
+        <div class="col d-flex align-items-start">
+            <div class="text-body-emphasis d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+                <i class="bi bi-check2-all text-info"></i>
+            </div>
+            <div>
+                <h3 class="text-muted text-body-emphasis fs-2">
+                    {% translate "Already usable" %}
+                </h3>
+                <p class="text-muted">
+                    {% translate "Asecript come with 2 scripts already installed : BatchExport and BatchCommand. BatchExport will export every .ase/.aseprite file at a specified size in a folder & sub-folders. BatchCommand will call an Aseprite CLI command on every .ase/.aseprite file in the folder & subfolders." %}
+                </p>
+            </div>
+        </div>
+        <div class="col d-flex align-items-start">
+            <div class="text-body-emphasis d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+                <i class="bi bi-braces text-info"></i>
+            </div>
+            <div>
+                <h3 class="text-body-emphasis fs-2">
+                    {% translate "Easily Extensible" %}
+                </h3>
+                <p class="text-muted">
+                    {% translate "Add any scripts powershell or lua scripts in the ./script folder and use them instantly." %}
+                </p>
+            </div>
+        </div>
+        <div class="col d-flex align-items-start">
+            <div class="text-body-emphasis d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+                <i class="bi bi-node-plus text-info"></i>
+            </div>
+            <div>
+                <h3 class="text-muted text-body-emphasis fs-2">
+                    {% translate "Open and Free" %}
+                </h3>
+                <p class="text-muted">
+                    {% translate "The Project is under the " %}<a href="https://github.com/Camille-Gouneau/AsecriptHub/blob/main/LICENSE">GPL-3</a>{% translate " license." %}
+                    {% translate "You can find the sources " %}<a href="https://github.com/Camille-Gouneau/AsecriptHub">{% translate "here " %}</a>{% translate "or download them " %}<a href="{{ project.source.url }}" download="AsecriptSource.zip" >{% translate "here" %}</a>.
+                </p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock content %}

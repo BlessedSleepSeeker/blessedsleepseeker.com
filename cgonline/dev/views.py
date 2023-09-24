@@ -23,11 +23,11 @@ def dev_main(request):
 
 
 def project(request, project_url):
-    article = get_object_or_404(Project, url=project_url)
-    if not article.should_display():  # means it's not ready to be uploaded
-        raise Http404("Article should not be visible")
-    template_url = "dev/" + project_url + ".html"
-    context = {}
+    proj = get_object_or_404(Project, url=project_url)
+    if not proj.should_display():  # means it's not ready to be uploaded
+        raise Http404("Project should not be visible")
+    template_url = "dev/projects/" + project_url + ".html"
+    context = {"project": proj}
     return render(request, [template_url, "404.html"], context)
 
 
