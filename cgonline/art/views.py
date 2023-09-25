@@ -68,7 +68,7 @@ def latest(request):
 def art_random(request):
     piece = random.choice(Piece.objects.all())
     context = {
-        "piece": random.choice(Piece.objects.all()),
+        "piece": piece,
         "album": piece.album,
         "is_random": True,
     }

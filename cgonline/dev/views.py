@@ -40,14 +40,14 @@ def latest(request):
     return render(request, "art/latest.html", context)
 
 
-def art_random(request):
+def dev_random(request):
     project = random.choice(Project.objects.filter(visible_starting__lt=timezone.now()))
+    template_url = "dev/projects/" + project.url + ".html"
     context = {
-        "project": random.choice(Project.objects.all()),
-        "album": project.album,
+        "project": project,
         "is_random": True,
     }
-    return render(request, "art/generic_project.html", context)
+    return render(request, template_url, context)
 
 
 def search_tags(request, tag):
