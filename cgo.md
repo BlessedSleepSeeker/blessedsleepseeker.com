@@ -3,6 +3,7 @@
 - [CGOnline](#cgonline)
   - [Concept](#concept)
   - [Technology](#technology)
+  - [Remaining Work](#remaining-work)
 
 ## Concept
 
@@ -18,5 +19,12 @@ End goal is to be able to move away from both twitter and github (or at least to
 
 ## Technology
 
-Backend : ???
-Front-end : ???
+Backend : Django
+Front-end : Django Template + Bootstrap
+
+## Remaining Work
+
+- Individual Project Pages for /dev and diy/
+- French translation
+- Listing of all the work I will put up
+- Deployment
