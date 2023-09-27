@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load static %}
+{% block title %}
+{% translate "MeleeCraft - Dev" %}
+{% endblock title %}
+{% block content %}
+<div class="cover-container d-flex p-3 mx-auto flex-column text-center justify-content-center">
+    <main class="px-3">
+        <h1 class="display-1">{% translate "MeleeCraft"%}</h1>
+        <div class="d-flex justify-content-center">
+            <div class="pt-4 border-top w-15">
+                <div class="btn-group" role="group">
+                    <a href="https://github.com/Camille-Gouneau/MeleeCraft" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="{% translate 'Github' %}" class="btn btn-outline-info"><i class="bi bi-github"></i></a>
+                    {% if project.release %}<a href="{{ project.release.url }}" download="AsecriptHub.zip" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="{% translate 'Release' %}" class="btn btn-outline-info"><i class="bi bi-download"></i></a>{% endif %}
+                    {% if project.source %}<a href="{{ project.source.url }}" download="AsecriptSource.zip" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="{% translate 'Source' %}" class="btn btn-outline-info"><i class="bi bi-file-earmark-binary"></i></a>{% endif %}
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+<div class="container py-3">
+    <p class="text-justify display-5 text-muted text-center">
+        {% translate "A minecraft mod importing Fox and Falco shine from Smash Bros Melee" %}
+    </p>
+</div>
+{% endblock content %}

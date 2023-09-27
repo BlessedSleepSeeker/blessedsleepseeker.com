@@ -4,6 +4,16 @@
   - [Concept](#concept)
   - [Technology](#technology)
   - [Remaining Work](#remaining-work)
+  - [Art listing](#art-listing)
+    - [Hollow Knight](#hollow-knight)
+    - [Space](#space)
+    - [Doodles](#doodles)
+    - [Geometrical](#geometrical)
+    - [Animated](#animated)
+    - [LoL](#lol)
+    - [Celeste](#celeste)
+    - [Game Mockups](#game-mockups)
+    - [Animals](#animals)
 
 ## Concept
 
@@ -28,3 +38,23 @@ Front-end : Django Template + Bootstrap
 - French translation
 - Listing of all the work I will put up
 - Deployment
+
+## Art listing
+
+### Hollow Knight
+
+### Space
+
+### Doodles
+
+### Geometrical
+
+### Animated
+
+### LoL
+
+### Celeste
+
+### Game Mockups
+
+### Animals
