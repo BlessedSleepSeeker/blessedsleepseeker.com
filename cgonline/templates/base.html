@@ -37,6 +37,24 @@
             <li class="nav-item"><a class="nav-link" href="{% url 'diy:diy_main' %}">{% translate "DIY" %}</a></li>
             <li class="nav-item"><a class="nav-link" href="{% url 'special:special_main' %}">{% translate "Others" %}</a></li>
           </ul>
+          {% get_available_languages as languages %}
+          {% get_current_language as LANGUAGE_CODE %}
+          {% if languages|length > 1 %}
+            <form action="{% url 'set_language' %}" method="post" class="">
+              {% csrf_token %}
+              <div class="form-group">
+                  <select name="language" class="form-control" onchange="this.form.submit()">
+                  {% get_language_info_list for languages as langs %}
+                  {% for lang in langs %}
+                    <option value="{{ lang.code }}"
+                        {% if lang.code == LANGUAGE_CODE %}selected="selected"{% endif %}>
+                        {{ lang.name }}
+                    </option>
+                  {% endfor %}
+                  </select>
+              </div>
+            </form>
+          {% endif %}
           <button type="button" id="btnSwitch" class="btn"><i id="iconSwitch" class="bi bi-moon-stars-fill" style=""></i></button>
 
         </div>

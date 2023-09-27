@@ -28,7 +28,7 @@ SECRET_KEY = "django-insecure-%0=r6ksb==f7=sw6gn8*#^+&j_d2=$^nfer9)-u$##c6b^@qds
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [".localhost", "127.0.0.1", "[::1]"]
 
 
 # Application definition
@@ -54,6 +54,7 @@ MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
+    "django.middleware.locale.LocaleMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
@@ -91,8 +92,6 @@ DATABASES = {
     }
 }
 
-ALLOWED_HOSTS = [".localhost", "127.0.0.1", "[::1]"]
-
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
@@ -116,6 +115,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
 LANGUAGE_CODE = "en-us"
+LANGUAGES = (("en-us", "English"), ("fr", "Français"))
 
 TIME_ZONE = "Europe/Paris"
 
@@ -132,6 +132,8 @@ STATICFILES_DIRS = [
     BASE_DIR / STATIC_URL,
     BASE_DIR / "Templates/static",
 ]
+
+LOCALE_PATHS = [BASE_DIR / "cgonline/locale"]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

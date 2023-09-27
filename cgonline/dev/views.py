@@ -10,7 +10,9 @@ PROJECT_PER_PAGE = 12
 
 # Create your views here.
 def dev_main(request):
-    projs = Project.objects.filter(visible_starting__lt=timezone.now())
+    projs = Project.objects.filter(visible_starting__lt=timezone.now()).order_by(
+        "-upload_date"
+    )
     paginator = Paginator(projs, PROJECT_PER_PAGE)
 
     page_nbr = request.GET.get("page")

@@ -1,0 +1,403 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#: .\diy\templates\diy\main.html:86
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-09-27 13:09+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+#: .\art\templates\art\generic_galery.html:19
+#: .\art\templates\art\latest.html:23 .\special\templates\special\main.html:23
+msgid "!?"
+msgstr ""
+
+#: .\art\templates\art\generic_piece.html:11
+msgid " Return to "
+msgstr "Retour à"
+
+#: .\art\templates\art\generic_piece.html:17
+msgid "Prev"
+msgstr "Précédent"
+
+#: .\art\templates\art\generic_piece.html:21
+msgid "Click me !"
+msgstr "Cliquez Moi !"
+
+#: .\art\templates\art\generic_piece.html:27
+msgid "Next"
+msgstr "Suivant"
+
+#: .\art\templates\art\generic_piece.html:33
+#: .\blog\templates\blog\article.html:19 .\blog\templates\blog\main.html:69
+msgid "Unveiled"
+msgstr "Dévoilé"
+
+#: .\art\templates\art\generic_piece.html:43
+msgid "Learn more "
+msgstr "En apprendre plus "
+
+#: .\art\templates\art\latest.html:10
+msgid "Back to the galery"
+msgstr "Retour à la galerie"
+
+#: .\art\templates\art\latest.html:13
+msgid "Latest Posts"
+msgstr "Dernieres Oeuvres"
+
+#: .\art\templates\art\main_galery.html:8
+msgid "The Art Galery"
+msgstr "La Galerie D'Art"
+
+#: .\art\templates\art\main_galery.html:21
+msgid "?!"
+msgstr ""
+
+#: .\blog\models.py:11
+msgid "Francais"
+msgstr ""
+
+#: .\blog\models.py:12
+msgid "English"
+msgstr ""
+
+#: .\blog\models.py:25 .\dev\models.py:13 .\diy\models.py:13
+msgid ""
+"Les tags ne doivent pas avoir d'espace, et il ne doit y avoir qu'une virgule "
+"entre les tags"
+msgstr ""
+
+#: .\blog\templates\blog\article.html:12
+msgid " Return "
+msgstr " Retour "
+
+#: .\blog\templates\blog\main.html:16
+msgid "All blog entries tagged with "
+msgstr "Tout les articles avec le tag "
+
+#: .\blog\templates\blog\main.html:21
+msgid "The Digi-Feed"
+msgstr "Le Digi-Flux"
+
+#: .\blog\templates\blog\main.html:22
+msgid "All the news, directly into your brain !"
+msgstr "Toutes les nouvelles, directement dans votre cerveau !"
+
+#: .\dev\templates\dev\main.html:14 .\diy\templates\diy\main.html:14
+msgid "All projects tagged with "
+msgstr "Tout les projets avec le tag "
+
+#: .\dev\templates\dev\main.html:17
+msgid "The Code Vault"
+msgstr "Le Coddre-Fort"
+
+#: .\dev\templates\dev\main.html:18
+msgid "Shouldn't a vault be closed ?"
+msgstr "Un coffre-fort ne devrait-il pas etre fermé ?"
+
+#: .\dev\templates\dev\main.html:86
+msgid ""
+"Write it, Cut it, Paste it, Save it, Load it, Check it, Quick Rewrite it"
+msgstr ""
+
+#: .\dev\templates\dev\projects\asecript.html:5
+msgid "Asecript - Dev"
+msgstr ""
+
+#: .\dev\templates\dev\projects\asecript.html:10
+msgid "Asecript"
+msgstr ""
+
+#: .\dev\templates\dev\projects\asecript.html:14
+#: .\dev\templates\dev\projects\questgiver.html:14
+msgid "Github"
+msgstr ""
+
+#: .\dev\templates\dev\projects\asecript.html:15
+#: .\dev\templates\dev\projects\questgiver.html:16
+msgid "Release"
+msgstr "Exécutable"
+
+#: .\dev\templates\dev\projects\asecript.html:16
+#: .\dev\templates\dev\projects\questgiver.html:17
+msgid "Source"
+msgstr "Code Source"
+
+#: .\dev\templates\dev\projects\asecript.html:24
+msgid ""
+"Do you need to centralise all of your Aseprite automation in one command ? I "
+"did, so I developed Asecript."
+msgstr "Avez vous besoin de centraliser toute votre automatisation Aseprite en une seule commande ? Moi oui, alors j'ai développé Asecript"
+
+#: .\dev\templates\dev\projects\asecript.html:35
+msgid "Available anywhere"
+msgstr "Disponible de partout"
+
+#: .\dev\templates\dev\projects\asecript.html:38
+msgid ""
+"Add the script to your alias list and simply type 'Asecript' in your "
+"terminal to launch it."
+msgstr "Ajoutez le script à votre liste d'alias et tapez 'Asecript' dans votre terminal pour le lancer."
+
+#: .\dev\templates\dev\projects\asecript.html:51
+msgid "Already usable"
+msgstr "Utilisable instantanément."
+
+#: .\dev\templates\dev\projects\asecript.html:54
+msgid ""
+"Asecript come with 2 scripts already installed : BatchExport and "
+"BatchCommand. BatchExport will export every .ase/.aseprite file at a "
+"specified size in a folder & sub-folders. BatchCommand will call an Aseprite "
+"CLI command on every .ase/.aseprite file in the folder & subfolders."
+msgstr "Asecript arrive avec 2 scripts déjà disponible : BatchExport & BatchCommand. BatchExport va exporter tout les fichiers .ase/.aseprite d'un dossier spécifique et de ses sous-dossiers. BatchCommand va appliquer une commande Aseprite sur tout les fichiers .ase/.aseprite d'un dossier spécifique et de ses sous-dossiers."
+
+#: .\dev\templates\dev\projects\asecript.html:64
+msgid "Easily Extensible"
+msgstr "Facilement Extensible"
+
+#: .\dev\templates\dev\projects\asecript.html:67
+msgid ""
+"Add any scripts powershell or lua scripts in the ./script folder and use "
+"them instantly."
+msgstr "Ajoutez n'importe quel script powershell ou lua dans le dossier ./script et utilisez instantanément."
+
+#: .\dev\templates\dev\projects\asecript.html:77
+msgid "Open and Free"
+msgstr "Ouvert et Gratuit"
+
+#: .\dev\templates\dev\projects\asecript.html:80
+msgid "The Project is under the "
+msgstr "Le projet est sous la license "
+
+#: .\dev\templates\dev\projects\asecript.html:80
+msgid " license."
+msgstr "."
+
+#: .\dev\templates\dev\projects\asecript.html:81
+msgid "You can find the sources "
+msgstr "Vous pouvez trouver le code source "
+
+#: .\dev\templates\dev\projects\asecript.html:81
+msgid "here "
+msgstr "içi "
+
+#: .\dev\templates\dev\projects\asecript.html:81
+msgid "or download them "
+msgstr "ou les télécharger "
+
+#: .\dev\templates\dev\projects\asecript.html:81
+msgid "here"
+msgstr "là"
+
+#: .\dev\templates\dev\projects\questgiver.html:5
+msgid "Quest Giver - Dev"
+msgstr ""
+
+#: .\dev\templates\dev\projects\questgiver.html:10
+msgid "Quest Giver"
+msgstr ""
+
+#: .\dev\templates\dev\projects\questgiver.html:15
+msgid "Itch.io"
+msgstr ""
+
+#: .\dev\templates\dev\projects\questgiver.html:25
+msgid "My GMTK 2023 Submission, now expanded."
+msgstr "Ma soumission pour la gamejam GMTK 2023, rénovée et étendue."
+
+#: .\diy\templates\diy\main.html:17
+msgid "The Workshop"
+msgstr "L'Atelier"
+
+#: .\diy\templates\diy\main.html:18
+msgid "Tinker, Tinker Little Star"
+msgstr ""
+
+#: .\main\templates\main\contact.html:11
+msgid "Contact Informations"
+msgstr "Informations de Contact"
+
+#: .\main\templates\main\faq.html:11
+msgid "Frequently Asked Questions"
+msgstr "Questions Fréquentes"
+
+#: .\main\templates\main\faq.html:32
+msgid ""
+"The [MISSING AUTHORIZATION] Incident took place in [REDACTED] on the 8 [DATA "
+"EXPUNGED]. Casualties were estimated to a total of [BIG NUMBER] dead."
+msgstr ""
+
+#: .\main\templates\main\friends.html:5 .\templates\base.html:97
+msgid "Friends"
+msgstr "Les Amis"
+
+#: .\main\templates\main\friends.html:10
+msgid "Cool persons all around !"
+msgstr "Des personnes très cools !"
+
+#: .\main\templates\main\friends.html:30
+msgid "All of your friends are belong to us !!!"
+msgstr ""
+
+#: .\main\templates\main\homepage.html:5 .\templates\base.html:94
+msgid "Home"
+msgstr "Acceuil"
+
+#: .\main\templates\main\homepage.html:13
+msgid "A journey"
+msgstr "Un voyage"
+
+#: .\main\templates\main\homepage.html:13
+msgid "in creation"
+msgstr "dans la creation"
+
+#: .\main\templates\main\homepage.html:16
+msgid "Autotelic "
+msgstr "Autotelisme et "
+
+#: .\main\templates\main\whoami.html:6
+msgid "Who am I"
+msgstr "Qui suis-je"
+
+#: .\main\templates\main\whoami.html:23
+msgid "Did you know ? My favorite pokemon isn't Bidoof but Oshawott !"
+msgstr "Le saviez-vous ? Mon pokémon préféré n'est pas Bidoof mais Moustillon"
+
+#: .\special\templates\special\main.html:5
+msgid "Specials Projects"
+msgstr "Projets Spéciaux"
+
+#: .\special\templates\special\main.html:10
+msgid "The Attic"
+msgstr "Le Grenier"
+
+#: .\special\templates\special\main.html:11
+msgid "Where should I store this ?"
+msgstr "Où pourrais-je bien ranger tout ça..."
+
+#: .\special\templates\special\sci-bi.html:5
+msgid "Sci-Bi - Specials Projects"
+msgstr "Sci-Bi - Projets Spéciaux"
+
+#: .\special\templates\special\sci-bi.html:10
+msgid "Sci-Bi"
+msgstr ""
+
+#: .\special\templates\special\sci-bi.html:23
+msgid " and "
+msgstr " et "
+
+#: .\special\templates\special\sci-bi.html:24
+msgid "Sci-Bi Glitched"
+msgstr ""
+
+#: .\special\templates\special\sci-bi.html:25
+msgid ""
+"are two pixel-art fonts inspired by Science Fiction and old-school digital "
+"typography"
+msgstr "sont 2 polices en art des pixels inspiré par la Science-Fiction et la typographie old-school des débuts de l'informatique"
+
+#: .\special\templates\special\sci-bi.html:26
+msgid ""
+"I recommend that you set a higher font size than 20 to have an enjoyable "
+"reading experience in your software of choice"
+msgstr "Je recommande que vous utilisiez une taille de police supérieur ou égale à 20 pour garantir une expérience de lecture agréable."
+
+#: .\special\templates\special\sci-bi.html:32
+msgid "This is Sci-Bi Regular."
+msgstr "C'est Sci-Bi Regular."
+
+#: .\special\templates\special\sci-bi.html:33
+msgid ""
+"I've used it in a few game projects and am using it for taking notes "
+"regularly."
+msgstr "Je l'ai parfois utilisé dans quelques projets de jeux et régulierement pour prendre des notes."
+
+#: .\special\templates\special\sci-bi.html:36
+msgid "This is Sci-Bi Glitched."
+msgstr "C'est Sci-Bi Glitched."
+
+#: .\special\templates\special\sci-bi.html:37
+msgid ""
+"This is a lot less readable than Regular but the flair might just be what "
+"you want !"
+msgstr "Glitched est beaucoup moins lisible mais les ajouts stylistiques pourrait bien être justement ce qu'il vous faut."
+
+#: .\special\templates\special\sci-bi.html:43
+msgid "More examples"
+msgstr "Plus d'exemples"
+
+#: .\special\templates\special\sci-bi.html:44
+msgid "Licensing"
+msgstr "License"
+
+#: .\templates\404.html:10
+msgid "404"
+msgstr ""
+
+#: .\templates\404.html:10
+msgid "Not Found :("
+msgstr ""
+
+#: .\templates\404.html:11
+msgid "I still haven't found what you were looking for... Sorry !"
+msgstr "Je n'ai pas encore trouvé ce que vous cherchiez... Désolé !"
+
+#: .\templates\404.html:15
+msgid "Go Back"
+msgstr "Retour"
+
+#: .\templates\404.html:16
+msgid "Go Home"
+msgstr "Acceuil"
+
+#: .\templates\404.html:22
+msgid "I'm going back to 404 "
+msgstr ""
+
+#: .\templates\base.html:34
+msgid "Blog"
+msgstr ""
+
+#: .\templates\base.html:35
+msgid "Art"
+msgstr ""
+
+#: .\templates\base.html:36
+msgid "Code"
+msgstr ""
+
+#: .\templates\base.html:37
+msgid "DIY"
+msgstr ""
+
+#: .\templates\base.html:38
+msgid "Others"
+msgstr "Autres"
+
+#: .\templates\base.html:95
+msgid "About me"
+msgstr "A propos"
+
+#: .\templates\base.html:96
+msgid "FAQ"
+msgstr ""
+
+#: .\templates\base.html:98
+msgid "Contact"
+msgstr ""
+
+#: .\templates\base.html:103
+msgid "This is where I would put my easter eggs, if I had some."
+msgstr "C'est là où je mettrais mes easter eggs, si j'en avais."
