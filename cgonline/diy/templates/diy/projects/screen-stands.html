@@ -5,14 +5,12 @@
 {% translate "Screen Stands - Dev" %}
 {% endblock title %}
 {% block content %}
-<div class="cover-container d-flex p-3 mx-auto flex-column text-center justify-content-center">
-    <main class="px-3">
+<div class="cover-container d-flex mx-auto flex-column text-center justify-content-center">
+    <main class="">
         <h1 class="display-1">{% translate "Screen Stands"%}</h1>
         <div class="d-flex justify-content-center">
             <div class="pt-4 border-top w-15">
                 <div class="btn-group" role="group">
-                    <a href="https://github.com/Camille-Gouneau/QuestGiver" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="{% translate 'Github' %}" class="btn btn-outline-info"><i class="bi bi-github"></i></a>
-                    <a href="https://bidoofgekkouga.itch.io/questgiver" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="{% translate 'Itch.io' %}" class="btn btn-outline-info"><i class="bi bi-box-arrow-up-right"></i>
                     {% if project.release %}<a href="{{ project.release.url }}" download="AsecriptHub.zip" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="{% translate 'Release' %}" class="btn btn-outline-info"><i class="bi bi-download"></i></a>{% endif %}
                     {% if project.source %}<a href="{{ project.source.url }}" download="AsecriptSource.zip" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="{% translate 'Source' %}" class="btn btn-outline-info"><i class="bi bi-file-earmark-binary"></i></a>{% endif %}
                 </div>
@@ -20,9 +18,69 @@
         </div>
     </main>
 </div>
-<div class="container py-3">
+
+<div class="container pb-3">
     <p class="text-justify display-5 text-muted text-center">
-        {% translate "My GMTK 2023 Submission, now expanded." %}
+        {% translate "Sometimes, your screen need to be a little bit higher." %}
     </p>
+</div>
+<div class="container pb-3">
+    <p class="text-justify text-muted text-center fs-5">
+        {% translate "My screen weren't at a comfortable height on my desk, and I used to put some random box under to make them higher. As you can guess, this is UGLY AF and took way more space on my desk than it needed to. I decided to build some stands which would allow me to elevate my screens and let the cables go through." %}
+    </p>
+    <p class="text-justify text-muted text-center fs-5">
+        {% translate "Here is a few step of the building process of theses stands. Sorry for the photo quality, I used my smartphone and he's kinda old." %}
+    </p>
+    <p class="text-justify text-muted text-center fs-5">
+        {% translate "For this project, I enlisted the help of my Granmpa, a professional woodworker, whom I thank wholeheartedly for his help and support in my varied endeavors" %} <i class="bi bi-heart"></i>
+    </p>
+</div>
+
+<div class="container">
+    <div class="row row-cols-1 row-cols-lg-2 my-2">
+        <div class="col my-2 d-flex">
+            <div class="card w-100">
+                <img class="card-img-top" src="{% static "base/projects/screen-stand/build3.jpg" %}" style="height: 30rem;">
+                <div class="card-body">
+                    <h5 class="card-title">{% translate "The First Step" %}</h5>
+                    <p class="card-text">{% translate "It's not actually the first, we started from a full plank but I didn't get any pictures." %}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col my-2 d-flex">
+            <div class="card w-100" >
+                <img class="card-img-top" src="{% static "base/projects/screen-stand/build2.jpg" %}" style="height: 30rem;">
+                <div class="card-body">
+                    <h5 class="card-title">{% translate "Glue time" %}</h5>
+                    <p class="card-text">{% translate "No screws needed, everything is glued together. Screws would be overkill as we are not going to move them around a lot and the weight will be splitted evenly." %}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col my-2 d-flex">
+            <div class="card w-100" >
+                <img class="card-img-top" src="{% static "base/projects/screen-stand/build1.jpg" %}" style="height: 30rem;">
+                <div class="card-body">
+                    <h5 class="card-title">{% translate "Waiting for the glue to dry." %}</h5>
+                    <p class="card-text">{% translate "A full day of rest !" %}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col my-2 d-flex">
+            <div class="card w-100" >
+                <img class="card-img-top" src="{% static "base/projects/screen-stand/build4.jpg" %}" style="height: 30rem;">
+                <div class="card-body">
+                    <h5 class="card-title">{% translate "Screen Stands, Assemble !" %}</h5>
+                    <p class="card-text">{% translate "At this point, our project is nearly finished." %}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card" >
+        <img class="card-img-top" src="{% static "base/projects/screen-stand/build-final.png" %}" style="height: 60rem;">
+        <div class="card-body">
+            <h5 class="card-title">{% translate "The Finished Product" %}</h5>
+            <p class="card-text">{% translate "I've applied 2 coats of parquets varnish, giving a slightly darker color and a small protection against liquids. I've thought about putting a veil of some kind to hide where the cable are going at some point, but ultimately decided not to." %}</p>
+        </div>
+    </div>
 </div>
 {% endblock content %}
