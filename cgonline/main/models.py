@@ -24,7 +24,8 @@ class Friend(models.Model):
 
 
 class ContactMessage(models.Model):
-    message = models.TextField()
+    messageEN = models.TextField()
+    messageFR = models.TextField()
 
     def __str__(self):
         return self.message
@@ -35,6 +36,7 @@ class ContactLink(models.Model):
     username = models.CharField(max_length=200)
     direct_link = models.CharField(max_length=2000)
     comment = models.TextField(max_length=2000)
+    commentFR = models.TextField(max_length=2000)
     emphasis = models.BooleanField()
 
     def __str__(self):

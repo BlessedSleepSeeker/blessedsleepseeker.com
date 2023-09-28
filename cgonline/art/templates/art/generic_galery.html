@@ -6,7 +6,8 @@
 {% endblock title %}
 {% block content %}
 <div class="d-flex justify-content-center mb-5">
-	<h1 class="text-center display-1 mx-auto">The {{ album.name }} Photo Album</h1>
+	{% get_current_language as LANGUAGE_CODE %}
+	<h1 class="text-center display-1 mx-auto">{% if LANGUAGE_CODE == "en-us" %}{{ album.name }}{% elif LANGUAGE_CODE == "fr" %}{{ album.nameFR }}{% endif %}</h1>
 </div>
 <div class="container">
 	<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
@@ -17,7 +18,8 @@
 						<img src="{{ piece.file.url }}" class="img-fluid card-img-top {{ piece.scaling_method }}">
 						<div class="card-body">
 							{% if piece.was_published_recently %}<span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">{% translate "!?" %}</span>{% endif %}
-							<p class="card-text">{{ piece.name }}</p>
+							{% get_current_language as LANGUAGE_CODE %}
+        					<h4 class="text-center">{% if LANGUAGE_CODE == "en-us" %}{{ piece.name }}{% elif LANGUAGE_CODE == "fr" %}{{ piece.nameFR }}{% endif %}</h4>
 						</div>
 					</div>
 				</a>

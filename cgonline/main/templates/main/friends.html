@@ -9,7 +9,7 @@
     <div>
         <h1 class="pb-2 border-bottom">{% translate "Cool persons all around !" %}</h1>
     </div>
-	<div class="row g-4 p-5 row-cols-1 row-cols-lg-4">
+	<div class="row g-4 p-5 row-cols-1 row-cols-md-2 row-cols-lg-4">
         {% for friend in friends %}
             <div class="feature-col">
                 <div class="feature-icon d-inline-flex align-items-center justify-content-center fs-2 mb-3">
@@ -19,8 +19,13 @@
                 </div>
 
                 <h3 class="fs-2 text-body-emphasis">{{friend.name}}</h3>
-                <p class="">{{friend.short_descriptionEN}}</p>
+                {% get_current_language as LANGUAGE_CODE %}
 
+                <p class="">{% if LANGUAGE_CODE == "en-us" %}
+                    {{friend.short_descriptionEN}}
+                {% elif LANGUAGE_CODE == "fr" %}
+                    {{friend.short_descriptionFR}}
+                {% endif %}</p>
             </div>
         {% endfor %}
 	</div>

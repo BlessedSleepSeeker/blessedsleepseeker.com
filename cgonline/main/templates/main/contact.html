@@ -9,24 +9,34 @@
 <div class="container">
 	<div>
         <h1 class="pb-2 border-bottom">{% translate "Contact Informations" %}</h1>
-		<div class="fs-5 text-body-secondary">{{ msg.message | markdown | safe }}</div>
+		{% get_current_language as LANGUAGE_CODE %}
+		<div class="fs-5 text-body-secondary">{% if LANGUAGE_CODE == "en-us" %}
+			{{ msg.messageEN | markdown | safe }}
+		{% elif LANGUAGE_CODE == "fr" %}
+			{{ msg.messageFR | markdown | safe }}
+		{% endif %}</div>
     </div>
 	<div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
 		{% for link in links %}
 
 		<div class="col">
-			<div class="card m-3 rounded-3 shadow-sm {% if link.emphasis %}border-primary{% endif %}">
-				<div class="card-header {% if link.emphasis %}border-primary{% endif %}">
+			<div class="card m-3 rounded-3 shadow-sm {% if link.emphasis %}border-secondary{% endif %}">
+				<div class="card-header {% if link.emphasis %}border-secondary{% endif %}">
 					<h4 class="my-0 fw-normal">{{ link.title }}</h4>
 				</div>
 				<div class="card-body">
-					{{ link.comment | markdown | safe }}
+					{% get_current_language as LANGUAGE_CODE %}
+					{% if LANGUAGE_CODE == "en-us" %}
+						{{ link.comment | markdown | safe }}
+					{% elif LANGUAGE_CODE == "fr" %}
+						{{ link.commentFR | markdown | safe }}
+					{% endif %}
 				</div>
 				{% comment %}
 					add an on click "reveal of the usernames"
 				{% endcomment %}
 				<a href="{{link.direct_link}}">
-					<button class="mb-3 w-75 btn btn-lg btn-primary">
+					<button class="mb-3 w-75 btn btn-lg btn-outline-info">
 						{{ link.username }}
 					</button>
 				</a>

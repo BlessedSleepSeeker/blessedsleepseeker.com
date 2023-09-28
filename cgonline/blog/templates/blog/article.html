@@ -9,7 +9,7 @@
 {% block content %}
 <div class="d-flex align-content-center">
     <div class="pb-5">
-        <a class="btn btn-outline-secondary mx-5" href="javascript:history.back()"><i class="bi bi-arrow-left"></i>{% translate " Return " %}</a>
+        <a class="btn btn-outline-secondary mx-5" href="javascript:history.back()"><i class="bi bi-arrow-left"></i>{% translate " Return" %}</a>
     </div>
     <div class="container">
         <div>
@@ -19,7 +19,7 @@
                     {% translate "Unveiled" %} {{article.visible_starting|naturaltime}}
                 </div>
                 <div class="text-muted">
-                    Topics : 
+                    {% translate "Topics"%} :
                     {% for tag in article.tags_formated %}
                         <div class="badge rounded-pill bg-secondary mx-1 d-flex-inline align-content-center ">
                             <a class="link-light text-decoration-none" href={% url 'blog:tags' tag %}>{{tag}}</a>
@@ -27,7 +27,7 @@
                     {% endfor %}
                 </div>
             </div>
-            
+
             <div class="mx-5">
                 {{ article.body | markdown | safe }}
             </div>

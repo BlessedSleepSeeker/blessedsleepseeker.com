@@ -13,8 +13,13 @@
         	<img src="{{picture.url}}" class="img-thumbnail img-fluid rounded-circle">
 		</div>
     	{% endif %}
+		{% get_current_language as LANGUAGE_CODE %}
 		<div class="col">
-			{{ text | markdown | safe }}
+			{% if LANGUAGE_CODE == "en-us" %}
+				{{ textEN | markdown | safe }}
+			{% elif LANGUAGE_CODE == "fr" %}
+				{{ textFR | markdown | safe }}
+			{% endif %}
 		</div>
 	</div>
 </div>

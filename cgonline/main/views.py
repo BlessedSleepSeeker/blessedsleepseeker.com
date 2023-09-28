@@ -12,13 +12,12 @@ def index(request):
 def whoami(request):
     infos = Presentation.objects.get(pk=1)
 
-    context = {"picture": infos.picture, "text": infos.textEN}
-    print(infos.picture)
+    context = {"picture": infos.picture, "textEN": infos.textEN, "textFR": infos.textFR}
     return render(request, "main/whoami.html", context)
 
 
 def faq(request):
-    questions = Question.objects.all()
+    questions = Question.objects.all().order_by("pk")
     context = {
         "questions": questions,
     }

@@ -4,12 +4,13 @@
 {% block title %}
 	Art
 {% endblock title %}
+
 {% block content %}
 <h1 class="text-center display-1">{% translate "The Art Galery" %}</h1>
 <div class="d-flex justify-content-center py-3">
 	<div class="btn-group" role="group">
-		<a href="{% url 'art:latest' %}" class="btn btn-outline-info" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Latest Pieces"><i class="bi bi-patch-exclamation-fill"></i></a>
-		<a href="{% url 'art:random' %}" class="btn btn-outline-info" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Random"><i class="bi bi-shuffle"></i></a>
+		<a href="{% url 'art:latest' %}" class="btn btn-outline-info" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="{% translate 'Latest Pieces' %}"><i class="bi bi-patch-exclamation-fill"></i></a>
+		<a href="{% url 'art:random' %}" class="btn btn-outline-info" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="{% translate 'Random' %}"><i class="bi bi-shuffle"></i></a>
 	</div>
 </div>
 <div class="container">
@@ -21,8 +22,22 @@
 						{% if album.was_published_recently %}<span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">{% translate "?!" %}</span>{% endif %}
 						<img src="{{ vignette.file.url }}" class="img-fluid card-img-top {{ vignette.scaling_method }} ">
 						<div class="card-body">
-							<h3 class="card-text text-center pb-3 border-bottom">{{ album.name }} </h3>
-							<p class="card-text text-muted">{{ album.description }}</p>
+							{% get_current_language as LANGUAGE_CODE %}
+							<h3 class="card-text text-center pb-3 border-bottom">
+								{% if LANGUAGE_CODE == "en-us" %}
+									{{ album.name }}
+								{% elif LANGUAGE_CODE == "fr" %}
+									{{ album.nameFR }}
+								{% endif %}
+							</h3>
+							<p class="card-text text-muted">
+
+								{% if LANGUAGE_CODE == "en-us" %}
+									{{ album.description }}
+								{% elif LANGUAGE_CODE == "fr" %}
+									{{ album.descriptionFR }}
+								{% endif %}
+							</p>
 						</div>
 					</div>
 				</a>

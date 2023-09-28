@@ -21,7 +21,13 @@
                         <img src="{{ proj.picture.url }}" class="img-fluid card-img-top">
                         <div class="card-body">
                             <p class="card-text">{{ proj.name }} {% if proj.was_published_recently %}<span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">{% translate "!?" %}</span>{% endif %}</p>
-                            <p class="card-text text-muted">{{ proj.descriptionEN }}</p>
+
+                            {% get_current_language as LANGUAGE_CODE %}
+				    		<p class="card-text text-muted">{% if LANGUAGE_CODE == "en-us" %}
+                                {{ proj.descriptionEN }}
+                            {% elif LANGUAGE_CODE == "fr" %}
+                                {{ proj.descriptionFR }}
+                            {% endif %}</p>
                         </div>
                     </div>
                     </a>

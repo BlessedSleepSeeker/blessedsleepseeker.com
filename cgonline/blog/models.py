@@ -8,8 +8,8 @@ from django.utils.translation import gettext_lazy as _
 class Article(models.Model):
 
     LANGUAGE_CHOICES = [
-        ("FR", _("Francais")),
-        ("EN", _("English")),
+        ("fr", _("Francais")),
+        ("en-uk", _("English")),
     ]
 
     title = models.CharField(max_length=200)
@@ -34,7 +34,7 @@ class Article(models.Model):
     upload_date = models.DateTimeField(default=timezone.now)
     update_date = models.DateTimeField(auto_now=True)
 
-    
+    language = models.CharField(max_length=5, choices=LANGUAGE_CHOICES)
 
     def is_active(self):
         return self.active

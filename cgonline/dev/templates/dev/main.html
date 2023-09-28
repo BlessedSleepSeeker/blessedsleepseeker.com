@@ -11,15 +11,15 @@ Code
 
 {% if tag %}
 <div class="container mb-5">
-    <h1 class="pb-2 border-bottom">{% translate "All projects tagged with " %}{{ tag }} :</h1>
+    <h1 class="pb-2 border-bottom">{% translate "All projects tagged with" %} {{ tag }} :</h1>
 </div>
 {% else %}
 <h1 class="text-center display-1">{% translate "The Code Vault" %}</h1>
 <h2 class="text-center text-muted">{% translate "Shouldn't a vault be closed ?" %}</h1>
 <div class="d-flex justify-content-center py-3">
 	<div class="btn-group" role="group">
-		<a href="{% url 'dev:latest' %}" class="btn btn-outline-info" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Latest Projects"><i class="bi bi-patch-exclamation-fill"></i></a>
-		<a href="{% url 'dev:random' %}" class="btn btn-outline-info" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Random"><i class="bi bi-shuffle"></i></a>
+		<a href="{% url 'dev:latest' %}" class="btn btn-outline-info" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="{% translate "Latest Projects" %}"><i class="bi bi-patch-exclamation-fill"></i></a>
+		<a href="{% url 'dev:random' %}" class="btn btn-outline-info" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="{% translate "Random" %}"><i class="bi bi-shuffle"></i></a>
 	</div>
 </div>
 {% endif %}
@@ -71,7 +71,12 @@ Code
                                     </div>
                                 {% endfor %}
                             </div>
-				    		<p class="card-text text-muted">{{ project.short_description }}</p>
+                            {% get_current_language as LANGUAGE_CODE %}
+				    		<p class="card-text text-muted">{% if LANGUAGE_CODE == "en-us" %}
+                                {{ project.short_description }}
+                            {% elif LANGUAGE_CODE == "fr" %}
+                                {{ project.short_descriptionFR }}
+                            {% endif %}</p>
 				    	</div>
 				    </div>
 				</a>

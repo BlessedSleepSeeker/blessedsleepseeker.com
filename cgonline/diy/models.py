@@ -18,6 +18,7 @@ class Project(models.Model):
     title = models.CharField(max_length=2000)
     url = models.CharField(max_length=200, unique=True)
     short_description = models.TextField()
+    short_descriptionFR = models.TextField()
     miniature = models.ImageField(upload_to="upload/dev/")
     tags = models.TextField(blank=True, validators=[validate_tags])
 

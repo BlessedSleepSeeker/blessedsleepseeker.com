@@ -18,8 +18,8 @@ DIY
 <h2 class="text-center text-muted">{% translate "Tinker, Tinker Little Star" %}<i class="bi bi-music-note"></i><i class="bi bi-music-note-beamed"></i></h1>
 <div class="d-flex justify-content-center py-3">
 	<div class="btn-group" role="group">
-		<a href="{% url 'diy:latest' %}" class="btn btn-outline-info" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Latest DIY Projects"><i class="bi bi-patch-exclamation-fill"></i></a>
-		<a href="{% url 'diy:random' %}" class="btn btn-outline-info" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Random"><i class="bi bi-shuffle"></i></a>
+		<a href="{% url 'diy:latest' %}" class="btn btn-outline-info" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="{% translate "Latest Projects"%}"><i class="bi bi-patch-exclamation-fill"></i></a>
+		<a href="{% url 'diy:random' %}" class="btn btn-outline-info" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="{% translate "Random"%}"><i class="bi bi-shuffle"></i></a>
 	</div>
 </div>
 {% endif %}
@@ -71,7 +71,12 @@ DIY
                                     </div>
                                 {% endfor %}
                             </div>
-				    		<p class="card-text text-muted">{{ project.short_description }}</p>
+				    		{% get_current_language as LANGUAGE_CODE %}
+				    		<p class="card-text text-muted">{% if LANGUAGE_CODE == "en-us" %}
+                                {{ project.short_description }}
+                            {% elif LANGUAGE_CODE == "fr" %}
+                                {{ project.short_descriptionFR }}
+                            {% endif %}</p>
 				    	</div>
 				    </div>
 				</a>
@@ -83,5 +88,5 @@ DIY
 {% endblock content %}
 
 {% block easteregg %}
-    {% translate "" %}
+    {% translate "Crafting Level Up !" %}
 {% endblock easteregg %}

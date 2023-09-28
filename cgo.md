@@ -13,7 +13,7 @@
     - [LoL](#lol)
     - [Celeste](#celeste)
     - [Game Mockups](#game-mockups)
-    - [Animals](#animals)
+    - [Animal](#animal)
 
 ## Concept
 
@@ -57,4 +57,4 @@ Front-end : Django Template + Bootstrap
 
 ### Game Mockups
 
-### Animals
+### Animal
