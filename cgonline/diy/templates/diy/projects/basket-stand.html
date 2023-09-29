@@ -7,22 +7,96 @@
 {% block content %}
 <div class="cover-container d-flex p-3 mx-auto flex-column text-center justify-content-center">
     <main class="px-3">
-        <h1 class="display-1">{% translate "Basketball Stand"%}</h1>
+        <h1 class="display-1">{% translate "Basketball Shelf"%}</h1>
         <div class="d-flex justify-content-center">
             <div class="pt-4 border-top w-15">
                 <div class="btn-group" role="group">
-                    <a href="https://github.com/Camille-Gouneau/QuestGiver" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="{% translate 'Github' %}" class="btn btn-outline-info"><i class="bi bi-github"></i></a>
-                    <a href="https://bidoofgekkouga.itch.io/questgiver" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="{% translate 'Itch.io' %}" class="btn btn-outline-info"><i class="bi bi-box-arrow-up-right"></i></a>
-                    {% if project.release %}<a href="{{ project.release.url }}" download="AsecriptHub.zip" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="{% translate 'Release' %}" class="btn btn-outline-info"><i class="bi bi-download"></i></a>{% endif %}
-                    {% if project.source %}<a href="{{ project.source.url }}" download="AsecriptSource.zip" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="{% translate 'Source' %}" class="btn btn-outline-info"><i class="bi bi-file-earmark-binary"></i></a>{% endif %}
                 </div>
             </div>
         </div>
     </main>
 </div>
-<div class="container py-3">
+
+<div class="container pb-3">
     <p class="text-justify display-5 text-muted text-center">
-        {% translate "My GMTK 2023 Submission, now expanded." %}
+        {% translate "How can I have my basketball on a shelf without it falling every 30 seconds ?" %}
     </p>
+</div>
+<div class="container pb-3">
+    <p class="text-justify text-muted text-center fs-5">
+        {% translate "I love my basketball. It's a really cool object. It's round and has a nice texture to the touch and is just nice as decoration (imo). But it is TOO ROUND and it's rolling everywhere. We need to fix this." %}
+    </p>
+    <p class="text-justify text-muted text-center fs-5">
+        {% translate "Here is a few step of the building process of the basketball-holder. Sorry for the photo quality, I used my smartphone and it's kinda old." %}
+    </p>
+    <p class="text-justify text-muted text-center fs-5">
+        {% translate "For this project, I enlisted the help of my Grampa (again, yes), a professional woodworker, whom I thank wholeheartedly for his help and support in my varied endeavors" %} <i class="bi bi-heart"></i>
+    </p>
+</div>
+
+<div class="container">
+    <div class="row row-cols-1 row-cols-lg-2 my-2">
+        <div class="col my-2 d-flex">
+            <div class="card w-100">
+                <img class="card-img-top" src="{% static "base/projects/basketball-stand/1.jpg" %}" style="height: 30rem;">
+                <div class="card-body">
+                    <h5 class="card-title">{% translate "Planning out the Hole" %}</h5>
+                    <p class="card-text">{% translate "Compass Time ! It's making a small groove, and I add some pencil into it to clearly see the circle." %}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col my-2 d-flex">
+            <div class="card w-100" >
+                <img class="card-img-top" src="{% static "base/projects/basketball-stand/2.jpg" %}" style="height: 30rem;">
+                <div class="card-body">
+                    <h5 class="card-title">{% translate "Before the Hole" %}</h5>
+                    <p class="card-text">{% translate "A small hole has been made. The jigsaw is going to follow the path soon..." %}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col my-2 d-flex">
+            <div class="card w-100" >
+                <img class="card-img-top" src="{% static "base/projects/basketball-stand/3.jpg" %}" style="height: 30rem;">
+                <div class="card-body">
+                    <h5 class="card-title">{% translate "Training Arc !" %}</h5>
+                    <p class="card-text">{% translate "I've practiced making a curve with the jigsaw before doing the full work. It was a really good idea." %}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col my-2 d-flex">
+            <div class="card w-100" >
+                <img class="card-img-top" src="{% static "base/projects/basketball-stand/4.jpg" %}" style="height: 30rem;">
+                <div class="card-body">
+                    <h5 class="card-title">{% translate "The Hole is before us !" %}</h5>
+                    <p class="card-text">{% translate "The hole has been made, and the second part can now start." %}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col my-2 d-flex">
+            <div class="card w-100" >
+                <img class="card-img-top" src="{% static "base/projects/basketball-stand/5.jpg" %}" style="height: 30rem;">
+                <div class="card-body">
+                    <h5 class="card-title">{% translate "Sanding..." %}</h5>
+                    <p class="card-text">{% translate "Cleaning out the wood burr." %}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col my-2 d-flex">
+            <div class="card w-100" >
+                <img class="card-img-top" src="{% static "base/projects/basketball-stand/6.jpg" %}" style="height: 30rem;">
+                <div class="card-body">
+                    <h5 class="card-title">{% translate "and Chamfering !" %}</h5>
+                    <p class="card-text">{% translate "The chamfer will stabilise the ball a lot more" %}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card" >
+        <img class="card-img-top" src="{% static "base/projects/basketball-stand/final.jpg" %}" style="height: 60rem;">
+        <div class="card-body">
+            <h5 class="card-title">{% translate "The Finished Product" %}</h5>
+            <p class="card-text">{% translate "I didn't take any pictures but we glued 2 planks under to server as feets. Same as the stands, I've applied 2 coats of parquets varnish, giving a slightly darker color and a small protection against liquids." %}</p>
+        </div>
+    </div>
 </div>
 {% endblock content %}

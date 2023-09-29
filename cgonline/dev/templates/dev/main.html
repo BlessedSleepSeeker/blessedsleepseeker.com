@@ -64,12 +64,15 @@ Code
 				    	<div class="card-body">
                             {% if project.was_updated_recently %}<span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">!{% if project.was_published_recently %}?{% endif %}</span>{% endif %}
                             <h2 class="card-title">{{ project.title }}</h2>
-                            <div class="d-inline-flex">
+                            <div class="">
                                 {% for tag in project.tags_formated %}
                                     <div class="badge rounded-pill bg-secondary mx-1 d-flex-inline align-content-center ">
                                         <a class="link-light text-decoration-none" href={% url 'dev:tags' tag %}>{{tag}}</a>
                                     </div>
                                 {% endfor %}
+                            </div>
+                            <div class="">
+                                {% translate "By"%} {{project.authors}}
                             </div>
                             {% get_current_language as LANGUAGE_CODE %}
 				    		<p class="card-text text-muted">{% if LANGUAGE_CODE == "en-us" %}
