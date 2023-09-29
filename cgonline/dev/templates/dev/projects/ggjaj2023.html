@@ -12,7 +12,7 @@
             <div class="pt-4 border-top w-15">
                 <div class="btn-group" role="group">
                     <a href="https://github.com/Camille-Gouneau/GlobalGameJaj" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="{% translate 'Github' %}" class="btn btn-outline-info"><i class="bi bi-github"></i></a>
-                    <a href="https://globalgamejam.org/2023/games/monke-0" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="{% translate 'Global Game Jam Website' %}" class="btn btn-outline-info"><i class="bi bi-box-arrow-up-right"></i>
+                    <a href="https://globalgamejam.org/2023/games/monke-0" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="{% translate 'Global Game Jam Website' %}" class="btn btn-outline-info"><i class="bi bi-box-arrow-up-right"></i></a>
                     {% if project.release %}<a href="{{ project.release.url }}" download="AsecriptHub.zip" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="{% translate 'Release' %}" class="btn btn-outline-info"><i class="bi bi-download"></i></a>{% endif %}
                     {% if project.source %}<a href="{{ project.source.url }}" download="AsecriptSource.zip" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="{% translate 'Source' %}" class="btn btn-outline-info"><i class="bi bi-file-earmark-binary"></i></a>{% endif %}
                 </div>
@@ -23,6 +23,17 @@
 <div class="container py-3">
     <p class="text-justify display-5 text-muted text-center">
         {% translate "Our submission for the 2023 Global Game Jam" %}
+    </p>
+</div>
+<div class="container pb-3">
+    <p class="text-justify text-muted text-center fs-5">
+        {% translate "Made in 48h between Feb. 4 and Feb. 6 2023 with both Tong and Adrien Keller, 2 absolutely beautiful persons" %} <i class="bi bi-heart"></i>
+    </p>
+    <p class="text-justify text-muted text-center fs-5">
+        {% translate "Using Godot and Aseprite, we produced a demo of an untitled Infiltration/Puzzle Roguelike. Not much more to say here, I wouldn't recommend trying it LOL." %}
+    </p>
+    <p class="text-justify text-muted text-center fs-5">
+        {% translate "It was really fun spending a full weekend together working on the same project tho. Doing gamejams is a blast and I encourage you to try once if you never done one !" %}
     </p>
 </div>
 {% endblock content %}
