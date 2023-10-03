@@ -21,7 +21,70 @@
 </div>
 <div class="container py-3">
     <p class="text-justify display-5 text-muted text-center">
-        {% translate "Setup a Django environnement in one command" %}
+        {% translate "Building applications is fast with Django, what if setting up a project and a few useful tools was faster ?" %}
     </p>
+    <p class="text-justify text-muted text-center">
+        <img src="{{ project.miniature.url }}" class="img-fluid card-img-top">
+        {% translate "Setup a Django developement environnement in one command." %}
+    </p>
+</div>
+<div class="container px-4 py-5">
+    <div class="row g-4 py-5 row-cols-1 row-cols-lg-2">
+        <div class="col d-flex align-items-start">
+            <div class="text-body-emphasis d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+                <i class="bi bi-globe-europe-africa text-info"></i>
+            </div>
+            <div>
+                <h3 class="text-body-emphasis fs-2">
+                    {% translate "Setup an environnement" %}
+                </h3>
+                <p class="text-muted">
+                    {% translate "DjangoProjectSetup will set up an django developpement environnement in a lightning quick fashion. Download the script then execute it, follow the inscrutions and voilà !" %}
+                </p>
+                <code class="">
+                    <div>./Setup.ps1</div>
+                </code>
+            </div>
+        </div>
+        <div class="col d-flex align-items-start">
+            <div class="text-body-emphasis d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+                <i class="bi bi-check2-all text-info"></i>
+            </div>
+            <div>
+                <h3 class="text-muted text-body-emphasis fs-2">
+                    {% translate "Already usable" %}
+                </h3>
+                <p class="text-muted">
+                    {% translate "By default, DjangoProjectSetup create a python virtual environnement, install pre-commit and set up some hooks : `black, blacken-docs, flake8, trailing-whitespace, check-yaml, check-added-large-files`, install Django, get a gitignore for Django and generate the requirements.txt file." %}
+                </p>
+            </div>
+        </div>
+        <div class="col d-flex align-items-start">
+            <div class="text-body-emphasis d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+                <i class="bi bi-braces text-info"></i>
+            </div>
+            <div>
+                <h3 class="text-body-emphasis fs-2">
+                    {% translate "Extensible" %}
+                </h3>
+                <p class="text-muted">
+                    {% translate "Extend or modify the script as you want, open source babyyyyyyyyy." %}
+                </p>
+            </div>
+        </div>
+        <div class="col d-flex align-items-start">
+            <div class="text-body-emphasis d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+                <i class="bi bi-node-plus text-info"></i>
+            </div>
+            <div>
+                <h3 class="text-muted text-body-emphasis fs-2">
+                    {% translate "Open and Free" %}
+                </h3>
+                <p class="text-muted">
+                    {% translate "The Project is under the " %}<a href="https://github.com/Camille-Gouneau/AsecriptHub/blob/main/LICENSE">GPL-3</a>{% translate " license." %}.
+                </p>
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock content %}
