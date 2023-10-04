@@ -1,11 +1,20 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 
-from .models import ContactLink, ContactMessage, Friend, Presentation, Question
+from .models import (
+    ContactLink,
+    ContactMessage,
+    Friend,
+    Presentation,
+    Question,
+    TitleText,
+)
 
 # Create your views here.
 def index(request):
-    context = {}
+    main_text = TitleText.objects.get(pk=1)
+
+    context = {"main_text": main_text}
     return render(request, "main/homepage.html", context)
 
 

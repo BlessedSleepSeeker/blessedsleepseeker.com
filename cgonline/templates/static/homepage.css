@@ -4,7 +4,7 @@
 }
 
 .changing-text-list {
-    text-align: right;
+    text-align: center;
     height: 40vh;
 	list-style: none;
 	-webkit-animation-name: change;
@@ -13,6 +13,11 @@
 	animation-name: change;
 	animation-duration: 20s;
 	animation-iteration-count: infinite;
+    margin: 0;
+}
+
+ul {
+    padding: 0;
 }
 
 .changing-text-item {
