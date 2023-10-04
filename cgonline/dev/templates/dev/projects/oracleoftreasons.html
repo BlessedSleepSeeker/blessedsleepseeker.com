@@ -2,16 +2,16 @@
 {% load i18n %}
 {% load static %}
 {% block title %}
-{% translate "MeleeCraft - Dev" %}
+{% translate "Oracle Of Treasons - Dev" %}
 {% endblock title %}
 {% block content %}
 <div class="cover-container d-flex p-3 mx-auto flex-column text-center justify-content-center">
     <main class="px-3">
-        <h1 class="display-1">{% translate "MeleeCraft"%}</h1>
+        <h1 class="display-1">{% translate "Oracle Of Treasons"%}</h1>
         <div class="d-flex justify-content-center">
             <div class="pt-4 border-top w-15">
                 <div class="btn-group" role="group">
-                    <a href="https://github.com/Camille-Gouneau/MeleeCraft" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="{% translate 'Github' %}" class="btn btn-outline-info"><i class="bi bi-github"></i></a>
+                    <a href="https://github.com/LazyShpee/oracle-of-treasons" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="{% translate 'Github' %}" class="btn btn-outline-info"><i class="bi bi-github"></i></a>
                     {% if project.release %}<a href="{{ project.release.url }}" download="AsecriptHub.zip" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="{% translate 'Release' %}" class="btn btn-outline-info"><i class="bi bi-download"></i></a>{% endif %}
                     {% if project.source %}<a href="{{ project.source.url }}" download="AsecriptSource.zip" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="{% translate 'Source' %}" class="btn btn-outline-info"><i class="bi bi-file-earmark-binary"></i></a>{% endif %}
                 </div>
@@ -19,9 +19,9 @@
         </div>
     </main>
 </div>
-<div class="container pb-3">
+<div class="container py-3">
     <p class="text-justify display-5 text-muted text-center">
-        {% translate "What if you could shine, but in MINECRAFT ????" %}
+        {% translate "Get some predictions from a REAL oracle. Luckily for all the gourmands here, the predictions come in the form of Fortune Cookies !" %}
     </p>
 </div>
 <div class="container px-4 py-5">
@@ -32,10 +32,10 @@
             </div>
             <div>
                 <h3 class="text-body-emphasis fs-2">
-                    {% translate "100% Fun" %}
+                    {% translate "100% Useless" %}
                 </h3>
                 <p class="text-muted">
-                    {% translate "Craft your shine, then proceed to schmoove on every single monster or player in the world !" %}
+                    {% translate "The oracle and the fortune cookies are simply here for flair. No real mechanics except eating your fortune cookie !" %}
                 </p>
             </div>
         </div>
@@ -45,10 +45,10 @@
             </div>
             <div>
                 <h3 class="text-muted text-body-emphasis fs-2">
-                    {% translate "Finished in 3 days..." %}
+                    {% translate "A Jam Project" %}
                 </h3>
                 <p class="text-muted">
-                    {% translate "...but not because I was jamming or something, I was just done in 3 days." %}
+                    {% translate "This mod is the result of Creajam (rip), a weekly arty jam we used to run." %}
                 </p>
             </div>
         </div>
@@ -74,12 +74,11 @@
                     {% translate "Open and Free" %}
                 </h3>
                 <p class="text-muted">
-                    {% translate "The Project is under the " %}<a href="https://github.com/Camille-Gouneau/MeleeCraft/blob/master/LICENSE">MIT</a>{% translate " license." %}
-                    {% translate "You can find the sources " %}<a href="https://github.com/Camille-Gouneau/MeleeCraft">{% translate "here" %}.
+                    {% translate "The Project is under the " %}<a href="https://github.com/LazyShpee/oracle-of-treasons/blob/master/LICENSE">MIT</a>{% translate " license." %}
+                    {% translate "You can find the sources " %}<a href="https://github.com/LazyShpee/oracle-of-treasons">{% translate "here" %}.
                 </p>
             </div>
         </div>
     </div>
 </div>
-
 {% endblock content %}

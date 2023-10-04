@@ -2,16 +2,15 @@
 {% load i18n %}
 {% load static %}
 {% block title %}
-{% translate "MeleeCraft - Dev" %}
+{% translate "WakfuTCG Card Maker - Dev" %}
 {% endblock title %}
 {% block content %}
 <div class="cover-container d-flex p-3 mx-auto flex-column text-center justify-content-center">
     <main class="px-3">
-        <h1 class="display-1">{% translate "MeleeCraft"%}</h1>
+        <h1 class="display-1">{% translate "WakfuTCG Card Maker"%}</h1>
         <div class="d-flex justify-content-center">
             <div class="pt-4 border-top w-15">
                 <div class="btn-group" role="group">
-                    <a href="https://github.com/Camille-Gouneau/MeleeCraft" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="{% translate 'Github' %}" class="btn btn-outline-info"><i class="bi bi-github"></i></a>
                     {% if project.release %}<a href="{{ project.release.url }}" download="AsecriptHub.zip" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="{% translate 'Release' %}" class="btn btn-outline-info"><i class="bi bi-download"></i></a>{% endif %}
                     {% if project.source %}<a href="{{ project.source.url }}" download="AsecriptSource.zip" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="{% translate 'Source' %}" class="btn btn-outline-info"><i class="bi bi-file-earmark-binary"></i></a>{% endif %}
                 </div>
@@ -19,23 +18,25 @@
         </div>
     </main>
 </div>
-<div class="container pb-3">
+
+<div class="container py-3">
     <p class="text-justify display-5 text-muted text-center">
-        {% translate "What if you could shine, but in MINECRAFT ????" %}
+        {% translate "A card creation tool for Wakfu TCG" %}
     </p>
 </div>
+
 <div class="container px-4 py-5">
     <div class="row g-4 py-5 row-cols-1 row-cols-lg-2">
         <div class="col d-flex align-items-start">
             <div class="text-body-emphasis d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
-                <i class="bi bi-controller text-info"></i>
+                <i class="bi bi-person-badge text-info"></i>
             </div>
             <div>
                 <h3 class="text-body-emphasis fs-2">
-                    {% translate "100% Fun" %}
+                    {% translate "Create the card of your dream" %}
                 </h3>
                 <p class="text-muted">
-                    {% translate "Craft your shine, then proceed to schmoove on every single monster or player in the world !" %}
+                    {% translate "Doing fan card is the dream of every single TCG player. Now, you can even do it on a game that was dead long before I even started the project ! Woohoo !" %}
                 </p>
             </div>
         </div>
@@ -45,10 +46,10 @@
             </div>
             <div>
                 <h3 class="text-muted text-body-emphasis fs-2">
-                    {% translate "Finished in 3 days..." %}
+                    {% translate "My First Project" %}
                 </h3>
                 <p class="text-muted">
-                    {% translate "...but not because I was jamming or something, I was just done in 3 days." %}
+                    {% translate ":)" %}
                 </p>
             </div>
         </div>
@@ -58,10 +59,10 @@
             </div>
             <div>
                 <h3 class="text-body-emphasis fs-2">
-                    {% translate "Built with Fabric" %}
+                    {% translate "Built with Unity" %}
                 </h3>
                 <p class="text-muted">
-                    <a href="https://fabricmc.net/">Fabric</a>{% translate " is an alternative to Forge Mod Loader. We like alternatives and IMO Forge kinda suck. Not having to do much to update your mods to different versions of MC help a lot." %}
+                    <a href="https://unity.com">Unity</a>{% translate " is a game-engine. I kinda used it only once, found it really convoluted and stopped using it." %}
                 </p>
             </div>
         </div>
@@ -71,15 +72,13 @@
             </div>
             <div>
                 <h3 class="text-muted text-body-emphasis fs-2">
-                    {% translate "Open and Free" %}
+                    {% translate "Not Open but Free" %}
                 </h3>
                 <p class="text-muted">
-                    {% translate "The Project is under the " %}<a href="https://github.com/Camille-Gouneau/MeleeCraft/blob/master/LICENSE">MIT</a>{% translate " license." %}
-                    {% translate "You can find the sources " %}<a href="https://github.com/Camille-Gouneau/MeleeCraft">{% translate "here" %}.
+                    {% translate "I'm sorry, I lost the sources. I am not kiding, this project is almost 7 years old now." %}
                 </p>
             </div>
         </div>
     </div>
 </div>
-
 {% endblock content %}
