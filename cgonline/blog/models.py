@@ -16,7 +16,8 @@ class Article(models.Model):
     # used for url creation, do not put maj char, space or special characters in it
     short_title = models.CharField(max_length=30, unique=True)
     body = models.TextField()
-    short_description = models.TextField()
+    short_descriptionEN = models.TextField()
+    short_descriptionFR = models.TextField()
 
     def validate_tags(value):
         if " " in value:
@@ -44,7 +45,7 @@ class Article(models.Model):
 
     @property
     def was_published_recently(self):
-        return self.visible_starting >= timezone.now() - datetime.timedelta(days=14)
+        return self.visible_starting >= timezone.now() - datetime.timedelta(days=7)
 
     @property
     def tags_formated(self):

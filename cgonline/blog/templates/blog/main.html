@@ -54,14 +54,15 @@ Blog
 
 
 <div class="container">
-    <div class="row row-cols-1 g-3">
+    <div class="row row-cols-1 g-3 d-flex justify-content-center">
         {% for article in page_obj %}
-        <div class="col">
+        <div class="col w-75">
             <div class="card my-1">
                 <div class="card-body">
                     <div class="pb-2 border-bottom">
+                        {% if article.was_published_recently %}<span class="position-absolute top-0 start-0 translate-middle badge rounded-pill bg-danger">{% translate "!?" %}</span>{% endif %}
                         <h3 class="card-title">
-                            <a class="text-decoration-none link-primary" href="{% url 'blog:entry' article.short_title %}">
+                            <a class="link-underline link-underline-opacity-0" href="{% url 'blog:entry' article.short_title %}">
                                 {{ article.title }}
                             </h3>
                         </a>
@@ -77,7 +78,9 @@ Blog
                         </div>
                     </div>
                     <p class="card-text mt-2">
-                        {{ article.short_description}}
+                        {% get_current_language as LANGUAGE_CODE %}
+                        {% if LANGUAGE_CODE == "en-us" %}{{ article.short_descriptionEN | markdown | safe}}{% elif LANGUAGE_CODE == "fr" %}{{ article.short_descriptionFR | markdown | safe}}{% endif %}
+
                     </p>
                 </div>
             </div>
