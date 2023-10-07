@@ -1,17 +1,22 @@
-const wordlistEN = [
+let wordlistEN = [
     'development',
-    'pixel art',
+    'art',
     'tinkering',
     'schmoovement'
 ]
 
-const wordlistFR = [
-    'code',
+let wordlistFR = [
+    'developpement',
     'art',
-    'FLTM',
+    'bricolage',
+    'schmoovement'
 ]
 
 var currentPos = 0
+
+function shuffle(array) {
+    array.sort(() => Math.random() - 0.5);
+}
 
 function getNext(language) {
     if (currentPos + 1 > language.length) {
@@ -38,7 +43,25 @@ function addTextAsChild(wordlist) {
     }
 }
 
-addTextAsChild(wordlistEN)
+function getCookie(name) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
+}
+
+function getCurrentLanguage() {
+    let cookie = getCookie("django_language")
+    switch (cookie) {
+        case "en":
+            return wordlistEN
+        case "fr":
+            return wordlistFR
+    }
+}
+
+shuffle(wordlistEN)
+shuffle(wordlistFR)
+addTextAsChild(getCurrentLanguage())
 
 //animate()
 //setInterval(animate, 3000)

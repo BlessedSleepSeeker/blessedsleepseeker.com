@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-04 19:01+0200\n"
+"POT-Creation-Date: 2023-10-07 18:30+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -336,7 +336,12 @@ msgid ""
 "install pre-commit and set up some hooks : `black, blacken-docs, flake8, "
 "trailing-whitespace, check-yaml, check-added-large-files`, install Django, "
 "get a gitignore for Django and generate the requirements.txt file."
-msgstr "Par défaut, DjangoProjectSetup créé un environnement virtuel python, installe pre-commit et rajoute quelques hooks : black, blacken-docs, flake8, trailing-whitespace, check-yaml et check-added-large-files. Il va ensuite installer Django, récupérer un gitignore spécifique à Django et générer un fichier requirements.txt."
+msgstr ""
+"Par défaut, DjangoProjectSetup créé un environnement virtuel python, "
+"installe pre-commit et rajoute quelques hooks : black, blacken-docs, flake8, "
+"trailing-whitespace, check-yaml et check-added-large-files. Il va ensuite "
+"installer Django, récupérer un gitignore spécifique à Django et générer un "
+"fichier requirements.txt."
 
 #: .\dev\templates\dev\projects\django-setup.html:68
 #, fuzzy
@@ -346,7 +351,9 @@ msgstr "Extensible"
 
 #: .\dev\templates\dev\projects\django-setup.html:71
 msgid "Extend or modify the script as you want, open source babyyyyyyyyy."
-msgstr "Etendez ou modifiez le script comme vous le souhaitez. Open Source babyyyyyyy."
+msgstr ""
+"Etendez ou modifiez le script comme vous le souhaitez. Open Source "
+"babyyyyyyy."
 
 #: .\dev\templates\dev\projects\ggjaj2023.html:5
 msgid "Global Game Jaj - Dev"
@@ -368,21 +375,28 @@ msgstr "Notre soumission pour la Global Game Jam 2023"
 msgid ""
 "Made in 48h between Feb. 4 and Feb. 6 2023 with both Tong and Adrien Keller, "
 "2 absolutely beautiful persons"
-msgstr "Créer en 48h entre le 4 et 6 février 2023, avec l'aide de Tong et Adrien Keller, 2 personnes très très stylées."
+msgstr ""
+"Créer en 48h entre le 4 et 6 février 2023, avec l'aide de Tong et Adrien "
+"Keller, 2 personnes très très stylées."
 
 #: .\dev\templates\dev\projects\ggjaj2023.html:33
 msgid ""
 "Using Godot and Aseprite, we produced a demo of an untitled Infiltration/"
 "Puzzle Roguelike. Not much more to say here, I wouldn't recommend trying it "
 "LOL."
-msgstr "Avec l'aide de Godot et Aseprite, nous avons produit une démo d'un roguelike d'infiltration & de puzzle."
+msgstr ""
+"Avec l'aide de Godot et Aseprite, nous avons produit une démo d'un roguelike "
+"d'infiltration & de puzzle."
 
 #: .\dev\templates\dev\projects\ggjaj2023.html:36
 msgid ""
 "It was really fun spending a full weekend together working on the same "
 "project tho. Doing gamejams is a blast and I encourage you to try once if "
 "you never done one !"
-msgstr "C'était super fun de passer un weekend entier ensemble à travailler sur le meme projet. Les gamejams sont toujours un super moment et je vous encourage à y participer si vous n'en avez jamais faites !"
+msgstr ""
+"C'était super fun de passer un weekend entier ensemble à travailler sur le "
+"meme projet. Les gamejams sont toujours un super moment et je vous encourage "
+"à y participer si vous n'en avez jamais faites !"
 
 #: .\dev\templates\dev\projects\meleecraft.html:5
 msgid "MeleeCraft - Dev"
@@ -405,7 +419,9 @@ msgstr ""
 msgid ""
 "Craft your shine, then proceed to schmoove on every single monster or player "
 "in the world !"
-msgstr "Construisez votre shine, et schmoovez sur l'entiereté des monstres et joueurs dans le monde !"
+msgstr ""
+"Construisez votre shine, et schmoovez sur l'entiereté des monstres et "
+"joueurs dans le monde !"
 
 #: .\dev\templates\dev\projects\meleecraft.html:48
 msgid "Finished in 3 days..."
@@ -414,7 +430,9 @@ msgstr "Fait en 3 jours..."
 #: .\dev\templates\dev\projects\meleecraft.html:51
 msgid ""
 "...but not because I was jamming or something, I was just done in 3 days."
-msgstr "...mais pas parce qu'il y avait une limite de temps, j'ai juste fini le projet en 3 jours et suis passé à autre chose."
+msgstr ""
+"...mais pas parce qu'il y avait une limite de temps, j'ai juste fini le "
+"projet en 3 jours et suis passé à autre chose."
 
 #: .\dev\templates\dev\projects\meleecraft.html:61
 #: .\dev\templates\dev\projects\oracleoftreasons.html:61
@@ -427,7 +445,11 @@ msgid ""
 " is an alternative to Forge Mod Loader. We like alternatives and IMO Forge "
 "kinda suck. Not having to do much to update your mods to different versions "
 "of MC help a lot."
-msgstr " est une alternative au mod loader Forge. J'aime les alternatives et selon moi, Forge c'est un peu pas ouf quand meme. Le fait de ne pas avoir grand chose à faire pour faire passer son mod d'une version à une autre de Minecraft fait gagner beaucoup de points à Fabric."
+msgstr ""
+" est une alternative au mod loader Forge. J'aime les alternatives et selon "
+"moi, Forge c'est un peu pas ouf quand meme. Le fait de ne pas avoir grand "
+"chose à faire pour faire passer son mod d'une version à une autre de "
+"Minecraft fait gagner beaucoup de points à Fabric."
 
 #: .\dev\templates\dev\projects\oracleoftreasons.html:5
 msgid "Oracle Of Treasons - Dev"
@@ -441,7 +463,10 @@ msgstr ""
 msgid ""
 "Get some predictions from a REAL oracle. Luckily for all the gourmands here, "
 "the predictions come in the form of Fortune Cookies !"
-msgstr "Faites vous diviner votre futur par un REEL oracle ! Coup de pot pour tout les gourmands, les prédictions viennent sous la forme de cookie de la Fortune !"
+msgstr ""
+"Faites vous diviner votre futur par un REEL oracle ! Coup de pot pour tout "
+"les gourmands, les prédictions viennent sous la forme de cookie de la "
+"Fortune !"
 
 #: .\dev\templates\dev\projects\oracleoftreasons.html:35
 #, python-format
@@ -452,7 +477,9 @@ msgstr "100%% Inutile"
 msgid ""
 "The oracle and the fortune cookies are simply here for flair. No real "
 "mechanics except eating your fortune cookie !"
-msgstr "Il n'y a aucune autre mécaniques que le RP que vous en ferez (il y a quand meme de quoi récupérer et manger le cookie, pas d'inquiétude)."
+msgstr ""
+"Il n'y a aucune autre mécaniques que le RP que vous en ferez (il y a quand "
+"meme de quoi récupérer et manger le cookie, pas d'inquiétude)."
 
 #: .\dev\templates\dev\projects\oracleoftreasons.html:48
 msgid "A Jam Project"
@@ -461,7 +488,9 @@ msgstr "Un Projet de Jam"
 #: .\dev\templates\dev\projects\oracleoftreasons.html:51
 msgid ""
 "This mod is the result of Creajam (rip), a weekly arty jam we used to run."
-msgstr "Ce mod est le résultat de la Créajam (rip), une Jam artistique hebdomadaire dont nous étions les organisateurs."
+msgstr ""
+"Ce mod est le résultat de la Créajam (rip), une Jam artistique hebdomadaire "
+"dont nous étions les organisateurs."
 
 #: .\dev\templates\dev\projects\questgiver.html:5
 msgid "Quest Giver - Dev"
@@ -487,7 +516,9 @@ msgstr "Ma soumission pour la gamejam GMTK 2023, rénovée et étendue."
 msgid ""
 "A game about funding quests (damn) and expeditions so adventurers can grab "
 "some loot for you."
-msgstr "Un jeu où l'on finance et lance des expéditions d'aventurier, qui vont vous ramener ce qu'ils trouvent."
+msgstr ""
+"Un jeu où l'on finance et lance des expéditions d'aventurier, qui vont vous "
+"ramener ce qu'ils trouvent."
 
 #: .\dev\templates\dev\projects\questgiver.html:41
 #, fuzzy
@@ -503,7 +534,9 @@ msgstr "Rendez vous sur"
 msgid ""
 "and download the game ! It's the final gamejam version, so it's the first 3 "
 "days of developement only."
-msgstr "et Téléchargez le jeu ! C'est le rendu de gamejam, il n'y a donc que les 3 premiers jours de développement intégré à cette version."
+msgstr ""
+"et Téléchargez le jeu ! C'est le rendu de gamejam, il n'y a donc que les 3 "
+"premiers jours de développement intégré à cette version."
 
 #: .\dev\templates\dev\projects\questgiver.html:54
 msgid "A Work in Progress"
@@ -514,7 +547,10 @@ msgid ""
 "I have continued working on the project for a few days afterward (and then "
 "burned out, who could have seen this comming) and will start again in the "
 "future ! Expect updates !"
-msgstr "J'ai continué à travaillé sur Quest Giver après la jam (et ai fini par burnout, qui aurait bien pu voir ça venir ??), et recommencerais dans le futur. Restez à l'affut de nouvelles !"
+msgstr ""
+"J'ai continué à travaillé sur Quest Giver après la jam (et ai fini par "
+"burnout, qui aurait bien pu voir ça venir ??), et recommencerais dans le "
+"futur. Restez à l'affut de nouvelles !"
 
 #: .\dev\templates\dev\projects\questgiver.html:67
 msgid "Built with Godot 4"
@@ -525,7 +561,10 @@ msgid ""
 " is a free, open-source, no-string attached game engine. It has been my goto "
 "engine since 2020 and is well deserving of some support. The 4.0 being "
 "released in March 2023, I decided to learn it with this project."
-msgstr " est un game engine gratuit, open source et sans royalties. C'est mon outil de choix depuis 2020 et mérite amplement des félicitations. La version 4.0 étant sortie en Mars 2023, j'en ai profité pour l'apprendre avec ce projet."
+msgstr ""
+" est un game engine gratuit, open source et sans royalties. C'est mon outil "
+"de choix depuis 2020 et mérite amplement des félicitations. La version 4.0 "
+"étant sortie en Mars 2023, j'en ai profité pour l'apprendre avec ce projet."
 
 #: .\dev\templates\dev\projects\ryuforcement.html:5
 msgid "Ryuforcement - Dev"
@@ -537,32 +576,44 @@ msgstr ""
 
 #: .\dev\templates\dev\projects\ryuforcement.html:25
 msgid "Ever wondered if AI could beat humans at street fighter ? We did."
-msgstr "Vous vous êtes déjà demandé si les IA pouvaient battre les humains à Street Fighter ? Nous, oui."
+msgstr ""
+"Vous vous êtes déjà demandé si les IA pouvaient battre les humains à Street "
+"Fighter ? Nous, oui."
 
 #: .\dev\templates\dev\projects\ryuforcement.html:30
 msgid ""
 "Using OpenAI Gym Retro, Reinforcement Learning and a Convolution Network, we "
 "created Ryuforcement, an AI playing Street Fighter : Special Champion "
 "Edition on Genesis."
-msgstr "En mélangeant OpenAI Gym Retro, de l'apprentissage par renforcement et un réseau de convolution, nous avons cuisiné Ryuforcement, une IA capable de jouer à Street Fighter : Special Champion Edition sur Genesis."
+msgstr ""
+"En mélangeant OpenAI Gym Retro, de l'apprentissage par renforcement et un "
+"réseau de convolution, nous avons cuisiné Ryuforcement, une IA capable de "
+"jouer à Street Fighter : Special Champion Edition sur Genesis."
 
 #: .\dev\templates\dev\projects\ryuforcement.html:33
 msgid ""
 "In the end, Ryuforcement started to block some attacks reliably ! We "
 "unfortunately had to end the project early due to Gym Retro not being a "
 "great environnement for fighting game AI training."
-msgstr "A la fin de notre expérience, Ryuforcement commençait à bloquer certaines attaques avec constance ! Nous avons malheureusement dû mettre fin à au projet de manière prématuré, Gym Retro ne nous permettant pas d'atteindre nos objectifs."
+msgstr ""
+"A la fin de notre expérience, Ryuforcement commençait à bloquer certaines "
+"attaques avec constance ! Nous avons malheureusement dû mettre fin à au "
+"projet de manière prématuré, Gym Retro ne nous permettant pas d'atteindre "
+"nos objectifs."
 
 #: .\dev\templates\dev\projects\ryuforcement.html:36
 msgid ""
 "Our readme on Github has a lot of info and goes in depth, be sure to check "
 "it out."
-msgstr "Le readme sur Github a beaucoup plus d'infos et va plus en profondeur sur les sujets techniques, allez y jeter un oeil !"
+msgstr ""
+"Le readme sur Github a beaucoup plus d'infos et va plus en profondeur sur "
+"les sujets techniques, allez y jeter un oeil !"
 
 #: .\dev\templates\dev\projects\ryuforcement.html:39
 msgid ""
 "I did this project with Pierre-Eloy Sylvestre, a trully wonderful person "
-msgstr "J'ai fait ce projet avec Pierre-Eloy Sylvestre, une personne extraordinaire "
+msgstr ""
+"J'ai fait ce projet avec Pierre-Eloy Sylvestre, une personne extraordinaire "
 
 #: .\dev\templates\dev\projects\wakfutcg-card-maker.html:5
 msgid "WakfuTCG Card Maker - Dev"
@@ -584,7 +635,10 @@ msgstr "Créez la carte de vos rêves"
 msgid ""
 "Doing fan card is the dream of every single TCG player. Now, you can even do "
 "it on a game that was dead long before I even started the project ! Woohoo !"
-msgstr "Créer ses propres cartes est le rêve de tout les joueurs de TCG. Maintenant, vous pouvez même le faire sur un jeu qui était mort bien avant que je commence ce projet ! Youpi !"
+msgstr ""
+"Créer ses propres cartes est le rêve de tout les joueurs de TCG. Maintenant, "
+"vous pouvez même le faire sur un jeu qui était mort bien avant que je "
+"commence ce projet ! Youpi !"
 
 #: .\dev\templates\dev\projects\wakfutcg-card-maker.html:49
 msgid "My First Project"
@@ -602,7 +656,9 @@ msgstr "Développé sous Unity"
 msgid ""
 " is a game-engine. I kinda used it only once, found it really convoluted and "
 "stopped using it."
-msgstr "est un game engine. Je n'ai utilisé unity qu'une fois (cette fois), l'ai trouvé un peu trop flou et ai laissé tombé."
+msgstr ""
+"est un game engine. Je n'ai utilisé unity qu'une fois (cette fois), l'ai "
+"trouvé un peu trop flou et ai laissé tombé."
 
 #: .\dev\templates\dev\projects\wakfutcg-card-maker.html:75
 msgid "Not Open but Free"
@@ -612,7 +668,9 @@ msgstr "Fermé mais Gratuit"
 msgid ""
 "I'm sorry, I lost the sources. I am not kiding, this project is almost 7 "
 "years old now."
-msgstr "Mes excuses, j'ai perdu les fichiers sources. C'est pas une blague, le projet à bientôt 7 ans maintenant, je ne sais pas où elles sont."
+msgstr ""
+"Mes excuses, j'ai perdu les fichiers sources. C'est pas une blague, le "
+"projet à bientôt 7 ans maintenant, je ne sais pas où elles sont."
 
 #: .\diy\templates\diy\main.html:14
 msgid "All projects tagged with "
@@ -635,33 +693,43 @@ msgid "Basketball Stand - Dev"
 msgstr ""
 
 #: .\diy\templates\diy\projects\basket-stand.html:10
-msgid "Basketball Shelf"
-msgstr ""
+msgid "Basketball Holding Shelf"
+msgstr "Le support à ballons"
 
 #: .\diy\templates\diy\projects\basket-stand.html:22
 msgid ""
 "How can I have my basketball on a shelf without it falling every 30 seconds ?"
-msgstr "Comment avoir ma balle de basket sur une étagère sans qu'elle roule partout ?"
+msgstr ""
+"Comment avoir ma balle de basket sur une étagère sans qu'elle roule partout ?"
 
 #: .\diy\templates\diy\projects\basket-stand.html:27
 msgid ""
 "I love my basketball. It's a really cool object. It's round and has a nice "
 "texture to the touch and is just nice as decoration (imo). But it is TOO "
 "ROUND and it's rolling everywhere. We need to fix this."
-msgstr "J'aime ma balle de basket, c'est un bel objet. C'est tout rond, a une texture agréable au touché et est bien beau en décoration. Mais c'est TROP ROND et ça roule de partout. Nous devons remédier à ce problème."
+msgstr ""
+"J'aime ma balle de basket, c'est un bel objet. C'est tout rond, a une "
+"texture agréable au touché et est bien beau en décoration. Mais c'est TROP "
+"ROND et ça roule de partout. Nous devons remédier à ce problème."
 
 #: .\diy\templates\diy\projects\basket-stand.html:30
 msgid ""
 "Here is a few step of the building process of the basketball-holder. Sorry "
 "for the photo quality, I used my smartphone and it's kinda old."
-msgstr "Voilà quelques une des étapes de constructions du support à balles. Veuillez m'excuser pour la qualité des photos, j'ai utilisé mon téléphone portable et il accuse son age."
+msgstr ""
+"Voilà quelques une des étapes de constructions du support à balles. Veuillez "
+"m'excuser pour la qualité des photos, j'ai utilisé mon téléphone portable et "
+"il accuse son age."
 
 #: .\diy\templates\diy\projects\basket-stand.html:33
 msgid ""
 "For this project, I enlisted the help of my Grampa (again, yes), a "
 "professional woodworker, whom I thank wholeheartedly for his help and "
 "support in my varied endeavors"
-msgstr "Pour ce projet, j'ai recruté mon grand-père (une fois de plus, oui), un ancien ébéniste professionel. Je le remercie de tout mon coeur pour son aide et son support dans mes projets divers et variés"
+msgstr ""
+"Pour ce projet, j'ai recruté mon grand-père (une fois de plus, oui), un "
+"ancien ébéniste professionel. Je le remercie de tout mon coeur pour son aide "
+"et son support dans mes projets divers et variés"
 
 #: .\diy\templates\diy\projects\basket-stand.html:43
 msgid "Planning out the Hole"
@@ -671,7 +739,9 @@ msgstr "Préparer le Trou"
 msgid ""
 "Compass Time ! It's making a small groove, and I add some pencil into it to "
 "clearly see the circle."
-msgstr "J'utilise le compas pour faire une rainure, et je repasse un coup de crayon papier pour bien voir où elle se trouve."
+msgstr ""
+"J'utilise le compas pour faire une rainure, et je repasse un coup de crayon "
+"papier pour bien voir où elle se trouve."
 
 #: .\diy\templates\diy\projects\basket-stand.html:52
 msgid "Before the Hole"
@@ -680,7 +750,9 @@ msgstr "Avant le Trou"
 #: .\diy\templates\diy\projects\basket-stand.html:53
 msgid ""
 "A small hole has been made. The jigsaw is going to follow the path soon..."
-msgstr "Un petit trou a été fait. La scie sauteuse va suivre le chemin tracé auparavant dans pas longtemps..."
+msgstr ""
+"Un petit trou a été fait. La scie sauteuse va suivre le chemin tracé "
+"auparavant dans pas longtemps..."
 
 #: .\diy\templates\diy\projects\basket-stand.html:61
 msgid "Training Arc !"
@@ -690,7 +762,9 @@ msgstr "L'Arc narratif de l'entrainement !"
 msgid ""
 "I've practiced making a curve with the jigsaw before doing the full work. It "
 "was a really good idea."
-msgstr "Je me suis entrainé à suivre les courbes avec la scie sauteuse avant de m'atteler au gros morceau. C'était une excellente idée."
+msgstr ""
+"Je me suis entrainé à suivre les courbes avec la scie sauteuse avant de "
+"m'atteler au gros morceau. C'était une excellente idée."
 
 #: .\diy\templates\diy\projects\basket-stand.html:70
 msgid "The Hole is before us !"
@@ -726,7 +800,11 @@ msgid ""
 "I didn't take any pictures but we glued 2 planks under to server as feets. "
 "Same as the stands, I've applied 2 coats of parquets varnish, giving a "
 "slightly darker color and a small protection against liquids."
-msgstr "Je n'ai pas pris de photos mais nous avons collé 2 planches en dessous qui servent de pieds. Pareil que pour les supports à écran, j'ai appliqué 2 couches de vernis à parquet, pour le rendre un peu plus sombre et le protéger contre le gras."
+msgstr ""
+"Je n'ai pas pris de photos mais nous avons collé 2 planches en dessous qui "
+"servent de pieds. Pareil que pour les supports à écran, j'ai appliqué 2 "
+"couches de vernis à parquet, pour le rendre un peu plus sombre et le "
+"protéger contre le gras."
 
 #: .\diy\templates\diy\projects\boombox.html:5
 msgid "Boombox - Dev"
@@ -750,11 +828,11 @@ msgstr ""
 
 #: .\diy\templates\diy\projects\screen-stands.html:10
 msgid "Screen Stands"
-msgstr ""
+msgstr "Les supports à écrans"
 
 #: .\diy\templates\diy\projects\screen-stands.html:23
 msgid "Sometimes, your screen need to be a little bit higher."
-msgstr ""
+msgstr "Parfois, votre écran a besoin d'être un petit plus haut. 12cm plus haut, précisément."
 
 #: .\diy\templates\diy\projects\screen-stands.html:28
 msgid ""
@@ -763,57 +841,59 @@ msgid ""
 "and took way more space on my desk than it needed to. I decided to build "
 "some stands which would allow me to elevate my screens and let the cables go "
 "through."
-msgstr ""
+msgstr "Mes écrans n'étaient pas à une hauteur confortable, et j'avais l'habitude de les sur-élever avec des boites pas super sexy et bien trop volumineuse. J'ai donc décidé de construire des supports aux dimensions des pieds des écrans, pour sur-élever et laisser passer les cables en dessous."
 
 #: .\diy\templates\diy\projects\screen-stands.html:31
 msgid ""
 "Here is a few step of the building process of theses stands. Sorry for the "
 "photo quality, I used my smartphone and it's kinda old."
-msgstr ""
+msgstr "Voilà quelques photos des étapes de constructions. Désolé pour la quaité, j'ai utilisé mon téléphone et il est un poil vieux."
 
 #: .\diy\templates\diy\projects\screen-stands.html:34
 msgid ""
 "For this project, I enlisted the help of my Grampa, a professional "
 "woodworker, whom I thank wholeheartedly for his help and support in my "
 "varied endeavors"
-msgstr ""
+msgstr "Pour ce projet, j'ai recruté mon grand-père (une fois de plus, oui), un "
+"ancien ébéniste professionel. Je le remercie de tout mon coeur pour son aide "
+"et son support dans mes projets divers et variés"
 
 #: .\diy\templates\diy\projects\screen-stands.html:44
 msgid "The First Step"
-msgstr ""
+msgstr "Le Premier Pas"
 
 #: .\diy\templates\diy\projects\screen-stands.html:45
 msgid ""
 "It's not actually the first, we started from a full plank but I didn't get "
 "any pictures."
-msgstr ""
+msgstr "Ce n'est pas réellement le premier, nous avons démarrer avec une grande planche mais je n'ai pas pris de photo durant la découpe."
 
 #: .\diy\templates\diy\projects\screen-stands.html:53
 msgid "Glue time"
-msgstr ""
+msgstr "L'heure de colle"
 
 #: .\diy\templates\diy\projects\screen-stands.html:54
 msgid ""
 "No screws needed, everything is glued together. Screws would be overkill as "
 "we are not going to move them around a lot and the weight will be splitted "
 "evenly."
-msgstr ""
+msgstr "Pas besoin de vis ou clous, tout est collé ! Les vis ne sont pas nécéssaire, les stands ne bougeront pas souvent et le poids sera réparti sur les pieds."
 
 #: .\diy\templates\diy\projects\screen-stands.html:62
 msgid "Waiting for the glue to dry."
-msgstr ""
+msgstr "Patientons pendant que la colle seche."
 
 #: .\diy\templates\diy\projects\screen-stands.html:63
 msgid "A full day of rest !"
-msgstr ""
+msgstr "Un jour entier de repos !"
 
 #: .\diy\templates\diy\projects\screen-stands.html:71
 msgid "Screen Stands, Assemble !"
-msgstr ""
+msgstr "Les supports dans toutes leur gloire"
 
 #: .\diy\templates\diy\projects\screen-stands.html:72
 msgid "At this point, our project is nearly finished."
-msgstr ""
+msgstr "A ce moment, le projet est presque fini"
 
 #: .\diy\templates\diy\projects\screen-stands.html:81
 msgid ""
@@ -821,7 +901,7 @@ msgid ""
 "a small protection against liquids. I've thought about putting a veil of "
 "some kind to hide where the cable are going at some point, but ultimately "
 "decided not to."
-msgstr ""
+msgstr "J'ai mis 2 couches de vernis à parquet, donnant une couleur un peu plus sombre et une petite protection contre le gras et les liquides. J'ai hésiter à rajouter un voile pour cacher l'entrée des cables mais finalement j'ai choisis de ne pas le faire."
 
 #: .\main\templates\main\contact.html:11
 msgid "Contact Informations"
@@ -840,7 +920,7 @@ msgstr ""
 #: .\main\templates\main\friends.html:5 .\main\templates\main\homepage.html:88
 #: .\templates\base.html:115
 msgid "Friends"
-msgstr "Les Amis"
+msgstr "Amis"
 
 #: .\main\templates\main\friends.html:10
 msgid "Cool persons all around !"
@@ -855,116 +935,100 @@ msgid "Home"
 msgstr "Acceuil"
 
 #: .\main\templates\main\homepage.html:14
-#, fuzzy
-#| msgid "Autotelic "
 msgid "Autotelic"
-msgstr "Autotelisme et "
+msgstr "Autotelisme et"
 
 #: .\main\templates\main\homepage.html:19
 msgid "a blog by"
-msgstr ""
+msgstr "un blog par"
 
 #: .\main\templates\main\homepage.html:43
-#, fuzzy
-#| msgid "here "
 msgid "New here ?"
-msgstr "içi "
+msgstr "Nouveau par içi ? "
 
 #: .\main\templates\main\homepage.html:46
 msgid ""
 "Welcome ! Take your time, a good starting point is to browse the galeries to "
 "see my works. Here's"
-msgstr ""
+msgstr "Bienvenue ! Prennez votre temps, un bon point de départ est de vous ballader dans les galeries pour vous faire une idée de ce que je fais. Voilà"
 
 #: .\main\templates\main\homepage.html:46
-#, fuzzy
-#| msgid "The Art Galery"
 msgid "the Art Galery"
-msgstr "La Galerie D'Art"
+msgstr "la Galerie D'Art"
 
 #: .\main\templates\main\homepage.html:46
-#, fuzzy
-#| msgid "The Code Vault"
 msgid "the Code Vault"
-msgstr "Le Coddre-Fort"
+msgstr "le Coddre-Fort"
 
 #: .\main\templates\main\homepage.html:46
-#, fuzzy
-#| msgid " and "
 msgid "and"
-msgstr " et "
+msgstr "et"
 
 #: .\main\templates\main\homepage.html:46
-#, fuzzy
-#| msgid "The Workshop"
 msgid "the Workshop"
-msgstr "L'Atelier"
+msgstr "l'Atelier"
 
 #: .\main\templates\main\homepage.html:47
 msgid "You can also use the header to navigate !"
-msgstr ""
+msgstr "Vous pouvez aussi utiliser la barre de navigation pour vous déplacer !"
 
 #: .\main\templates\main\homepage.html:57
-#, fuzzy
-#| msgid "Learn more"
 msgid "Want more ?"
-msgstr "En apprendre plus"
+msgstr "Vous en voulez plus ?"
 
 #: .\main\templates\main\homepage.html:60
 msgid "Come and see my super secret (nope) specials"
-msgstr ""
+msgstr "Venez et admirez mes"
 
 #: .\main\templates\main\homepage.html:60
-#, fuzzy
-#| msgid "Specials Projects"
 msgid "projects"
 msgstr "Projets Spéciaux"
 
 #: .\main\templates\main\homepage.html:61
 msgid "If you've seen them already (good job !), you can read my"
-msgstr ""
+msgstr "Si vous les avez déjà vu (yay !), vous pouvez aller lire le"
 
 #: .\main\templates\main\homepage.html:61
 msgid "blog posts"
-msgstr ""
+msgstr "blog"
 
 #: .\main\templates\main\homepage.html:71
 msgid "Wanna know me ?"
-msgstr ""
+msgstr "Vous voulez me connaitre ?"
 
 #: .\main\templates\main\homepage.html:74
 msgid "Here's a short"
-msgstr ""
+msgstr "Voilà une courte"
 
 #: .\main\templates\main\homepage.html:74
 #, fuzzy
 #| msgid "in creation"
 msgid "presentation"
-msgstr "dans la creation"
+msgstr "présentation"
 
 #: .\main\templates\main\homepage.html:75
 msgid "If you have a question, it might be already"
-msgstr ""
+msgstr "Si vous avez une question, elle pourrait déjà avoir trouvé une"
 
 #: .\main\templates\main\homepage.html:75
 msgid "answered"
-msgstr ""
+msgstr "réponse"
 
 #: .\main\templates\main\homepage.html:85
 msgid "Wanna discover others amazing peoples ?"
-msgstr ""
+msgstr "Vous voulez découvrir d'autres personnes super ?"
 
 #: .\main\templates\main\homepage.html:88
 msgid "Check out the"
-msgstr ""
+msgstr "Jettez un coup d'oeil à tout ces"
 
 #: .\main\templates\main\homepage.html:88
 msgid "tab."
-msgstr ""
+msgstr "."
 
 #: .\main\templates\main\homepage.html:100
 msgid "The spinning animation was a nightmare to develop"
-msgstr ""
+msgstr "L'animation qui tourne fut un enfer à développer"
 
 #: .\main\templates\main\whoami.html:6
 msgid "Who am I"
