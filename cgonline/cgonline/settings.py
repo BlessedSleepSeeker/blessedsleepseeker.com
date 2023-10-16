@@ -23,13 +23,22 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-%0=r6ksb==f7=sw6gn8*#^+&j_d2=$^nfer9)-u$##c6b^@qds"
+with open("/etc/blog_secrets/django_secret_key.txt") as f:
+    SECRET_KEY = f.read().strip()
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = [".localhost", "127.0.0.1", "[::1]"]
+ALLOWED_HOSTS = ['blessedsleepseeker.com', 'www.blessedsleepseeker.com', ]
 
+CRSF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
+
+
+CSRF_TRUSTED_ORIGINS = ["https://www.blessedsleepseeker.com", "https://blessedsleepseeker.com"]
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+CONN_MAX_AGE = 1800
 
 # Application definition
 
@@ -85,10 +94,17 @@ WSGI_APPLICATION = "cgonline.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+with open("/etc/blog_secrets/db_seeker_password.txt") as f:
+    DB_SECRET_KEY = f.read().strip()
+
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        "ENGINE": "django.db.backends.postgresql_psycopg2",
+        "NAME": "blesseddeathseeker",
+        "USER": "seeker",
+        "PASSWORD": DB_SECRET_KEY,
+        "HOST": "localhost",
+        "PORT": '',
     }
 }
 
@@ -127,11 +143,17 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = "static/"
+STATIC_URL = "/static/"
 STATICFILES_DIRS = [
-    BASE_DIR / STATIC_URL,
-    BASE_DIR / "Templates/static",
+    BASE_DIR / "static/",
+    BASE_DIR / "templates/static",
 ]
+
+HOME_DIR = "/home/ubuntu/"
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticroot')
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 LOCALE_PATHS = [BASE_DIR / "cgonline/locale"]
 
@@ -139,3 +161,21 @@ LOCALE_PATHS = [BASE_DIR / "cgonline/locale"]
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# LOGGING
+
+ADMINS = [("Seeker", "camille.gouneau@laposte.net")]
+
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "handlers": {
+        "console": {
+            "class": "logging.StreamHandler",
+        },
+    },
+    "root": {
+        "handlers": ["console"],
+        "level": "DEBUG",
+    },
+}

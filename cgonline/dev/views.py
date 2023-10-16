@@ -39,7 +39,7 @@ def latest(request):
             visible_starting__lt=timezone.now()
         ).order_by("-upload_date")[:PROJECT_PER_PAGE],
     }
-    return render(request, "art/latest.html", context)
+    return render(request, "dev/latest.html", context)
 
 
 def dev_random(request):
