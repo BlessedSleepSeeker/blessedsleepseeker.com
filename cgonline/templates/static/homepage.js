@@ -33,7 +33,7 @@ function animate() {
     //changeText(getNext(wordlistEN))
 }
 
-function addTextAsChild(wordlist) {
+function addTextAsChild(wordlist = wordlistEN) {
     for (const word of wordlist) {
         let elem = document.createElement('li')
         elem.classList.add('changing-text-item')
@@ -57,6 +57,7 @@ function getCurrentLanguage() {
         case "fr":
             return wordlistFR
     }
+    return wordlistEN
 }
 
 shuffle(wordlistEN)

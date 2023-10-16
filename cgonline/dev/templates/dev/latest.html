@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% block title %}
+	Art
+{% endblock title %}
+{% block content %}
+<div>
+	<div class="pb-5 d-flex">
+        <a class="btn btn-outline-secondary mx-5" href="{% url 'dev:main' %}"><i id="" class="bi bi-arrow-left-short" style=""></i>{% translate "Back to the Vault" %}</a>
+    </div>
+    <div class="">
+        <h1 class="text-center display-1">{% translate "Latest Projects" %}</h1>
+        <div class="album py-5">
+            <div class="container">
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                    {% for project in page_obj %}
+			            <div class="col d-flex align-self-stretch">
+			            	<a class="nav-link d-flex" href="{% url 'dev:project' project.url %}">
+			            	    <div class="card shadow-sm hover-zoom-card">
+			            	    	<img src="{{ project.miniature.url }}" class="img-fluid card-img-top">
+			            	    	<div class="card-body">
+                                        {% if project.was_updated_recently %}<span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">!{% if project.was_published_recently %}?{% endif %}</span>{% endif %}
+                                        <h2 class="card-title">{{ project.title }}</h2>
+                                        <div class="">
+                                            {% for tag in project.tags_formated %}
+                                                <div class="badge rounded-pill bg-secondary mx-1 d-flex-inline align-content-center ">
+                                                    <a class="link-light text-decoration-none" href={% url 'dev:tags' tag %}>{{tag}}</a>
+                                                </div>
+                                            {% endfor %}
+                                        </div>
+                                        <div class="">
+                                            {% translate "By"%} {{project.authors}}
+                                        </div>
+                                        {% get_current_language as LANGUAGE_CODE %}
+			            	    		<p class="card-text text-muted">{% if LANGUAGE_CODE == "en-us" %}
+                                            {{ project.short_description }}
+                                        {% elif LANGUAGE_CODE == "fr" %}
+                                            {{ project.short_descriptionFR }}
+                                        {% endif %}</p>
+			            	    	</div>
+			            	    </div>
+			            	</a>
+			            </div>
+		            {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+{% block easteregg %}
+    <a href="https://www.youtube.com/@BJGpixel" class="nav-link"> Hello There ! My name's Camille and I make picture out of tiny squares !</a>
+{% endblock easteregg %}
