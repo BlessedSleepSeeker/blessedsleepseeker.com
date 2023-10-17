@@ -18,25 +18,33 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = False
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-with open("/etc/blog_secrets/django_secret_key.txt") as f:
-    SECRET_KEY = f.read().strip()
+if DEBUG:
+    SECRET_KEY = "1___9azer23retfnvgbxc4azlmjhemlka"
+else:
+    with open("/etc/blog_secrets/django_secret_key.txt") as f:
+        SECRET_KEY = f.read().strip()
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
 
-ALLOWED_HOSTS = ['blessedsleepseeker.com', 'www.blessedsleepseeker.com']
+ALLOWED_HOSTS = ["blessedsleepseeker.com", "www.blessedsleepseeker.com"]
+
+if DEBUG:
+    ALLOWED_HOSTS.append("localhost")
 
 CRSF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True
+CSRF_TRUSTED_ORIGINS = [
+    "https://www.blessedsleepseeker.com",
+    "https://blessedsleepseeker.com",
+]
 
-
-CSRF_TRUSTED_ORIGINS = ["https://www.blessedsleepseeker.com", "https://blessedsleepseeker.com"]
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 
 CONN_MAX_AGE = 1800
 
@@ -56,6 +64,7 @@ INSTALLED_APPS = [
     "diy",
     "dev",
     "special",
+    "rss",
     "cgonline",
 ]
 
@@ -104,7 +113,7 @@ DATABASES = {
         "USER": "seeker",
         "PASSWORD": DB_SECRET_KEY,
         "HOST": "localhost",
-        "PORT": '',
+        "PORT": "",
     }
 }
 
@@ -151,9 +160,9 @@ STATICFILES_DIRS = [
 
 HOME_DIR = "/home/ubuntu/"
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticroot')
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+STATIC_ROOT = os.path.join(BASE_DIR, "staticroot")
+MEDIA_URL = "/media/"
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 LOCALE_PATHS = [BASE_DIR / "cgonline/locale"]
 

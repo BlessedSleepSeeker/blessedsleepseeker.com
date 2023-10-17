@@ -1,6 +1,7 @@
 import datetime
 from django.db import models
 from django.forms import ValidationError
+from django.urls import reverse
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 
@@ -13,6 +14,7 @@ class Article(models.Model):
     ]
 
     title = models.CharField(max_length=200)
+
     # used for url creation, do not put maj char, space or special characters in it
     short_title = models.CharField(max_length=30, unique=True)
     body = models.TextField()
@@ -31,6 +33,7 @@ class Article(models.Model):
     tags = models.TextField(blank=True, validators=[validate_tags])
 
     # an article is only accessible when the datetime is past visible_starting
+
     visible_starting = models.DateTimeField(default=timezone.now)
     upload_date = models.DateTimeField(default=timezone.now)
     update_date = models.DateTimeField(auto_now=True)
@@ -58,3 +61,6 @@ class Article(models.Model):
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return reverse("entry", kwargs={"slug": self.short_title})
