@@ -1,3 +1,4 @@
+from blog.models import Article
 from django.http import HttpResponse
 from django.shortcuts import render
 
@@ -13,8 +14,10 @@ from .models import (
 # Create your views here.
 def index(request):
     main_text = TitleText.objects.get(pk=1)
+    latest_articles = Article.objects.all().order_by("-visible_starting")[:2]
 
-    context = {"main_text": main_text}
+    context = {"main_text": main_text,
+               "page_obj": latest_articles}
     return render(request, "main/homepage.html", context)
 
 

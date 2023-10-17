@@ -29,7 +29,7 @@ with open("/etc/blog_secrets/django_secret_key.txt") as f:
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['blessedsleepseeker.com', 'www.blessedsleepseeker.com', ]
+ALLOWED_HOSTS = ['blessedsleepseeker.com', 'www.blessedsleepseeker.com']
 
 CRSF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True

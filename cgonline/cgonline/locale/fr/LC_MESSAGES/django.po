@@ -2,13 +2,13 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-16 08:41+0200\n"
+"POT-Creation-Date: 2023-10-17 08:34+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,7 +19,8 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: art/templates/art/generic_galery.html:20 art/templates/art/latest.html:21
-#: blog/templates/blog/main.html:63 special/templates/special/main.html:23
+#: blog/templates/blog/main.html:63 main/templates/main/homepage.html:102
+#: special/templates/special/main.html:23
 msgid "!?"
 msgstr ""
 
@@ -40,7 +41,7 @@ msgid "Next"
 msgstr "Suivant"
 
 #: art/templates/art/generic_piece.html:36 blog/templates/blog/article.html:19
-#: blog/templates/blog/main.html:70
+#: blog/templates/blog/main.html:70 main/templates/main/homepage.html:109
 msgid "Unveiled"
 msgstr "Dévoilé"
 
@@ -83,7 +84,7 @@ msgid "Latest Pieces"
 msgstr "Dernieres Oeuvres"
 
 #: art/templates/art/main_galery.html:13 dev/templates/dev/main.html:22
-#: diy/templates/diy/main.html:22
+#: diy/templates/diy/main.html:23
 msgid "Random"
 msgstr "Aléatoire"
 
@@ -130,6 +131,20 @@ msgstr "Le Digi-Flux"
 msgid "All the news, directly into your brain !"
 msgstr "Toutes les nouvelles, directement dans votre cerveau !"
 
+#: dev/templates/dev/latest.html:10
+#, fuzzy
+#| msgid "Back to the galery"
+msgid "Back to the Vault"
+msgstr "Retour à la galerie"
+
+#: dev/templates/dev/latest.html:13 dev/templates/dev/main.html:21
+msgid "Latest Projects"
+msgstr "Derniers Projets"
+
+#: dev/templates/dev/latest.html:33 dev/templates/dev/main.html:75
+msgid "By"
+msgstr "Par"
+
 #: dev/templates/dev/main.html:14
 msgid "All projects tagged with"
 msgstr "Tout les projets avec le tag"
@@ -141,14 +156,6 @@ msgstr "Le Coddre-Fort"
 #: dev/templates/dev/main.html:18
 msgid "Shouldn't a vault be closed ?"
 msgstr "Un coffre-fort ne devrait-il pas etre fermé ?"
-
-#: dev/templates/dev/main.html:21 diy/templates/diy/main.html:21
-msgid "Latest Projects"
-msgstr "Derniers Projets"
-
-#: dev/templates/dev/main.html:75
-msgid "By"
-msgstr "Par"
 
 #: dev/templates/dev/main.html:94
 msgid ""
@@ -250,7 +257,7 @@ msgstr ""
 #: dev/templates/dev/projects/asecript.html:82
 #: dev/templates/dev/projects/django-setup.html:81
 #: dev/templates/dev/projects/meleecraft.html:74
-#: dev/templates/dev/projects/oracleoftreasons.html:74
+#: dev/templates/dev/projects/oracleoftreasons.html:77
 #: dev/templates/dev/projects/questgiver.html:80
 msgid "Open and Free"
 msgstr "Ouvert et Gratuit"
@@ -258,7 +265,7 @@ msgstr "Ouvert et Gratuit"
 #: dev/templates/dev/projects/asecript.html:85
 #: dev/templates/dev/projects/django-setup.html:84
 #: dev/templates/dev/projects/meleecraft.html:77
-#: dev/templates/dev/projects/oracleoftreasons.html:77
+#: dev/templates/dev/projects/oracleoftreasons.html:80
 #: dev/templates/dev/projects/questgiver.html:83
 msgid "The Project is under the "
 msgstr "Le projet est sous la license "
@@ -266,14 +273,14 @@ msgstr "Le projet est sous la license "
 #: dev/templates/dev/projects/asecript.html:85
 #: dev/templates/dev/projects/django-setup.html:84
 #: dev/templates/dev/projects/meleecraft.html:77
-#: dev/templates/dev/projects/oracleoftreasons.html:77
+#: dev/templates/dev/projects/oracleoftreasons.html:80
 #: dev/templates/dev/projects/questgiver.html:83
 msgid " license."
 msgstr "."
 
 #: dev/templates/dev/projects/asecript.html:86
 #: dev/templates/dev/projects/meleecraft.html:78
-#: dev/templates/dev/projects/oracleoftreasons.html:78
+#: dev/templates/dev/projects/oracleoftreasons.html:81
 #: dev/templates/dev/projects/questgiver.html:84
 msgid "You can find the sources "
 msgstr "Vous pouvez trouver le code source "
@@ -290,7 +297,7 @@ msgstr "ou les télécharger "
 
 #: dev/templates/dev/projects/asecript.html:86
 #: dev/templates/dev/projects/meleecraft.html:78
-#: dev/templates/dev/projects/oracleoftreasons.html:78
+#: dev/templates/dev/projects/oracleoftreasons.html:81
 #: dev/templates/dev/projects/questgiver.html:84
 msgid "here"
 msgstr "là"
@@ -434,12 +441,12 @@ msgstr ""
 "projet en 3 jours et suis passé à autre chose."
 
 #: dev/templates/dev/projects/meleecraft.html:61
-#: dev/templates/dev/projects/oracleoftreasons.html:61
+#: dev/templates/dev/projects/oracleoftreasons.html:64
 msgid "Built with Fabric"
 msgstr "Construit avec Fabric"
 
 #: dev/templates/dev/projects/meleecraft.html:64
-#: dev/templates/dev/projects/oracleoftreasons.html:64
+#: dev/templates/dev/projects/oracleoftreasons.html:67
 msgid ""
 " is an alternative to Forge Mod Loader. We like alternatives and IMO Forge "
 "kinda suck. Not having to do much to update your mods to different versions "
@@ -467,12 +474,12 @@ msgstr ""
 "les gourmands, les prédictions viennent sous la forme de cookie de la "
 "Fortune !"
 
-#: dev/templates/dev/projects/oracleoftreasons.html:35
+#: dev/templates/dev/projects/oracleoftreasons.html:38
 #, python-format
 msgid "100%% Useless"
 msgstr "100%% Inutile"
 
-#: dev/templates/dev/projects/oracleoftreasons.html:38
+#: dev/templates/dev/projects/oracleoftreasons.html:41
 msgid ""
 "The oracle and the fortune cookies are simply here for flair. No real "
 "mechanics except eating your fortune cookie !"
@@ -480,11 +487,11 @@ msgstr ""
 "Il n'y a aucune autre mécaniques que le RP que vous en ferez (il y a quand "
 "meme de quoi récupérer et manger le cookie, pas d'inquiétude)."
 
-#: dev/templates/dev/projects/oracleoftreasons.html:48
+#: dev/templates/dev/projects/oracleoftreasons.html:51
 msgid "A Jam Project"
 msgstr "Un Projet de Jam"
 
-#: dev/templates/dev/projects/oracleoftreasons.html:51
+#: dev/templates/dev/projects/oracleoftreasons.html:54
 msgid ""
 "This mod is the result of Creajam (rip), a weekly arty jam we used to run."
 msgstr ""
@@ -626,11 +633,15 @@ msgstr ""
 msgid "A card creation tool for Wakfu TCG"
 msgstr "Un outil de création de carte pour Wakfu TCG"
 
-#: dev/templates/dev/projects/wakfutcg-card-maker.html:36
+#: dev/templates/dev/projects/wakfutcg-card-maker.html:28
+msgid "Blessed be the one who seek."
+msgstr ""
+
+#: dev/templates/dev/projects/wakfutcg-card-maker.html:40
 msgid "Create the card of your dream"
 msgstr "Créez la carte de vos rêves"
 
-#: dev/templates/dev/projects/wakfutcg-card-maker.html:39
+#: dev/templates/dev/projects/wakfutcg-card-maker.html:43
 msgid ""
 "Doing fan card is the dream of every single TCG player. Now, you can even do "
 "it on a game that was dead long before I even started the project ! Woohoo !"
@@ -639,31 +650,27 @@ msgstr ""
 "vous pouvez même le faire sur un jeu qui était mort bien avant que je "
 "commence ce projet ! Youpi !"
 
-#: dev/templates/dev/projects/wakfutcg-card-maker.html:49
+#: dev/templates/dev/projects/wakfutcg-card-maker.html:53
 msgid "My First Project"
 msgstr "Mon Premier Projet"
 
-#: dev/templates/dev/projects/wakfutcg-card-maker.html:52
+#: dev/templates/dev/projects/wakfutcg-card-maker.html:56
 msgid ":)"
 msgstr ""
 
-#: dev/templates/dev/projects/wakfutcg-card-maker.html:62
+#: dev/templates/dev/projects/wakfutcg-card-maker.html:66
 msgid "Built with Unity"
 msgstr "Développé sous Unity"
 
-#: dev/templates/dev/projects/wakfutcg-card-maker.html:65
-msgid ""
-" is a game-engine. I kinda used it only once, found it really convoluted and "
-"stopped using it."
+#: dev/templates/dev/projects/wakfutcg-card-maker.html:69
+msgid " is one of the game-engine of all time."
 msgstr ""
-"est un game engine. Je n'ai utilisé unity qu'une fois (cette fois), l'ai "
-"trouvé un peu trop flou et ai laissé tombé."
 
-#: dev/templates/dev/projects/wakfutcg-card-maker.html:75
+#: dev/templates/dev/projects/wakfutcg-card-maker.html:79
 msgid "Not Open but Free"
 msgstr "Fermé mais Gratuit"
 
-#: dev/templates/dev/projects/wakfutcg-card-maker.html:78
+#: dev/templates/dev/projects/wakfutcg-card-maker.html:82
 msgid ""
 "I'm sorry, I lost the sources. I am not kiding, this project is almost 7 "
 "years old now."
@@ -683,7 +690,7 @@ msgstr "L'Atelier"
 msgid "Tinker, Tinker Little Star"
 msgstr "Il Soude Il Soude, le Furet"
 
-#: diy/templates/diy/main.html:91
+#: diy/templates/diy/main.html:92
 msgid "Crafting Level Up !"
 msgstr ""
 
@@ -933,8 +940,7 @@ msgid ""
 "EXPUNGED]. Casualties were estimated to a total of [BIG NUMBER] dead."
 msgstr ""
 
-#: main/templates/main/friends.html:5 main/templates/main/homepage.html:88
-#: templates/base.html:115
+#: main/templates/main/friends.html:5 templates/base.html:115
 msgid "Friends"
 msgstr "Amis"
 
@@ -946,107 +952,105 @@ msgstr "Des personnes très cools !"
 msgid "All of your friends are belong to us !!!"
 msgstr ""
 
-#: main/templates/main/homepage.html:6 templates/base.html:112
+#: main/templates/main/homepage.html:7 templates/base.html:112
 msgid "Home"
-msgstr "Acceuil"
+msgstr "Accueil"
 
-#: main/templates/main/homepage.html:14
-msgid "Seeking Blessed Sleep with"
-msgstr "Rechercher un sommeil beni via"
+#: main/templates/main/homepage.html:15
+msgid "Hey, welcome ! I'm a Blessed Sleep Seeker"
+msgstr "Hey, salut ! Je suis un Chercheur de Sommeil Beni"
 
-#: main/templates/main/homepage.html:19
-msgid "a blog by"
-msgstr "un blog par"
+#: main/templates/main/homepage.html:17
+msgid "Just call me"
+msgstr "Vous pouvez m'appeler"
 
-#: main/templates/main/homepage.html:43
+#: main/templates/main/homepage.html:17
+msgid " Camille"
+msgstr ""
+
+#: main/templates/main/homepage.html:21
+msgid "Just as a well-filled day brings blessed sleep, so a well-employed life brings a blessed death."
+msgstr "Comme une journée bien remplie amène un sommeil béni, une vie bien employée amène une mort bénie."
+
+#: main/templates/main/homepage.html:24
+msgid "Leonardo Da Vinci"
+msgstr "Léonard De Vinci"
+
+#: main/templates/main/homepage.html:29
+msgid "It cannot be found by seeking, but only seekers shall find it."
+msgstr "On ne peux le trouver en cherchant, mais seul ceux qui le cherche pourront le trouver."
+
+#: main/templates/main/homepage.html:32
+msgid "Sufi Proverb"
+msgstr "Proverbe Sufi"
+
+#: main/templates/main/homepage.html:56
+msgid ""
+"In my endless quest for Blessed Sleep, I've started creating things. This "
+"website is both a reminder to myself of all I've accomplished and a way to "
+"share it to you. I hope you will enjoy your time here."
+msgstr "Dans ma quête sans fin pour le Sommeil Béni, j'ai commencé à créer des choses. Ce blog est à la fois un moyen de me souvenir de ce que j'ai fait et une plateforme pour le partager avec vous. J'espère que cela vous plaira."
+
+#: main/templates/main/homepage.html:67
 msgid "New here ?"
 msgstr "Nouveau par içi ? "
 
-#: main/templates/main/homepage.html:46
+#: main/templates/main/homepage.html:70
 msgid ""
-"Welcome ! Take your time, a good starting point is to browse the galeries to "
-"see my works. Here's"
-msgstr ""
-"Bienvenue ! Prennez votre temps, un bon point de départ est de vous ballader "
-"dans les galeries pour vous faire une idée de ce que je fais. Voilà"
+"A good starting point is to change the language and theme if you want. Go "
+"top right of the header ! You can now browse the galeries to see my works. "
+"Here's"
+msgstr "Un bon point de départ est de changer la langue et le thème du site si vous le souhaitez. Direction en haut à droite ! Vous pouvez désormais visiter les galleries. Voilà"
 
-#: main/templates/main/homepage.html:46
+#: main/templates/main/homepage.html:70
 msgid "the Art Galery"
 msgstr "la Galerie D'Art"
 
-#: main/templates/main/homepage.html:46
+#: main/templates/main/homepage.html:70
 msgid "the Code Vault"
 msgstr "le Coddre-Fort"
 
-#: main/templates/main/homepage.html:46
+#: main/templates/main/homepage.html:70
 msgid "and"
 msgstr "et"
 
-#: main/templates/main/homepage.html:46
+#: main/templates/main/homepage.html:70
 msgid "the Workshop"
 msgstr "l'Atelier"
 
-#: main/templates/main/homepage.html:47
+#: main/templates/main/homepage.html:71
 msgid "You can also use the header to navigate !"
 msgstr "Vous pouvez aussi utiliser la barre de navigation pour vous déplacer !"
 
-#: main/templates/main/homepage.html:57
+#: main/templates/main/homepage.html:81
 msgid "Want more ?"
 msgstr "Vous en voulez plus ?"
 
-#: main/templates/main/homepage.html:60
+#: main/templates/main/homepage.html:84
 msgid "Come and see my super secret (nope) specials"
 msgstr "Venez et admirez mes"
 
-#: main/templates/main/homepage.html:60
+#: main/templates/main/homepage.html:84
 msgid "projects"
 msgstr "Projets Spéciaux"
 
-#: main/templates/main/homepage.html:61
+#: main/templates/main/homepage.html:85
 msgid "If you've seen them already (good job !), you can read my"
 msgstr "Si vous les avez déjà vu (yay !), vous pouvez aller lire le"
 
-#: main/templates/main/homepage.html:61
+#: main/templates/main/homepage.html:85
 msgid "blog posts"
 msgstr "blog"
 
-#: main/templates/main/homepage.html:71
-msgid "Wanna know me ?"
-msgstr "Vous voulez me connaitre ?"
+#: main/templates/main/homepage.html:94
+msgid "Latest Blog Posts"
+msgstr "Derniers Projets"
 
-#: main/templates/main/homepage.html:74
-msgid "Here's a short"
-msgstr "Voilà une courte"
-
-#: main/templates/main/homepage.html:74
-#, fuzzy
-#| msgid "in creation"
-msgid "presentation"
-msgstr "présentation"
-
-#: main/templates/main/homepage.html:75
-msgid "If you have a question, it might be already"
-msgstr "Si vous avez une question, elle pourrait déjà avoir trouvé une"
-
-#: main/templates/main/homepage.html:75
-msgid "answered"
-msgstr "réponse"
-
-#: main/templates/main/homepage.html:85
-msgid "Wanna discover others amazing peoples ?"
-msgstr "Vous voulez découvrir d'autres personnes super ?"
-
-#: main/templates/main/homepage.html:88
-msgid "Check out the"
-msgstr "Jettez un coup d'oeil à tout ces"
-
-#: main/templates/main/homepage.html:88
-msgid "tab."
-msgstr "."
-
-#: main/templates/main/homepage.html:100
-msgid "The spinning animation was a nightmare to develop"
-msgstr "L'animation qui tourne fut un enfer à développer"
+#: main/templates/main/homepage.html:137
+msgid ""
+"I spent like 3 hours working on an animated text in here, but scrapped it at "
+"the last moment."
+msgstr "J'ai passé environ 3 heures à travailler sur un texte animé pour la page d'acceuil, mais l'ai retiré au dernier moment."
 
 #: main/templates/main/whoami.html:6
 msgid "Who am I"
@@ -1191,6 +1195,56 @@ msgstr ""
 #: templates/base.html:121
 msgid "This is where I would put my easter eggs, if I had some."
 msgstr "C'est là où je mettrais mes easter eggs, si j'en avais."
+
+#~ msgid ""
+#~ " is a game-engine. I kinda used it only once, found it really convoluted "
+#~ "and stopped using it."
+#~ msgstr ""
+#~ "est un game engine. Je n'ai utilisé unity qu'une fois (cette fois), l'ai "
+#~ "trouvé un peu trop flou et ai laissé tombé."
+
+#~ msgid "Seeking Blessed Sleep with"
+#~ msgstr "Rechercher un sommeil beni via"
+
+#~ msgid "a blog by"
+#~ msgstr "un blog par"
+
+#~ msgid ""
+#~ "Welcome ! Take your time, a good starting point is to browse the galeries "
+#~ "to see my works. Here's"
+#~ msgstr ""
+#~ "Bienvenue ! Prennez votre temps, un bon point de départ est de vous "
+#~ "ballader dans les galeries pour vous faire une idée de ce que je fais. "
+#~ "Voilà"
+
+#~ msgid "Wanna know me ?"
+#~ msgstr "Vous voulez me connaitre ?"
+
+#~ msgid "Here's a short"
+#~ msgstr "Voilà une courte"
+
+#, fuzzy
+#~| msgid "in creation"
+#~ msgid "presentation"
+#~ msgstr "présentation"
+
+#~ msgid "If you have a question, it might be already"
+#~ msgstr "Si vous avez une question, elle pourrait déjà avoir trouvé une"
+
+#~ msgid "answered"
+#~ msgstr "réponse"
+
+#~ msgid "Wanna discover others amazing peoples ?"
+#~ msgstr "Vous voulez découvrir d'autres personnes super ?"
+
+#~ msgid "Check out the"
+#~ msgstr "Jettez un coup d'oeil à tout ces"
+
+#~ msgid "tab."
+#~ msgstr "."
+
+#~ msgid "The spinning animation was a nightmare to develop"
+#~ msgstr "L'animation qui tourne fut un enfer à développer"
 
 #~ msgid "Autotelic"
 #~ msgstr "Autotelisme et"

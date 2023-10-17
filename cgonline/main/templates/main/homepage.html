@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load i18n %}
 {% load static %}
+{% load humanize %}
 {% load markdown_extras %}
 {% block title %}
 {% translate "Home" %}
@@ -11,13 +12,26 @@
 {% block content %}
 <div class="cover-container d-flex w-100 p-3 mx-auto flex-column text-center mb-5">
     <main class="px-3">
-        <div class="bitsumishi display-1">{% translate "Seeking Blessed Sleep" %}</div>
-        <div class="bitsumishi display-1 changing-text-container d-flex flex-row justify-content-center mx-auto">
-            <ul class="changing-text-list" id="changingText"></ul>
+        <div class="bitsumishi display-1">{% translate "Hey, welcome ! I'm a Blessed Sleep Seeker" %}</div>
+        <div class="d-flex justify-content-center my-5">
+            <div class="bitsumishi display-5 w-auto border-bottom"> <span class="text-muted">{% translate "Just call me" %}</span> {% translate " Camille" %}</div>
         </div>
-        <div class="d-flex justify-content-center mt-5">
-            <div class="bitsumishi display-5 w-auto border-bottom"> <span class="text-muted">{% translate "Hey, welcome ! I'm" %}</span> {% translate " Seeker" %}</div>
-        </div>
+        <figure class="text-center">
+            <blockquote class="blockquote">
+              <p>{% translate "Just as a well-filled day brings blessed sleep, so a well-employed life brings a blessed death." %}</p>
+            </blockquote>
+            <figcaption class="blockquote-footer">
+              <cite title="Source Title">{% translate "Leonardo Da Vinci"%}</cite>
+            </figcaption>
+          </figure>
+          <figure class="text-center">
+            <blockquote class="blockquote">
+              <p>{% translate "It cannot be found by seeking, but only seekers shall find it."%}</p>
+            </blockquote>
+            <figcaption class="blockquote-footer">
+              <cite title="Source Title">{% translate "Sufi Proverb"%}</cite>
+            </figcaption>
+          </figure>
     </main>
 </div>
 {% comment %}
@@ -31,7 +45,17 @@
 	{% endif %}
     </div>
 </div>
+
+<div class="container">
+    <div class="bitsumishi display-1 changing-text-container d-flex flex-row justify-content-center mx-auto">
+        <ul class="changing-text-list text-muted" id="changingText"></ul>
+    </div>
+</div>
 {% endcomment %}
+<div class="container">
+    <div class="fs-3 text-center">{% translate "In my endless quest for Blessed Sleep, I've started creating things. This website is both a reminder to myself of all I've accomplished and a way to share it to you. I hope you will enjoy your time here." %}</div>
+</div>
+
 <div class="container">
     <div class="row g-4 py-5 row-cols-1 row-cols-lg-2">
         <div class="col d-flex align-items-start">
@@ -43,7 +67,7 @@
                     {% translate "New here ?" %}
                 </h3>
                 <p class="text-muted">
-                    {% translate "Welcome ! Take your time, a good starting point is to browse the galeries to see my works. Here's" %} <a class="link-underline link-underline-opacity-0" href="{% url 'art:art_galery' %}">{% translate "the Art Galery" %}</a>, <a class="link-underline link-underline-opacity-0" href="{% url 'dev:dev_main' %}">{% translate "the Code Vault" %}</a> {% translate 'and' %} <a class="link-underline link-underline-opacity-0" href="{% url 'diy:diy_main' %}">{% translate "the Workshop" %}</a>.
+                    {% translate "A good starting point is to change the language and theme if you want. Go top right of the header ! You can now browse the galeries to see my works. Here's" %} <a class="link-underline link-underline-opacity-0" href="{% url 'art:art_galery' %}">{% translate "the Art Galery" %}</a>, <a class="link-underline link-underline-opacity-0" href="{% url 'dev:dev_main' %}">{% translate "the Code Vault" %}</a> {% translate 'and' %} <a class="link-underline link-underline-opacity-0" href="{% url 'diy:diy_main' %}">{% translate "the Workshop" %}</a>.
                     {% translate "You can also use the header to navigate !" %}
                 </p>
             </div>
@@ -62,41 +86,52 @@
                 </p>
             </div>
         </div>
-        <div class="col d-flex align-items-start">
-            <div class="text-body-emphasis d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
-                <i class="bi bi-person-lines-fill text-info"></i>
-            </div>
-            <div>
-                <h3 class="text-body-emphasis fs-2">
-                    {% translate "Wanna know me ?" %}
-                </h3>
-                <p class="text-muted">
-                    {% translate "Here's a short" %} <a class="link-underline link-underline-opacity-0" href="{% url 'main:whoami' %}">{% translate "presentation" %}</a>.
-                    {% translate "If you have a question, it might be already" %} <a class="link-underline link-underline-opacity-0" href="{% url 'main:faq' %}">{% translate "answered" %}</a>.
-                </p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="my-5">
+        <div class="display-5 w-auto border-bottom">{% translate "Latest Blog Posts" %}</div>
+    </div>
+    <div class="row row-cols-1 g-3 d-flex justify-content-center">
+        {% for article in page_obj %}
+        <div class="col w-75">
+            <div class="card my-1">
+                <div class="card-body">
+                    <div class="pb-2 border-bottom">
+                        {% if article.was_published_recently %}<span class="position-absolute top-0 start-0 translate-middle badge rounded-pill bg-danger">{% translate "!?" %}</span>{% endif %}
+                        <h3 class="card-title">
+                            <a class="link-underline link-underline-opacity-0" href="{% url 'blog:entry' article.short_title %}">
+                                {{ article.title }}
+                            </h3>
+                        </a>
+                        <div class="text-muted d-inline-flex" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="{{article.visible_starting|date:'d/m/Y - H:i e'}}">
+                            {% translate "Unveiled" %} {{article.visible_starting|naturaltime}}
+                        </div>
+                        <div class="d-inline-flex">
+                            {% for tag in article.tags_formated %}
+                                <div class="badge rounded-pill bg-secondary mx-1 d-flex-inline align-content-center ">
+                                    <a class="link-light text-decoration-none" href={% url 'blog:tags' tag %}>{{tag}}</a>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <p class="card-text mt-2">
+                        {% get_current_language as LANGUAGE_CODE %}
+                        {% if LANGUAGE_CODE == "en-us" %}{{ article.short_descriptionEN | markdown | safe}}{% elif LANGUAGE_CODE == "fr" %}{{ article.short_descriptionFR | markdown | safe}}{% endif %}
+
+                    </p>
+                </div>
             </div>
         </div>
-        <div class="col d-flex align-items-start">
-            <div class="text-body-emphasis d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
-                <i class="bi bi-heart text-info"></i>
-            </div>
-            <div>
-                <h3 class="text-muted text-body-emphasis fs-2">
-                    {% translate "Wanna discover others amazing peoples ?" %}
-                </h3>
-                <p class="text-muted">
-                    {% translate "Check out the" %} <a class="link-underline link-underline-opacity-0" href="{% url 'main:friends' %}">{% translate "Friends" %}</a> {% translate "tab." %}
-                </p>
-            </div>
-        </div>
+        {% endfor %}
     </div>
 </div>
 
 {% endblock content %}
 {% block scripts %}
-    <script src="{% static 'homepage.js' %}"></script>
+    {% comment %}<script src="{% static 'homepage.js' %}"></script>{% endcomment %}
 {% endblock scripts %}
 {% block easteregg %}
-    {% translate "The spinning animation was a nightmare to develop" %}
-
+{% translate "I spent like 3 hours working on an animated text in here, but scrapped it at the last moment." %}
 {% endblock easteregg %}
