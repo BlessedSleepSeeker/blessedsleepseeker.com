@@ -26,6 +26,7 @@ urlpatterns = [
     path("dev/", include("dev.urls", namespace="dev")),
     path("diy/", include("diy.urls", namespace="diy")),
     path("special/", include("special.urls", namespace="special")),
+    path("rss/", include("rss.urls", namespace="rss")),
     path("admin/", admin.site.urls),
     path("i18n/", include("django.conf.urls.i18n"), name="set_language"),
 ]

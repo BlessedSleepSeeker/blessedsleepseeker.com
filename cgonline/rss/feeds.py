@@ -1,28 +1,28 @@
 from django.shortcuts import render
 from django.contrib.syndication.views import Feed
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 
-from cgonline.blog.models import Article
+from blog.models import Article
 
 # Create your views here.
 
 
 class RssFeed(Feed):
-    title = "All news from Camille Gouneau"
-    link = ""
+    title = "Blessed Sleep Seeker's Blog"
+    link = "/blog/"
     description = "There's news !"
 
     def items(self):
-        return Article.objects.all().order_by("-pub_date")
+        return Article.objects.all().order_by("-visible_starting")[:5]
 
     def item_title(self, item):
         return item.title
 
     def item_description(self, item):
-        return item.description
+        return item.short_descriptionEN
 
     def item_link(self, item):
-        return reverse("rss_news", args=[item.pk])
+        return reverse_lazy("blog:entry", args=[item.short_title])
 
 
 class Latest(Feed):
