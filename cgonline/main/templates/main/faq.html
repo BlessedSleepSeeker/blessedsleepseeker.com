@@ -13,9 +13,9 @@
 	<div class="m-5" id="accordion">
 		{% for question in questions %}
 		<div class="card my-2 mx-5">
-			<div class="2">
+			<div class="">
 				{% get_current_language as LANGUAGE_CODE %}
-				<button class="btn btn-outline-light w-100" type="button" data-bs-toggle="collapse" data-bs-target="#{{question.pk}}">
+				<button class="btn btn-outline-secondary w-100" type="button" data-bs-toggle="collapse" data-bs-target="#{{question.pk}}">
 					<span class="h3">{% if LANGUAGE_CODE == "en-us" %}
 						{{ question.questionEN }}
 					{% elif LANGUAGE_CODE == "fr" %}

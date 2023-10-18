@@ -707,7 +707,7 @@ msgstr "Le support à ballons"
 msgid ""
 "How can I have my basketball on a shelf without it falling every 30 seconds ?"
 msgstr ""
-"Comment avoir ma balle de basket sur une étagère sans qu'elle roule partout ?"
+"Comment avoir mon ballon de basket sur une étagère sans qu'elle ne roule de partout ?"
 
 #: diy/templates/diy/projects/basket-stand.html:27
 msgid ""
@@ -726,7 +726,7 @@ msgid ""
 msgstr ""
 "Voilà quelques une des étapes de constructions du support à balles. Veuillez "
 "m'excuser pour la qualité des photos, j'ai utilisé mon téléphone portable et "
-"il accuse son age."
+"il accuse son âge."
 
 #: diy/templates/diy/projects/basket-stand.html:33
 msgid ""
@@ -984,7 +984,7 @@ msgstr "Léonard De Vinci"
 #: main/templates/main/homepage.html:29
 msgid "It cannot be found by seeking, but only seekers shall find it."
 msgstr ""
-"On ne peux le trouver en cherchant, mais seul ceux qui le cherche pourront "
+"On ne peux le trouver en cherchant, mais seuls ceux qui le cherche pourront "
 "le trouver."
 
 #: main/templates/main/homepage.html:32
@@ -1013,7 +1013,7 @@ msgid ""
 msgstr ""
 "Un bon point de départ est de changer la langue et le thème du site si vous "
 "le souhaitez. Direction en haut à droite ! Vous pouvez désormais visiter les "
-"galleries. Voilà"
+"galeries. Voilà"
 
 #: main/templates/main/homepage.html:60
 msgid "the Art Galery"
@@ -1160,7 +1160,7 @@ msgid ""
 "are two pixel-art fonts inspired by Science Fiction and old-school digital "
 "typography"
 msgstr ""
-"sont 2 polices en art des pixels inspiré par la Science-Fiction et la "
+"sont 2 polices en art des pixels inspirée par la Science-Fiction et la "
 "typographie old-school des débuts de l'informatique"
 
 #: special/templates/special/sci-bi.html:26
@@ -1168,7 +1168,7 @@ msgid ""
 "I recommend that you set a higher font size than 20 to have an enjoyable "
 "reading experience in your software of choice"
 msgstr ""
-"Je recommande que vous utilisiez une taille de police supérieur ou égale à "
+"Je recommande que vous utilisiez une taille de police supérieure ou égale à "
 "20 pour garantir une expérience de lecture agréable."
 
 #: special/templates/special/sci-bi.html:32
@@ -1180,7 +1180,7 @@ msgid ""
 "I've used it in a few game projects and am using it for taking notes "
 "regularly."
 msgstr ""
-"Je l'ai parfois utilisé dans quelques projets de jeux et régulierement pour "
+"Je l'ai parfois utilisé dans quelques projets de jeux et régulièrement pour "
 "prendre des notes."
 
 #: special/templates/special/sci-bi.html:36
@@ -1192,7 +1192,7 @@ msgid ""
 "This is a lot less readable than Regular but the flair might just be what "
 "you want !"
 msgstr ""
-"Glitched est beaucoup moins lisible mais les ajouts stylistiques pourrait "
+"Glitched est beaucoup moins lisible mais les ajouts stylistiques pourraient "
 "bien être justement ce qu'il vous faut."
 
 #: special/templates/special/sci-bi.html:43
