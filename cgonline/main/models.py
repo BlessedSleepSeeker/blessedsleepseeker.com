@@ -47,11 +47,3 @@ class Presentation(models.Model):
     textFR = models.TextField()
     textEN = models.TextField()
     picture = models.ImageField(upload_to="upload/aboutme/", blank=True)
-
-
-class TitleText(models.Model):
-    textEN = models.TextField()
-    textFR = models.TextField()
-
-    def __str__(self):
-        return self.textEN

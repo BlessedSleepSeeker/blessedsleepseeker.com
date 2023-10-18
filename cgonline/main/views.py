@@ -8,16 +8,13 @@ from .models import (
     Friend,
     Presentation,
     Question,
-    TitleText,
 )
 
 # Create your views here.
 def index(request):
-    main_text = TitleText.objects.get(pk=1)
     latest_articles = Article.objects.all().order_by("-visible_starting")[:2]
 
-    context = {"main_text": main_text,
-               "page_obj": latest_articles}
+    context = {"page_obj": latest_articles}
     return render(request, "main/homepage.html", context)
 
 

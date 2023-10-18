@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% load humanize %}
+{% load tz %}
+{% block title %}
+RSS
+{% endblock title %}
+{% block content %}
+<div class="container">
+    <div class="mb-3">
+        <h1 class="pb-2 border-bottom">{% translate "RSS Fluxs yipee !" %}</h1>
+    </div>
+	<div class="fs-5">
+        {% translate "Stay up to date by following the" %} <a href="{% url "rss:blog_feed"%}" >{% translate "Blog RSS Flux" %}</a> {% translate "or pick just what you want !"%}
+        <ul class="list-group my-3">
+            <li class="list-group-item"><a href="{% url "rss:art_feed" %}">{% translate "Art" %}</a> - {% translate "Only the latest pieces !" %}</li>
+            <li class="list-group-item"><a href="{% url "rss:dev_feed" %}">{% translate "Code" %}</a> - {% translate "Only the lastest updated dev projects !" %}</li>
+            <li class="list-group-item"><a href="{% url "rss:diy_feed" %}">{% translate "DIY" %}</a> - {% translate "Only the latest updated DIY projects !" %}</li>
+          </ul>
+          {% translate "Don't know how to use RSS ? Once you'll get it setup, it will be like scrolling on Twitter or Instagram. Head" %} <a href="https://www.w3schools.com/xml/xml_rss.asp">{% translate "here" %}</a> !
+    </div>
+</div>
+{% endblock content %}
+{% block easteregg %}
+{% translate "Did you know ? RSS stands for RamSeS 2. (me when I spread missinformation on the internet)" %}
+{% endblock easteregg %}

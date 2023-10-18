@@ -35,16 +35,6 @@
     </main>
 </div>
 {% comment %}
-<div class="container">
-    <div class="fs-4">
-        {% get_current_language as LANGUAGE_CODE %}
-	{% if LANGUAGE_CODE == "en-us" %}
-		{{ main_text.textEN | markdown | safe }}
-	{% elif LANGUAGE_CODE == "fr" %}
-		{{ main_text.textFR | markdown | safe }}
-	{% endif %}
-    </div>
-</div>
 
 <div class="container">
     <div class="bitsumishi display-1 changing-text-container d-flex flex-row justify-content-center mx-auto">

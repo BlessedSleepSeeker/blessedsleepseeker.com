@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-17 08:34+0200\n"
+"POT-Creation-Date: 2023-10-18 11:54+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: art/templates/art/generic_galery.html:20 art/templates/art/latest.html:21
-#: blog/templates/blog/main.html:63 main/templates/main/homepage.html:102
+#: blog/templates/blog/main.html:63 main/templates/main/homepage.html:92
 #: special/templates/special/main.html:23
 msgid "!?"
 msgstr ""
@@ -41,7 +41,7 @@ msgid "Next"
 msgstr "Suivant"
 
 #: art/templates/art/generic_piece.html:36 blog/templates/blog/article.html:19
-#: blog/templates/blog/main.html:70 main/templates/main/homepage.html:109
+#: blog/templates/blog/main.html:70 main/templates/main/homepage.html:99
 msgid "Unveiled"
 msgstr "Dévoilé"
 
@@ -97,15 +97,15 @@ msgid ""
 "Hello There ! My name's Camille and I make pictures out of tiny squares !"
 msgstr ""
 
-#: blog/models.py:11
+#: blog/models.py:12
 msgid "Francais"
 msgstr ""
 
-#: blog/models.py:12
+#: blog/models.py:13
 msgid "English"
 msgstr ""
 
-#: blog/models.py:26 dev/models.py:13 diy/models.py:13
+#: blog/models.py:28 dev/models.py:13 diy/models.py:13
 msgid ""
 "Les tags ne doivent pas avoir d'espace, et il ne doit y avoir qu'une virgule "
 "entre les tags"
@@ -299,6 +299,7 @@ msgstr "ou les télécharger "
 #: dev/templates/dev/projects/meleecraft.html:78
 #: dev/templates/dev/projects/oracleoftreasons.html:81
 #: dev/templates/dev/projects/questgiver.html:84
+#: rss/templates/rss/rss_pres.html:21
 msgid "here"
 msgstr "là"
 
@@ -940,7 +941,7 @@ msgid ""
 "EXPUNGED]. Casualties were estimated to a total of [BIG NUMBER] dead."
 msgstr ""
 
-#: main/templates/main/friends.html:5 templates/base.html:115
+#: main/templates/main/friends.html:5 templates/base.html:118
 msgid "Friends"
 msgstr "Amis"
 
@@ -952,7 +953,7 @@ msgstr "Des personnes très cools !"
 msgid "All of your friends are belong to us !!!"
 msgstr ""
 
-#: main/templates/main/homepage.html:7 templates/base.html:112
+#: main/templates/main/homepage.html:7 templates/base.html:115
 msgid "Home"
 msgstr "Accueil"
 
@@ -969,8 +970,12 @@ msgid " Camille"
 msgstr ""
 
 #: main/templates/main/homepage.html:21
-msgid "Just as a well-filled day brings blessed sleep, so a well-employed life brings a blessed death."
-msgstr "Comme une journée bien remplie amène un sommeil béni, une vie bien employée amène une mort bénie."
+msgid ""
+"Just as a well-filled day brings blessed sleep, so a well-employed life "
+"brings a blessed death."
+msgstr ""
+"Comme une journée bien remplie amène un sommeil béni, une vie bien employée "
+"amène une mort bénie."
 
 #: main/templates/main/homepage.html:24
 msgid "Leonardo Da Vinci"
@@ -978,79 +983,89 @@ msgstr "Léonard De Vinci"
 
 #: main/templates/main/homepage.html:29
 msgid "It cannot be found by seeking, but only seekers shall find it."
-msgstr "On ne peux le trouver en cherchant, mais seul ceux qui le cherche pourront le trouver."
+msgstr ""
+"On ne peux le trouver en cherchant, mais seul ceux qui le cherche pourront "
+"le trouver."
 
 #: main/templates/main/homepage.html:32
 msgid "Sufi Proverb"
 msgstr "Proverbe Sufi"
 
-#: main/templates/main/homepage.html:56
+#: main/templates/main/homepage.html:46
 msgid ""
 "In my endless quest for Blessed Sleep, I've started creating things. This "
 "website is both a reminder to myself of all I've accomplished and a way to "
 "share it to you. I hope you will enjoy your time here."
-msgstr "Dans ma quête sans fin pour le Sommeil Béni, j'ai commencé à créer des choses. Ce blog est à la fois un moyen de me souvenir de ce que j'ai fait et une plateforme pour le partager avec vous. J'espère que cela vous plaira."
+msgstr ""
+"Dans ma quête sans fin pour le Sommeil Béni, j'ai commencé à créer des "
+"choses. Ce blog est à la fois un moyen de me souvenir de ce que j'ai fait et "
+"une plateforme pour le partager avec vous. J'espère que cela vous plaira."
 
-#: main/templates/main/homepage.html:67
+#: main/templates/main/homepage.html:57
 msgid "New here ?"
 msgstr "Nouveau par içi ? "
 
-#: main/templates/main/homepage.html:70
+#: main/templates/main/homepage.html:60
 msgid ""
 "A good starting point is to change the language and theme if you want. Go "
 "top right of the header ! You can now browse the galeries to see my works. "
 "Here's"
-msgstr "Un bon point de départ est de changer la langue et le thème du site si vous le souhaitez. Direction en haut à droite ! Vous pouvez désormais visiter les galleries. Voilà"
+msgstr ""
+"Un bon point de départ est de changer la langue et le thème du site si vous "
+"le souhaitez. Direction en haut à droite ! Vous pouvez désormais visiter les "
+"galleries. Voilà"
 
-#: main/templates/main/homepage.html:70
+#: main/templates/main/homepage.html:60
 msgid "the Art Galery"
 msgstr "la Galerie D'Art"
 
-#: main/templates/main/homepage.html:70
+#: main/templates/main/homepage.html:60
 msgid "the Code Vault"
 msgstr "le Coddre-Fort"
 
-#: main/templates/main/homepage.html:70
+#: main/templates/main/homepage.html:60
 msgid "and"
 msgstr "et"
 
-#: main/templates/main/homepage.html:70
+#: main/templates/main/homepage.html:60
 msgid "the Workshop"
 msgstr "l'Atelier"
 
-#: main/templates/main/homepage.html:71
+#: main/templates/main/homepage.html:61
 msgid "You can also use the header to navigate !"
 msgstr "Vous pouvez aussi utiliser la barre de navigation pour vous déplacer !"
 
-#: main/templates/main/homepage.html:81
+#: main/templates/main/homepage.html:71
 msgid "Want more ?"
 msgstr "Vous en voulez plus ?"
 
-#: main/templates/main/homepage.html:84
+#: main/templates/main/homepage.html:74
 msgid "Come and see my super secret (nope) specials"
 msgstr "Venez et admirez mes"
 
-#: main/templates/main/homepage.html:84
+#: main/templates/main/homepage.html:74
 msgid "projects"
 msgstr "Projets Spéciaux"
 
-#: main/templates/main/homepage.html:85
+#: main/templates/main/homepage.html:75
 msgid "If you've seen them already (good job !), you can read my"
 msgstr "Si vous les avez déjà vu (yay !), vous pouvez aller lire le"
 
-#: main/templates/main/homepage.html:85
+#: main/templates/main/homepage.html:75
 msgid "blog posts"
 msgstr "blog"
 
-#: main/templates/main/homepage.html:94
+#: main/templates/main/homepage.html:84
 msgid "Latest Blog Posts"
 msgstr "Derniers Projets"
 
-#: main/templates/main/homepage.html:137
+#: main/templates/main/homepage.html:127
 msgid ""
 "I spent like 3 hours working on an animated text in here, but scrapped it at "
 "the last moment."
-msgstr "J'ai passé environ 3 heures à travailler sur un texte animé pour la page d'acceuil, mais l'ai retiré au dernier moment."
+msgstr ""
+"J'ai passé environ 3 heures à travailler sur un texte animé pour la page "
+"d'acceuil, mais l'ai retiré au dernier moment."
 
 #: main/templates/main/whoami.html:6
 msgid "Who am I"
@@ -1059,6 +1074,58 @@ msgstr "Qui suis-je"
 #: main/templates/main/whoami.html:28
 msgid "Did you know ? My favorite pokemon isn't Bidoof but Oshawott !"
 msgstr "Le saviez-vous ? Mon pokémon préféré n'est pas Bidoof mais Moustillon"
+
+#: rss/templates/rss/rss_pres.html:12
+msgid "RSS Fluxs yipee !"
+msgstr "Des fluxs RSS ! Youpi !"
+
+#: rss/templates/rss/rss_pres.html:15
+msgid "Stay up to date by following the"
+msgstr "Restez au courant de toutes mes activités en suivant le"
+
+#: rss/templates/rss/rss_pres.html:15
+msgid "Blog RSS Flux"
+msgstr "flux RSS du Blog"
+
+#: rss/templates/rss/rss_pres.html:15
+msgid "or pick just what you want !"
+msgstr "ou soyez plus spécifique !"
+
+#: rss/templates/rss/rss_pres.html:17 templates/base.html:35
+msgid "Art"
+msgstr ""
+
+#: rss/templates/rss/rss_pres.html:17
+msgid "Only the latest pieces !"
+msgstr "Les dernières oeuvres !"
+
+#: rss/templates/rss/rss_pres.html:18 templates/base.html:36
+msgid "Code"
+msgstr ""
+
+#: rss/templates/rss/rss_pres.html:18
+msgid "Only the lastest updated dev projects !"
+msgstr "Les projets de développement mis à jour le plus récement !"
+
+#: rss/templates/rss/rss_pres.html:19 templates/base.html:37
+msgid "DIY"
+msgstr ""
+
+#: rss/templates/rss/rss_pres.html:19
+msgid "Only the latest updated DIY projects !"
+msgstr "Les projets DIY mis à jour le plus récement !"
+
+#: rss/templates/rss/rss_pres.html:21
+msgid ""
+"Don't know how to use RSS ? Once you'll get it setup, it will be like "
+"scrolling on Twitter or Instagram. Head"
+msgstr "Vous ne savez pas comment utiliser RSS ? Une fois mis en place, ce sera comme scroller Twitter ou Instagram. Pour plus d'information, cliquez"
+
+#: rss/templates/rss/rss_pres.html:26
+msgid ""
+"Did you know ? RSS stands for RamSeS 2. (me when I spread missinformation on "
+"the internet)"
+msgstr "Le saviez-vous ? RSS signifie RamSeS 2. (moi quand je met des fausses informations sur les internets.)"
 
 #: special/templates/special/main.html:5
 msgid "Specials Projects"
@@ -1164,37 +1231,28 @@ msgstr ""
 msgid "Blog"
 msgstr ""
 
-#: templates/base.html:35
-msgid "Art"
-msgstr ""
-
-#: templates/base.html:36
-msgid "Code"
-msgstr ""
-
-#: templates/base.html:37
-msgid "DIY"
-msgstr ""
-
 #: templates/base.html:38
 msgid "Others"
 msgstr "Autres"
 
-#: templates/base.html:113
+#: templates/base.html:116
 msgid "About me"
 msgstr "A propos"
 
-#: templates/base.html:114
+#: templates/base.html:117
 msgid "FAQ"
 msgstr ""
 
-#: templates/base.html:116
+#: templates/base.html:119
 msgid "Contact"
 msgstr ""
 
-#: templates/base.html:121
+#: templates/base.html:124
 msgid "This is where I would put my easter eggs, if I had some."
 msgstr "C'est là où je mettrais mes easter eggs, si j'en avais."
+
+#~ msgid "Seeker's RSS Fluxs !"
+#~ msgstr "Les Fluxs RSS de Seeker !"
 
 #~ msgid ""
 #~ " is a game-engine. I kinda used it only once, found it really convoluted "
