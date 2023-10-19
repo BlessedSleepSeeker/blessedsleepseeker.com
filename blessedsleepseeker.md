@@ -1,19 +1,4 @@
-# CGOnline
-
-- [CGOnline](#cgonline)
-  - [Concept](#concept)
-  - [Technology](#technology)
-  - [Remaining Work](#remaining-work)
-  - [Art listing](#art-listing)
-    - [Hollow Knight](#hollow-knight)
-    - [Space](#space)
-    - [Doodles](#doodles)
-    - [Geometrical](#geometrical)
-    - [Animated](#animated)
-    - [LoL](#lol)
-    - [Celeste](#celeste)
-    - [Game Mockups](#game-mockups)
-    - [Animal](#animal)
+# blessedsleepseeker
 
 ## Concept
 
@@ -34,27 +19,7 @@ Front-end : Django Template + Bootstrap
 
 ## Remaining Work
 
-- Individual Project Pages for /dev and diy/
-- French translation
-- Listing of all the work I will put up
-- Deployment
-
-## Art listing
-
-### Hollow Knight
-
-### Space
-
-### Doodles
-
-### Geometrical
-
-### Animated
-
-### LoL
-
-### Celeste
-
-### Game Mockups
-
-### Animal
+- ~~Individual Project Pages for /dev and diy/~~
+- ~~French translation~~
+- ~~Listing of all the work I will put up~~
+- ~~Deployment~~

@@ -1,4 +1,4 @@
-﻿# Provided by Camille GOUNEAU
+﻿# Provided by Seeker
 # 12/09/2022
 # My template Django pre-commit setup using black, blacken-docs, flake8 and some base hooks
 # See .flake8 file for flake8 configuration !

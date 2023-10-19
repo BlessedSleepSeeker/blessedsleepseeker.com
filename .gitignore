@@ -3,9 +3,9 @@
 
 # Mine
 
-cgonline/upload
+upload/
 secret_*
-cgonline/staticroot/*
+staticroot/
 
 ### Django ###
 *.log

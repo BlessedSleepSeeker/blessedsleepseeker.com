@@ -6,25 +6,25 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('blog', '0002_alter_article_vignette'),
+        ("blog", "0002_alter_article_vignette"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='article',
-            name='active',
+            model_name="article",
+            name="active",
         ),
         migrations.RemoveField(
-            model_name='article',
-            name='language',
+            model_name="article",
+            name="language",
         ),
         migrations.RemoveField(
-            model_name='article',
-            name='vignette',
+            model_name="article",
+            name="vignette",
         ),
         migrations.AlterField(
-            model_name='article',
-            name='body',
+            model_name="article",
+            name="body",
             field=models.TextField(),
         ),
     ]

@@ -6,14 +6,14 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('blog', '0003_remove_article_active_remove_article_language_and_more'),
+        ("blog", "0003_remove_article_active_remove_article_language_and_more"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='article',
-            name='short_description',
-            field=models.TextField(default='bonjour'),
+            model_name="article",
+            name="short_description",
+            field=models.TextField(default="bonjour"),
             preserve_default=False,
         ),
     ]

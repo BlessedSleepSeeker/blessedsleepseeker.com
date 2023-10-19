@@ -6,7 +6,7 @@ from .models import Album, Piece
 
 # Create your views here.
 def art_galery(request):
-    albums = Album.objects.all().order_by('?')
+    albums = Album.objects.all().order_by("?")
     content = []
     for album in albums:
         pieces = Piece.objects.filter(album=album)
