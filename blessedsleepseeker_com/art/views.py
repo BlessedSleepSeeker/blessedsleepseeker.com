@@ -1,18 +1,26 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, FileResponse
 from django.shortcuts import get_object_or_404, render
-import random
+from django.core.paginator import Paginator
+from PIL import Image
+import random, io
 
 from .models import Album, Piece
 
+ITEM_PER_PAGE = 6
 # Create your views here.
 def art_galery(request):
-    albums = Album.objects.all().order_by("?")
+    all_albums = Album.objects.all().order_by("-creation_date")
+    paginator = Paginator(all_albums, ITEM_PER_PAGE)
+
+    page_nbr = request.GET.get("page")
+    page_obj = paginator.get_page(page_nbr)
     content = []
-    for album in albums:
+    for album in page_obj:
         pieces = Piece.objects.filter(album=album)
         if pieces:
             content.append(tuple((album, random.choice(pieces))))
     context = {
+        "page_obj": page_obj,
         "content": content,
     }
     return render(request, "art/main_galery.html", context)
@@ -21,9 +29,13 @@ def art_galery(request):
 def album(request, album_url):
     album = get_object_or_404(Album, url=album_url)
     pieces = Piece.objects.filter(album=album).order_by("-upload_date")
+    paginator = Paginator(pieces, ITEM_PER_PAGE)
+
+    page_nbr = request.GET.get("page")
+    page_obj = paginator.get_page(page_nbr)
     context = {
         "album": album,
-        "pieces": pieces,
+        "page_obj": page_obj,
     }
     return render(request, "art/generic_galery.html", context)
 
@@ -55,6 +67,30 @@ def piece(request, album_url, piece_url):
         "is_random": False if max_length > 1 else True,
     }
     return render(request, "art/generic_piece.html", context)
+
+
+def scaled_piece_download(request, album_url, piece_url, size):
+    if size <= 0 or size > 2000:
+        return HttpResponse("Error : Size must be between 1 and 2000")
+    album = get_object_or_404(Album, url=album_url)
+    piece = get_object_or_404(Piece, album=album, url=piece_url)
+
+    sent_piece = io.BytesIO()
+    with Image.open(piece.file) as new_piece:
+        w, h = new_piece.size
+        resized = new_piece.resize(
+            [int((w * size) / 100), int((h * size) / 100)],
+            resample=Image.Resampling.NEAREST,
+        )
+        resized.save(sent_piece, "png")
+
+    return HttpResponse(
+        sent_piece.getvalue(),
+        headers={
+            "Content-Type": "image/png",
+            "Content-Disposition": f'attachment; filename="{piece.name}_{size}"',
+        },
+    )
 
 
 def latest(request):

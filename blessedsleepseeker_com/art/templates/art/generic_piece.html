@@ -37,6 +37,7 @@
         <div class="d-flex justify-content-center pt-3">
             <div class="btn-group" role="group">
                 <a href="{{piece.file.url}}" download="{{piece.file.name}}" class="btn btn-outline-info">{% translate 'Artwork' %} <i class="bi bi-download"></i></a>
+                <a href="{% url "art:scaled_piece_download" album.url piece.url 1000 %}" class="btn btn-outline-info">{% translate 'Resized Artwork' %} <i class="bi bi-download"></i></a>
                 <a href="{{piece.source_file.url}}" download="{{piece.source_file.name}}" class="btn btn-outline-info">{% translate 'Source' %} <i class="bi bi-download"></i></a>
             </div>
         </div>
