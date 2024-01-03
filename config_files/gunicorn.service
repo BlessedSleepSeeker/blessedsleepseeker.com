@@ -1,0 +1,20 @@
+[Unit]
+Description=gunicorn daemon
+Requires=gunicorn.socket
+After=network.target
+
+[Service]
+User=ubuntu
+Group=www-data
+WorkingDirectory=/home/ubuntu/Projects/bss_com_prod/blessedsleepseeker.com/blessedsleepseeker_com
+ExecStart=/home/ubuntu/Projects/bss_com_prod/blessedsleepseeker.com/.venv/bin/gunicorn blessedsleepseeker.wsgi \
+										       --preload \
+										       --access-logfile /home/ubuntu/Projects/bss_com_prod/logs/gunicorn_log \
+										       --error-logfile /home/ubuntu/Projects/bss_com_prod/logs/gunicorn_error \
+										       --workers 3 \
+										       --capture-output \
+										       --log-level debug \
+										       --bind unix:/run/gunicorn.sock
+
+[Install]
+WantedBy=multi-user.target
