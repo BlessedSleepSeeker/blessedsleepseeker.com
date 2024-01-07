@@ -3,8 +3,15 @@
 This file is intended to help me remember what to do the day I change server.
 
 - [How To Use config files](#how-to-use-config-files)
+  - [DB Migrations](#db-migrations)
   - [Gunicorn](#gunicorn)
   - [Nginx](#nginx)
+
+## DB Migrations
+
+1. Make changes in models.py
+2. Migrate DB with `manage.py makemigrations` then `manage.py migrate`.
+3. Apply changes with `sudo systemctl daemon-reload && sudo systemctl restart gunicorn && sudo systemctl status gunicorn`.
 
 ## Gunicorn
 

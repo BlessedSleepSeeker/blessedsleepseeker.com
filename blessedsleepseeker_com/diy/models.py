@@ -31,8 +31,7 @@ class Project(models.Model):
 
     active_developpement = models.BooleanField(default=False)
 
-    release = models.FileField(upload_to="upload/dev/releases/", blank=True)
-    source = models.FileField(upload_to="upload/dev/sources/", blank=True)
+    archive = models.FileField(upload_to="upload/diy/archive/", blank=True)
 
     def should_display(self):
         return True if self.visible_starting <= timezone.now() else False
