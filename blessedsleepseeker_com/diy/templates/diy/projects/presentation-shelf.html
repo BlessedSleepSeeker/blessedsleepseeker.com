@@ -1,0 +1,125 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load static %}
+{% block title %}
+{% translate "Presentation Shelf - DIY" %}
+{% endblock title %}
+{% block content %}
+<div class="cover-container d-flex mx-auto flex-column text-center justify-content-center">
+    <main class="">
+        <h1 class="display-1">{% translate "Presentation Shelf"%}</h1>
+        <div class="d-flex justify-content-center">
+            <div class="pt-4 border-top w-15">
+                <div class="btn-group" role="group">
+                    {% if project.archive %}<a href="{{project.archive.url}}" download="{{project.archive.name}}" class="btn btn-outline-info" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="{% translate 'Plans' %}"><i class="bi bi-box"></i></a>{% endif %}
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+
+<div class="container pb-3">
+    <p class="text-justify display-5 text-muted text-center">
+        {% translate "I was tired of seeing my tablet and OpenFrame1 just laying here." %}
+    </p>
+</div>
+<div class="container pb-3">
+    <p class="text-justify text-muted text-center fs-5">
+        {% translate "So I thought about a shelf that would be both practical, letting me grab and put them back easily, and small." %}
+    </p>
+    <p class="text-justify text-muted text-center fs-5">
+        {% translate "Here is a few step of the building process of the shelf. Sorry for the photo quality." %}
+    </p>
+    <p class="text-justify text-muted text-center fs-5">
+        {% translate "For this project, I enlisted the help of my Grampa, a professional woodworker, whom I thank wholeheartedly for his help and support in my varied endeavors" %} <i class="bi bi-heart"></i>
+    </p>
+</div>
+
+<div class="container">
+    <div class="row row-cols-1 row-cols-lg-2 my-2">
+        <div class="col my-2 d-flex">
+            <div class="card w-100" >
+                <img class="card-img-top" src="{% static "base/projects/presentation-shelf/2.jpg" %}" style="height: 30rem;">
+                <div class="card-body">
+                    <h5 class="card-title">{% translate "Support Planks" %}</h5>
+                    <p class="card-text">{% translate "We used leftover wood to make sure we were on the same page on the design. The plans you can download were actually made after the build :/" %}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col my-2 d-flex">
+            <div class="card w-100" >
+                <img class="card-img-top" src="{% static "base/projects/presentation-shelf/3.jpg" %}" style="height: 30rem;">
+                <div class="card-body">
+                    <h5 class="card-title">{% translate "Seeing what it would like once finished" %}</h5>
+                    <p class="card-text">{% translate "Standing by the raw force of clippers keeping everything in place." %}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col my-2 d-flex">
+            <div class="card w-100" >
+                <img class="card-img-top" src="{% static "base/projects/presentation-shelf/4.jpg" %}" style="height: 30rem;">
+                <div class="card-body">
+                    <h5 class="card-title">{% translate "Drilled the holes for easy access." %}</h5>
+                </div>
+            </div>
+        </div>
+        <div class="col my-2 d-flex">
+            <div class="card w-100" >
+                <img class="card-img-top" src="{% static "base/projects/presentation-shelf/5.jpg" %}" style="height: 30rem;">
+                <div class="card-body">
+                    <h5 class="card-title">{% translate "Chamfering is mandatory" %}</h5>
+                    <p class="card-text">{% translate "I just love the chamfer, the look is so appealing." %}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col my-2 d-flex">
+            <div class="card w-100" >
+                <img class="card-img-top" src="{% static "base/projects/presentation-shelf/6.jpg" %}" style="height: 30rem;">
+                <div class="card-body">
+                    <h5 class="card-title">{% translate "The holes for the biscuits" %}</h5>
+                    <p class="card-text">{% translate "We could have gone for glue only but the biscuits allow the shelf to support heavier weight." %}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col my-2 d-flex">
+            <div class="card w-100" >
+                <img class="card-img-top" src="{% static "base/projects/presentation-shelf/7.jpg" %}" style="height: 30rem;">
+                <div class="card-body">
+                    <h5 class="card-title">{% translate "Drilled holes for the metal support" %}</h5>
+                    <p class="card-text">{% translate "Even if the slant is like 11°, we can't take the risk of something falling." %}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col my-2 d-flex">
+            <div class="card w-100" >
+                <img class="card-img-top" src="{% static "base/projects/presentation-shelf/8.jpg" %}" style="height: 30rem;">
+                <div class="card-body">
+                    <h5 class="card-title">{% translate "The gluing process is starting" %}</h5>
+                    <p class="card-text">{% translate "I sanded everything before gluing of course, but had no pics of it." %}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col my-2 d-flex">
+            <div class="card w-100" >
+                <img class="card-img-top" src="{% static "base/projects/presentation-shelf/9.jpg" %}" style="height: 30rem;">
+                <div class="card-body">
+                    <h5 class="card-title">{% translate "Resting by the fire" %}</h5>
+                    <p class="card-text">{% translate "The glue had dried already, and the first coat of varnish was put." %}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card my-2 " >
+        <img class="card-img-top" src="{% static "base/projects/presentation-shelf/10.jpg" %}" style="height: 60rem;">
+        <div class="card-body">
+            <h5 class="card-title">{% translate "The Finished Product : Front" %}</h5>
+        </div>
+    </div>
+    <div class="card my-2 " >
+        <img class="card-img-top" src="{% static "base/projects/presentation-shelf/11.jpg" %}" style="height: 60rem;">
+        <div class="card-body">
+            <h5 class="card-title">{% translate "The Finished Product : The Nice Angle" %}</h5>
+        </div>
+    </div>
+</div>
+{% endblock content %}

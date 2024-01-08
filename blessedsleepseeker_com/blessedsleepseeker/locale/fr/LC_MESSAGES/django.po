@@ -3,12 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
+#: diy/templates/diy/projects/presentation-shelf.html:63
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-18 11:54+0200\n"
+"POT-Creation-Date: 2024-01-08 14:46+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -50,7 +51,12 @@ msgid "Artwork"
 msgstr "Illustration"
 
 #: art/templates/art/generic_piece.html:40
+msgid "Resized Artwork"
+msgstr "Oeuvres Redimensionnées"
+
+#: art/templates/art/generic_piece.html:41
 #: dev/templates/dev/projects/asecript.html:16
+#: dev/templates/dev/projects/bss_com.html:16
 #: dev/templates/dev/projects/django-setup.html:16
 #: dev/templates/dev/projects/ggjaj2023.html:17
 #: dev/templates/dev/projects/meleecraft.html:16
@@ -63,7 +69,7 @@ msgstr "Illustration"
 msgid "Source"
 msgstr "Fichiers Source"
 
-#: art/templates/art/generic_piece.html:46
+#: art/templates/art/generic_piece.html:47
 msgid "Learn more"
 msgstr "En apprendre plus"
 
@@ -171,6 +177,7 @@ msgid "Asecript"
 msgstr ""
 
 #: dev/templates/dev/projects/asecript.html:14
+#: dev/templates/dev/projects/bss_com.html:14
 #: dev/templates/dev/projects/django-setup.html:14
 #: dev/templates/dev/projects/ggjaj2023.html:14
 #: dev/templates/dev/projects/meleecraft.html:14
@@ -183,6 +190,7 @@ msgid "Github"
 msgstr ""
 
 #: dev/templates/dev/projects/asecript.html:15
+#: dev/templates/dev/projects/bss_com.html:15
 #: dev/templates/dev/projects/django-setup.html:15
 #: dev/templates/dev/projects/ggjaj2023.html:16
 #: dev/templates/dev/projects/meleecraft.html:15
@@ -192,7 +200,6 @@ msgstr ""
 #: dev/templates/dev/projects/wakfutcg-card-maker.html:14
 #: diy/templates/diy/projects/boombox.html:16
 #: diy/templates/diy/projects/keybebou.html:16
-#: diy/templates/diy/projects/screen-stands.html:14
 msgid "Release"
 msgstr "Exécutable"
 
@@ -255,6 +262,7 @@ msgstr ""
 "utilisez instantanément."
 
 #: dev/templates/dev/projects/asecript.html:82
+#: dev/templates/dev/projects/bss_com.html:79
 #: dev/templates/dev/projects/django-setup.html:81
 #: dev/templates/dev/projects/meleecraft.html:74
 #: dev/templates/dev/projects/oracleoftreasons.html:77
@@ -271,6 +279,7 @@ msgid "The Project is under the "
 msgstr "Le projet est sous la license "
 
 #: dev/templates/dev/projects/asecript.html:85
+#: dev/templates/dev/projects/bss_com.html:82
 #: dev/templates/dev/projects/django-setup.html:84
 #: dev/templates/dev/projects/meleecraft.html:77
 #: dev/templates/dev/projects/oracleoftreasons.html:80
@@ -279,6 +288,7 @@ msgid " license."
 msgstr "."
 
 #: dev/templates/dev/projects/asecript.html:86
+#: dev/templates/dev/projects/bss_com.html:83
 #: dev/templates/dev/projects/meleecraft.html:78
 #: dev/templates/dev/projects/oracleoftreasons.html:81
 #: dev/templates/dev/projects/questgiver.html:84
@@ -286,6 +296,7 @@ msgid "You can find the sources "
 msgstr "Vous pouvez trouver le code source "
 
 #: dev/templates/dev/projects/asecript.html:86
+#: dev/templates/dev/projects/bss_com.html:83
 #: dev/templates/dev/projects/questgiver.html:84
 msgid "here "
 msgstr "içi "
@@ -302,6 +313,55 @@ msgstr "ou les télécharger "
 #: rss/templates/rss/rss_pres.html:21
 msgid "here"
 msgstr "là"
+
+#: dev/templates/dev/projects/bss_com.html:5
+msgid "blessedsleepseeker.com - Dev"
+msgstr ""
+
+#: dev/templates/dev/projects/bss_com.html:10
+msgid "blessedsleepseeker.com"
+msgstr ""
+
+#: dev/templates/dev/projects/bss_com.html:24
+msgid "Need a self hosted blog but don't want to develop anything ? Steal mine"
+msgstr "Besoin d'un blog auto-hébergé mais pas envie de développer ? Volez le mien"
+
+#: dev/templates/dev/projects/bss_com.html:29
+msgid "I've seen this screen so much."
+msgstr "J'ai tellement vu cet écran."
+
+#: dev/templates/dev/projects/bss_com.html:40
+msgid "Cool features"
+msgstr "Fonctionnalitées sympathiques"
+
+#: dev/templates/dev/projects/bss_com.html:43
+msgid ""
+"The cat is a good start, but did you knew that you could download "
+"automatically resized version of the artworks ? This help a lot if you want "
+"to use some of them as background pictures !"
+msgstr "Le chat est un bon début, mais vous saviez qu'il était possible de télécharger des versions redimensionnées des Oeuvres ? C'est super pratique si vous voulez les utiliser comme fond d'écran, sur téléphone par exemple."
+
+#: dev/templates/dev/projects/bss_com.html:53
+msgid "Built with Django and Bootstrap."
+msgstr "Développé avec Django et Bootstrap"
+
+#: dev/templates/dev/projects/bss_com.html:56
+msgid ""
+"I didn't want to overengineer anything, and the admin panel closed the deal."
+msgstr "Je ne voulais pas sur-ingéniérer le projet, et la fonctionnalité administrateur a achevé de me convaincre."
+
+#: dev/templates/dev/projects/bss_com.html:66
+msgid "Painless content addition"
+msgstr "Ajout de contenu sans douleur."
+
+#: dev/templates/dev/projects/bss_com.html:69
+msgid ""
+"Using the admin panel, basic content like art can be uploaded in 1 minute."
+msgstr "En utilisant le panneau utilisateur, le contenu simple comme les Oeuvres sont mises en ligne en une minute."
+
+#: dev/templates/dev/projects/bss_com.html:82
+msgid "You can steal this ! The Project is under the "
+msgstr "Vous pouvez le voler ! Le projet est sous la license "
 
 #: dev/templates/dev/projects/django-setup.html:5
 msgid "DjangoProjectSetup - Dev"
@@ -696,20 +756,27 @@ msgid "Crafting Level Up !"
 msgstr ""
 
 #: diy/templates/diy/projects/basket-stand.html:5
-msgid "Basketball Stand - Dev"
+msgid "Basketball Stand - DIY"
 msgstr ""
 
 #: diy/templates/diy/projects/basket-stand.html:10
 msgid "Basketball Holding Shelf"
 msgstr "Le support à ballons"
 
-#: diy/templates/diy/projects/basket-stand.html:22
+#: diy/templates/diy/projects/basket-stand.html:14
+#: diy/templates/diy/projects/presentation-shelf.html:14
+#: diy/templates/diy/projects/screen-stands.html:14
+msgid "Plans"
+msgstr ""
+
+#: diy/templates/diy/projects/basket-stand.html:23
 msgid ""
 "How can I have my basketball on a shelf without it falling every 30 seconds ?"
 msgstr ""
-"Comment avoir mon ballon de basket sur une étagère sans qu'elle ne roule de partout ?"
+"Comment avoir mon ballon de basket sur une étagère sans qu'elle ne roule de "
+"partout ?"
 
-#: diy/templates/diy/projects/basket-stand.html:27
+#: diy/templates/diy/projects/basket-stand.html:28
 msgid ""
 "I love my basketball. It's a really cool object. It's round and has a nice "
 "texture to the touch and is just nice as decoration (imo). But it is TOO "
@@ -719,7 +786,7 @@ msgstr ""
 "texture agréable au touché et est bien beau en décoration. Mais c'est TROP "
 "ROND et ça roule de partout. Nous devons remédier à ce problème."
 
-#: diy/templates/diy/projects/basket-stand.html:30
+#: diy/templates/diy/projects/basket-stand.html:31
 msgid ""
 "Here is a few step of the building process of the basketball-holder. Sorry "
 "for the photo quality, I used my smartphone and it's kinda old."
@@ -728,7 +795,7 @@ msgstr ""
 "m'excuser pour la qualité des photos, j'ai utilisé mon téléphone portable et "
 "il accuse son âge."
 
-#: diy/templates/diy/projects/basket-stand.html:33
+#: diy/templates/diy/projects/basket-stand.html:34
 msgid ""
 "For this project, I enlisted the help of my Grampa (again, yes), a "
 "professional woodworker, whom I thank wholeheartedly for his help and "
@@ -738,11 +805,11 @@ msgstr ""
 "ancien ébéniste professionel. Je le remercie de tout mon coeur pour son aide "
 "et son support dans mes projets divers et variés"
 
-#: diy/templates/diy/projects/basket-stand.html:43
+#: diy/templates/diy/projects/basket-stand.html:44
 msgid "Planning out the Hole"
 msgstr "Préparer le Trou"
 
-#: diy/templates/diy/projects/basket-stand.html:44
+#: diy/templates/diy/projects/basket-stand.html:45
 msgid ""
 "Compass Time ! It's making a small groove, and I add some pencil into it to "
 "clearly see the circle."
@@ -750,22 +817,22 @@ msgstr ""
 "J'utilise le compas pour faire une rainure, et je repasse un coup de crayon "
 "papier pour bien voir où elle se trouve."
 
-#: diy/templates/diy/projects/basket-stand.html:52
+#: diy/templates/diy/projects/basket-stand.html:53
 msgid "Before the Hole"
 msgstr "Avant le Trou"
 
-#: diy/templates/diy/projects/basket-stand.html:53
+#: diy/templates/diy/projects/basket-stand.html:54
 msgid ""
 "A small hole has been made. The jigsaw is going to follow the path soon..."
 msgstr ""
 "Un petit trou a été fait. La scie sauteuse va suivre le chemin tracé "
 "auparavant dans pas longtemps..."
 
-#: diy/templates/diy/projects/basket-stand.html:61
+#: diy/templates/diy/projects/basket-stand.html:62
 msgid "Training Arc !"
 msgstr "L'Arc narratif de l'entrainement !"
 
-#: diy/templates/diy/projects/basket-stand.html:62
+#: diy/templates/diy/projects/basket-stand.html:63
 msgid ""
 "I've practiced making a curve with the jigsaw before doing the full work. It "
 "was a really good idea."
@@ -773,36 +840,36 @@ msgstr ""
 "Je me suis entrainé à suivre les courbes avec la scie sauteuse avant de "
 "m'atteler au gros morceau. C'était une excellente idée."
 
-#: diy/templates/diy/projects/basket-stand.html:70
+#: diy/templates/diy/projects/basket-stand.html:71
 msgid "The Hole is before us !"
 msgstr "Le Trou est révélé !"
 
-#: diy/templates/diy/projects/basket-stand.html:71
+#: diy/templates/diy/projects/basket-stand.html:72
 msgid "The hole has been made, and the second part can now start."
 msgstr "Le trou est fait, et nous passons à la seconde partie : les finitions."
 
-#: diy/templates/diy/projects/basket-stand.html:79
+#: diy/templates/diy/projects/basket-stand.html:80
 msgid "Sanding..."
 msgstr "Polissage..."
 
-#: diy/templates/diy/projects/basket-stand.html:80
+#: diy/templates/diy/projects/basket-stand.html:81
 msgid "Cleaning out the wood burr."
 msgstr "On retire les petites échardes qui dépassent."
 
-#: diy/templates/diy/projects/basket-stand.html:88
+#: diy/templates/diy/projects/basket-stand.html:89
 msgid "and Chamfering !"
 msgstr "Et chanfreinage !"
 
-#: diy/templates/diy/projects/basket-stand.html:89
+#: diy/templates/diy/projects/basket-stand.html:90
 msgid "The chamfer will stabilise the ball a lot more"
 msgstr "Le chanfrein va aider à stabiliser la balle et lui donner plus d'appui"
 
-#: diy/templates/diy/projects/basket-stand.html:97
+#: diy/templates/diy/projects/basket-stand.html:98
 #: diy/templates/diy/projects/screen-stands.html:80
 msgid "The Finished Product"
 msgstr "Le Produit Fini"
 
-#: diy/templates/diy/projects/basket-stand.html:98
+#: diy/templates/diy/projects/basket-stand.html:99
 msgid ""
 "I didn't take any pictures but we glued 2 planks under to server as feets. "
 "Same as the stands, I've applied 2 coats of parquets varnish, giving a "
@@ -822,20 +889,129 @@ msgid "The Boombox"
 msgstr ""
 
 #: diy/templates/diy/projects/keybebou.html:5
-msgid "Keybebou - Dev"
+msgid "Keybebou - DIY"
 msgstr ""
 
 #: diy/templates/diy/projects/keybebou.html:10
 msgid "Keybebou"
 msgstr ""
 
-#: diy/templates/diy/projects/screen-stands.html:5
-msgid "Screen Stands - Dev"
+#: diy/templates/diy/projects/presentation-shelf.html:5
+msgid "Presentation Shelf - DIY"
+msgstr "Etagère de Présentation - DIY"
+
+#: diy/templates/diy/projects/presentation-shelf.html:10
+msgid "Presentation Shelf"
+msgstr "Etagère de Présentation"
+
+#: diy/templates/diy/projects/presentation-shelf.html:23
+msgid "I was tired of seeing my tablet and OpenFrame1 just laying here."
+msgstr "J'étais fatigué de voir ma tablette graphique et mon OpenFrame1 sur mon bureau, sans place attitré."
+
+#: diy/templates/diy/projects/presentation-shelf.html:28
+msgid ""
+"So I thought about a shelf that would be both practical, letting me grab and "
+"put them back easily, and small."
+msgstr "J'ai donc réfléchi à une étagère qui serait à la fois pratique, pour me permettre de prendre et ranger facilement, mais aussi compacte."
+
+#: diy/templates/diy/projects/presentation-shelf.html:31
+msgid ""
+"Here is a few step of the building process of the shelf. Sorry for the photo "
+"quality."
 msgstr ""
+"Voilà quelques photos des étapes de constructions. Désolé pour la qualité."
+
+#: diy/templates/diy/projects/presentation-shelf.html:34
+#: diy/templates/diy/projects/screen-stands.html:34
+msgid ""
+"For this project, I enlisted the help of my Grampa, a professional "
+"woodworker, whom I thank wholeheartedly for his help and support in my "
+"varied endeavors"
+msgstr ""
+"Pour ce projet, j'ai recruté mon grand-père (une fois de plus, oui), un "
+"ancien ébéniste professionel. Je le remercie de tout mon coeur pour son aide "
+"et son support dans mes projets divers et variés"
+
+#: diy/templates/diy/projects/presentation-shelf.html:44
+msgid "Support Planks"
+msgstr "Planches Latérales"
+
+#: diy/templates/diy/projects/presentation-shelf.html:45
+msgid ""
+"We used leftover wood to make sure we were on the same page on the design. "
+"The plans you can download were actually made after the build :/"
+msgstr "Nous avons utilisé du bois qui trainait pour être sur que nous avions la même idée en tête. Les plans téléchargeables ont été dessiné après la construction..."
+
+#: diy/templates/diy/projects/presentation-shelf.html:53
+msgid "Seeing what it would like once finished"
+msgstr "Imaginer ce à quoi cela ressemblerait une fois fini"
+
+#: diy/templates/diy/projects/presentation-shelf.html:54
+msgid "Standing by the raw force of clippers keeping everything in place."
+msgstr "Tout tiens par la seule force des serre-joints."
+
+#: diy/templates/diy/projects/presentation-shelf.html:62
+msgid "Drilled the holes for easy access."
+msgstr "Les trous pour permettre de facilement soulever les affaires sur l'étagère."
+
+#: diy/templates/diy/projects/presentation-shelf.html:71
+msgid "Chamfering is mandatory"
+msgstr "Le chanfreinage est obligatoire"
+
+#: diy/templates/diy/projects/presentation-shelf.html:72
+msgid "I just love the chamfer, the look is so appealing."
+msgstr "J'adore le chanfrein, le rendu visuel est très intéréssant."
+
+#: diy/templates/diy/projects/presentation-shelf.html:80
+msgid "The holes for the biscuits"
+msgstr "Les trous pour les biscuits"
+
+#: diy/templates/diy/projects/presentation-shelf.html:81
+msgid ""
+"We could have gone for glue only but the biscuits allow the shelf to support "
+"heavier weight."
+msgstr "Nous aurions pu utiliser uniquement de la colle mais les biscuits permettent à l'étagère de supporter des poids beaucoup plus important."
+
+#: diy/templates/diy/projects/presentation-shelf.html:89
+msgid "Drilled holes for the metal support"
+msgstr "Les trous pour les supports en métal"
+
+#: diy/templates/diy/projects/presentation-shelf.html:90
+msgid ""
+"Even if the slant is like 11°, we can't take the risk of something falling."
+msgstr "Même si l'angle est limité à 11°, on ne peut pas prendre le risque que quelque chose tombe."
+
+#: diy/templates/diy/projects/presentation-shelf.html:98
+msgid "The gluing process is starting"
+msgstr "Le collage est en cours"
+
+#: diy/templates/diy/projects/presentation-shelf.html:99
+msgid "I sanded everything before gluing of course, but had no pics of it."
+msgstr "J'ai tout poncer avant de commencer à coller, mais n'ai pris aucune photo."
+
+#: diy/templates/diy/projects/presentation-shelf.html:107
+msgid "Resting by the fire"
+msgstr "Repos auprès du feu"
+
+#: diy/templates/diy/projects/presentation-shelf.html:108
+msgid "The glue had dried already, and the first coat of varnish was put."
+msgstr "La colle était déjà sèche, et la première couche de vernis était mise."
+
+#: diy/templates/diy/projects/presentation-shelf.html:116
+msgid "The Finished Product : Front"
+msgstr "Le Produit Fini : Avant"
+
+#: diy/templates/diy/projects/presentation-shelf.html:122
+msgid "The Finished Product : The Nice Angle"
+msgstr "Le Produit Fini : Le Bon Angle"
+
+#: diy/templates/diy/projects/screen-stands.html:5
+msgid "Screen Stands - DIY"
+msgstr "Les Supports à Ecrans - DIY"
 
 #: diy/templates/diy/projects/screen-stands.html:10
 msgid "Screen Stands"
-msgstr "Les supports à écrans"
+msgstr "Les Supports à Ecrans"
 
 #: diy/templates/diy/projects/screen-stands.html:23
 msgid "Sometimes, your screen need to be a little bit higher."
@@ -863,16 +1039,6 @@ msgid ""
 msgstr ""
 "Voilà quelques photos des étapes de constructions. Désolé pour la quaité, "
 "j'ai utilisé mon téléphone et il est un poil vieux."
-
-#: diy/templates/diy/projects/screen-stands.html:34
-msgid ""
-"For this project, I enlisted the help of my Grampa, a professional "
-"woodworker, whom I thank wholeheartedly for his help and support in my "
-"varied endeavors"
-msgstr ""
-"Pour ce projet, j'ai recruté mon grand-père (une fois de plus, oui), un "
-"ancien ébéniste professionel. Je le remercie de tout mon coeur pour son aide "
-"et son support dans mes projets divers et variés"
 
 #: diy/templates/diy/projects/screen-stands.html:44
 msgid "The First Step"
@@ -1119,13 +1285,17 @@ msgstr "Les projets DIY mis à jour le plus récement !"
 msgid ""
 "Don't know how to use RSS ? Once you'll get it setup, it will be like "
 "scrolling on Twitter or Instagram. Head"
-msgstr "Vous ne savez pas comment utiliser RSS ? Une fois mis en place, ce sera comme scroller Twitter ou Instagram. Pour plus d'information, cliquez"
+msgstr ""
+"Vous ne savez pas comment utiliser RSS ? Une fois mis en place, ce sera "
+"comme scroller Twitter ou Instagram. Pour plus d'information, cliquez"
 
 #: rss/templates/rss/rss_pres.html:26
 msgid ""
 "Did you know ? RSS stands for RamSeS 2. (me when I spread missinformation on "
 "the internet)"
-msgstr "Le saviez-vous ? RSS signifie RamSeS 2. (moi quand je met des fausses informations sur les internets.)"
+msgstr ""
+"Le saviez-vous ? RSS signifie RamSeS 2. (moi quand je met des fausses "
+"informations sur les internets.)"
 
 #: special/templates/special/main.html:5
 msgid "Specials Projects"
@@ -1280,11 +1450,6 @@ msgstr "C'est là où je mettrais mes easter eggs, si j'en avais."
 
 #~ msgid "Here's a short"
 #~ msgstr "Voilà une courte"
-
-#, fuzzy
-#~| msgid "in creation"
-#~ msgid "presentation"
-#~ msgstr "présentation"
 
 #~ msgid "If you have a question, it might be already"
 #~ msgstr "Si vous avez une question, elle pourrait déjà avoir trouvé une"
