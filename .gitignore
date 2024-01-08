@@ -6,6 +6,7 @@
 upload/
 secret_*
 staticroot/
+migrations
 
 ### Django ###
 *.log
