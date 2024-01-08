@@ -9,7 +9,7 @@
     - [Translation](#translation)
     - [Black/White theme toggle](#blackwhite-theme-toggle)
 
-My personal blog, developped with Django and Bootstrap.
+My [personal blog](https://www.blessedsleepseeker.com/), developped with Django and Bootstrap.
 
 ## Genesis
 
