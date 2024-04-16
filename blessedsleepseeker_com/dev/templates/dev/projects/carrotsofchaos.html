@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load static %}
+{% block title %}
+{% translate "Global Game Jaj - Dev" %}
+{% endblock title %}
+{% block content %}
+<div class="cover-container d-flex p-3 mx-auto flex-column text-center justify-content-center">
+    <main class="px-3">
+        <h1 class="display-1">{% translate "Global Game Jaj"%}</h1>
+        <div class="d-flex justify-content-center">
+            <div class="pt-4 border-top w-15">
+                <div class="btn-group" role="group">
+                    <a href="https://github.com/BlessedSleepSeeker/CarrotsOfChaos" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="{% translate 'Github' %}" class="btn btn-outline-info"><i class="bi bi-github"></i></a>
+                    <a href="https://blessedsleepseeker.itch.io/carrots-of-chaos" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="{% translate 'Itch.io Game Page' %}" class="btn btn-outline-info"><i class="bi bi-box-arrow-up-right"></i></a>
+                    {% if project.release %}<a href="{{ project.release.url }}" download="CarrotsOfChaos.zip" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="{% translate 'Release' %}" class="btn btn-outline-info"><i class="bi bi-download"></i></a>{% endif %}
+                    {% if project.source %}<a href="{{ project.source.url }}" download="CarrotsOfChaosSource.zip.zip" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="{% translate 'Source' %}" class="btn btn-outline-info"><i class="bi bi-file-earmark-binary"></i></a>{% endif %}
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+<div class="container py-3">
+    <p class="text-justify display-5 text-muted text-center">
+        {% translate "My Global Game Jam 2024 Submission !" %}
+    </p>
+    <p class="text-justify text-muted text-center">
+        {% translate "A Split-Screen chaotic platforming coop game about being the first to the prized Carrot Of Chaos:tm: or the last one alive !" %}
+    </p>
+</div>
+
+
+<div class="container px-4 py-5">
+    <div class="row g-4 py-5 row-cols-1 row-cols-lg-2">
+        <div class="col d-flex align-items-start">
+            <div class="text-body-emphasis d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+                <i class="bi bi-controller text-info"></i>
+            </div>
+            <div>
+                <h3 class="text-body-emphasis fs-2">
+                    {% translate "Already playable..." %}
+                </h3>
+                <p class="text-muted">
+                    {% translate "Head to" %} <a href="https://blessedsleepseeker.itch.io/carrots-of-chaos">Itch.io</a> {% translate "and download the game ! It's the final gamejam version, so it's the first 3 days of developement only." %}
+                    <br />{% translate "If you want the latest version, go to" %} <a href="https://github.com/BlessedSleepSeeker/CarrotsOfChaos/releases">Github</a> !
+                </p>
+            </div>
+        </div>
+        <div class="col d-flex align-items-start">
+            <div class="text-body-emphasis d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+                <i class="bi bi-hammer text-info"></i>
+            </div>
+            <div>
+                <h3 class="text-body-emphasis fs-2">
+                    {% translate "Building a toolset" %}
+                </h3>
+                <p class="text-muted">
+                    {% translate "For this project, I've gone all-in on out-of-game polish. A functional settings system and the associated UI, an actual title menu, a small credits animation when you boot the game and more !" %}
+                    <br>{% translate "All theses things are very cool and I wished to be able to reuse them for other projects, which is why I've extracted them from Carrots of Chaos into a standalone project : GodotProjectTemplate !" %}
+                </p>
+            </div>
+        </div>
+        <div class="col d-flex align-items-start">
+            <div class="text-body-emphasis d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+                <i class="bi bi-robot text-info"></i>
+            </div>
+            <div>
+                <h3 class="text-body-emphasis fs-2">
+                    {% translate "Built with Godot 4.2" %}
+                </h3>
+                <p class="text-muted">
+                    <a href="https://godotengine.org/">Godot</a>{% translate " is a free, open-source, no-string attached game engine. It has been my goto engine since 2020 and is well deserving of some support." %}
+                </p>
+            </div>
+        </div>
+        <div class="col d-flex align-items-start">
+            <div class="text-body-emphasis d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+                <i class="bi bi-node-plus text-info"></i>
+            </div>
+            <div>
+                <h3 class="text-muted text-body-emphasis fs-2">
+                    {% translate "Open and Free" %}
+                </h3>
+                <p class="text-muted">
+                    {% translate "The Project is under the " %}<a href="https://github.com/BlessedSleepSeeker/CarrotsOfChaos/blob/main/LICENSE">GPL-3</a>{% translate " license." %}
+                    {% translate "You can find the sources " %}<a href="https://github.com/BlessedSleepSeeker/CarrotsOfChaos">{% translate "here " %}</a>.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
