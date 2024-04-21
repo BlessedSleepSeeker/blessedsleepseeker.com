@@ -1,6 +1,8 @@
-# Implementing SplitScreen Multiplayer in Godot 4, for my Carrots of Chaos, a tutorial and reflection on the journey
+# Implementing SplitScreen Multiplayer in Godot 4, a tutorial and reflection on the journey
 
-- [Implementing SplitScreen Multiplayer in Godot 4, for my Carrots of Chaos, a tutorial and reflection on the journey](#implementing-splitscreen-multiplayer-in-godot-4-for-my-carrots-of-chaos-a-tutorial-and-reflection-on-the-journey)
+[DISCLAIMER] This is part one of a two-parter ! I will only cover the actual split-screen here, and will talk about controlling the players in the second part !
+
+- [Implementing SplitScreen Multiplayer in Godot 4, a tutorial and reflection on the journey](#implementing-splitscreen-multiplayer-in-godot-4-a-tutorial-and-reflection-on-the-journey)
   - [The Epic Split(Screen)](#the-epic-splitscreen)
     - [What we want to achieve](#what-we-want-to-achieve)
     - [Implementation In Godot](#implementation-in-godot)
@@ -8,7 +10,8 @@
       - [GridContainer](#gridcontainer)
         - [Columns](#columns)
         - [Split Screen Building Algorithm](#split-screen-building-algorithm)
-    - [Split-Screen Conclusion](#split-screen-conclusion)
+    - [Split-Screen Conclusion and Going Further](#split-screen-conclusion-and-going-further)
+  - [Part One Conclusion](#part-one-conclusion)
 
 Well, well, well... What a long title. For Carrots of Chaos, I had to develop a split-screen multiplayer system which would have a variable number of player between 1 and 8. The limit being put to 8 because you will not see anything if you add more players. Let's talk about how I handled both the spliting screen dynamically, the many player controls needed to control 8 of them, what's worked, what could have been improved and more !
 
@@ -20,12 +23,13 @@ A split-screen game usually requires a few things :
 
 > Each player has its own physical screen space.
 
-[NEEDIMAGE]
+![Mario Kart 4 Player Split](https://www.blessedsleepseeker.com/static/base/blog_articles/split_screen/mariokartsplitscreen.png)
 
 Well yeah, kinda obvious, it's called split-screen, because we split the physical screen... If we have 1 player, we do not split the screen. If we have 2 players, we will split the physical space in 2, if we have 3 players, we will split it in... 4 ??? What ?  
 This is for competitive integrity. If a player has a bigger space of the screen, he has an advantage over the others and I didn't want that, despite my game being hyper chaotic and not really competitive. Either way, I didn't want some players to feel like they got screwed cause they couldn't see as far as another lucky player. Althought, the idea of screwing players up on purpose by growing or shrinking their physical space on the screen in a coop game is funny... I'll write it down somewhere.  
 Also, this leads to a specific case that each split-screen game handle differently. What are we doing with this empty space if there isn't an even number of players ? In my case, I decided to leave it empty because gamejam time restriction are tight.
-[NEEDIMAGE]
+
+![3 players split in Carrot of Chaos](https://www.blessedsleepseeker.com/static/base/blog_articles/split_screen/3player_split.png)
 
 > Each physical player's screen space should follow a specific player.
 
@@ -61,7 +65,7 @@ That's it ! End of the talk, wrap it up boys, we had a good run. What ? Actually
 We will start by handling one player's own space !  
 I created a new scene with a `SubViewportContainer` as parent, a `SubViewport` and a `MarginContainer` as child. I then added a script to the `SubViewportContainer`, naming my new class `PlayerViewport`.
 
-[ADDIMAGE]
+![SubViewportContainer scene](https://www.blessedsleepseeker.com/static/base/blog_articles/split_screen/subviewportcontainer.png)
 
 The [``SubViewportContainer``](https://docs.godotengine.org/en/stable/classes/class_subviewportcontainer.html#class-subviewportcontainer) is a control node (useful for automatic resizing and being manipulated by other controls !), which is used to host a `SubViewport` as a child.
 
@@ -199,7 +203,7 @@ The logic behind is just "add a column for every 2 players after the first one".
 
 For the theme's parameters, I didn't change spacing at all, but you could add a divide to visually "split" the screen. Theming is an entire feature which I will not cover here, you can just change the property by overriding them in the editor !
 
-[ADDIMAGE]
+![GridContainer Editor Settings](https://www.blessedsleepseeker.com/static/base/blog_articles/split_screen/gridcontainer.png)
 
 ##### Split Screen Building Algorithm
 
@@ -223,6 +227,17 @@ We start by creating a `World2D` variable and set it to null.
 Do you remember which `PlayerViewport` function we should call to store it ? It's `set_level()`. And then we will pass it to `PlayerViewport.set_world()` to synchronise our viewport 2D worlds. Pay attention to the fact that `levelScene` (which is actually my level handler, doing a lot more than being 2D geometry), is only instantiated once, `if i == 0:`. Once we go to the second player, we simply have to call `PlayerViewport.set_world()` instead !  
 Afterwards, I set the player number inside our `PlayerViewport` with i + 1 (because we start our for loop at 0), and append our player to an of players. I use this array for various things, like setting a spawnpoint in my level, my chaos modifiers which can shuffle things around, or checking if a player is the last one alive.
 
-### Split-Screen Conclusion
+### Split-Screen Conclusion and Going Further
 
-That's it for the Split-Screen implementation !
+That's it for the Split-Screen implementation ! As I said previously, this is only a basic implementation with holes and issues. We did not cover topics like what to do with the free space we have or how could you dynamically resize the `SubViewport` to troll your players.  
+For a gamejam game, though, it was good enough for me, and it still is.
+
+I think design space for split-screen exist and that we could push and play with the concept further still ! Carrots of Chaos has a "chaos" system, designed to create variance and random event, and I thought of a chaos effect that would shuffle the players's screenspace around or change it's form from a rectangle to a circle... Countless ideas exist !
+
+I also will repeat that my code has been cleaned and that I removed a lot of superfluous things here like the UI signals connections. You'll have to figure this for yourselves !
+
+## Part One Conclusion
+
+Thank you for reading up until this point ! This is part one of 2, and the subject of the second part will be dedicated to our players controls ! I have only one player scene and needed each instanted one to be properly controllable by each player.
+
+I hope you've enjoyed your time with me, and I'll see you in part 2 !
