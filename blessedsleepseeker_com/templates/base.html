@@ -72,6 +72,14 @@
     {% block content %}
     {% endblock content %}
   </div>
+  <div id="div-back-to-top" style="position: fixed;bottom: 20px;right: 20px;display: none;">
+    {% block sticky %}
+    {% endblock %}
+    <a class="btn btn-outline-secondary ms-3 mt-1 " href="javascript:history.back()"><i class="bi bi-arrow-left"></i>{% translate " Back" %}</a>
+    <button type="button" class="ms-3 mt-1 btn btn-outline-secondary" id="btn-back-to-top" >
+        <i class="bi bi-arrow-up"></i>
+    </button>
+  </div>
   {% block pagination %}
   {% if page_obj.paginator.num_pages > 1 %}
     <div class="mb-5">
@@ -136,7 +144,7 @@
             });
     </script>
     <script src="{% static 'oneko/oneko.js' %}"></script>
-
+    <script src="{% static 'scroll_to_top.js' %}"></script>
     {% block scripts %}
     {% endblock scripts %}
   </body>

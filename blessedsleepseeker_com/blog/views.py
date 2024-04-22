@@ -3,6 +3,8 @@ from django.shortcuts import get_object_or_404, render
 from django.core.paginator import Paginator
 from django.utils import timezone
 
+import os
+
 from .models import Article
 
 ITEM_PER_PAGE = 10
@@ -27,9 +29,13 @@ def blog_entry(request, entry_url):
     article = get_object_or_404(Article, short_title=entry_url)
     if not article.should_display():  # means it's not ready to be uploaded
         raise Http404("Article should not be visible")
+    template_url = "blog/articles/" + article.short_title + ".html"
     context = {
         "article": article,
     }
+    if os.path.exists(template_url):
+        return render(request, [template_url, "404.html"], context)
+    
     return render(request, "blog/article.html", context)
 
 
