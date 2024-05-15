@@ -33,10 +33,7 @@ def blog_entry(request, entry_url):
     context = {
         "article": article,
     }
-    if os.path.exists(template_url):
-        return render(request, [template_url, "404.html"], context)
-    
-    return render(request, "blog/article.html", context)
+    return render(request, [template_url, "blog/article.html"], context)
 
 
 def search_tags(request, tag):

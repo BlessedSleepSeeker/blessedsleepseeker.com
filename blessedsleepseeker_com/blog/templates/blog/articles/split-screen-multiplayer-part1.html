@@ -1,0 +1,320 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% load humanize %}
+{% load markdown_extras %}
+{% block title %}
+{{ article.title }} - Blog
+{% endblock title %}
+{% block content %}
+<div class="d-flex align-content-center">
+    <div id="div-back-to-top" style="position: fixed;bottom: 20px;right: 20px;display: none;">
+        <a class="btn btn-outline-secondary ms-3 mt-1 " href="javascript:history.back()"><i class="bi bi-arrow-left"></i>{% translate " Return" %}</a>
+        <button type="button" class="ms-3 mt-1 btn btn-outline-secondary" id="btn-back-to-top" >
+            <i class="bi bi-arrow-up"></i>
+        </button>
+    </div>
+    <div class="container">
+        <div>
+            <h1 class="pb-2 border-bottom display-2">{{ article.title }}</h1>
+            <div class="my-3">
+                <div class="text-muted d-inline-flex" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="{{article.visible_starting|date:'d/m/Y - H:i e'}}">
+                    {% translate "Unveiled" %} {{article.visible_starting|naturaltime}}
+                </div>
+                <div class="text-muted">
+                    {% translate "Topics"%} :
+                    {% for tag in article.tags_formated %}
+                        <div class="badge rounded-pill bg-secondary mx-1 d-flex-inline align-content-center ">
+                            <a class="link-light text-decoration-none" href={% url 'blog:tags' tag %}>{{tag}}</a>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="mx-5">
+                <h1 id="implementing-splitscreen-multiplayer-in-godot-4-a-tutorial-and-reflection-on-the-journey">Implementing
+                    SplitScreen Multiplayer in Godot 4, a tutorial and reflection on the journey</h1>
+                <p>[DISCLAIMER] This is part one of a two-parter ! I will only cover the actual split-screen here, and will talk about
+                    controlling the players in the second part !</p>
+                <ul>
+                    <li><a href="#implementing-splitscreen-multiplayer-in-godot-4-a-tutorial-and-reflection-on-the-journey">Implementing
+                            SplitScreen Multiplayer in Godot 4, a tutorial and reflection on the journey</a>
+                        <ul>
+                            <li><a href="#the-epic-splitscreen">The Epic Split(Screen)</a>
+                                <ul>
+                                    <li><a href="#what-we-want-to-achieve">What we want to achieve</a></li>
+                                    <li><a href="#implementation-in-godot">Implementation In Godot</a>
+                                        <ul>
+                                            <li><a href="#subviewportcontainer--subviewport">SubViewportContainer \&amp; SubViewport</a>
+                                            </li>
+                                            <li><a href="#gridcontainer">GridContainer</a>
+                                                <ul>
+                                                    <li><a href="#columns">Columns</a></li>
+                                                    <li><a href="#split-screen-building-algorithm">Split Screen Building Algorithm</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#split-screen-conclusion-and-going-further">Split-Screen Conclusion and Going
+                                            Further</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#part-one-conclusion">Part One Conclusion</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <p>Well, well, well... What a long title. For Carrots of Chaos, I had to develop a split-screen multiplayer system which
+                    would have a variable number of player between 1 and 8. The limit being put to 8 because you will not see anything
+                    if you add more players. Let&#39;s talk about how I handled both the spliting screen dynamically, the many player
+                    controls needed to control 8 of them, what&#39;s worked, what could have been improved and more !</p>
+                <h2 id="the-epic-splitscreen">The Epic Split(Screen)</h2>
+                <h3 id="what-we-want-to-achieve">What we want to achieve</h3>
+                <p>A split-screen game usually requires a few things :</p>
+                <blockquote>
+                    <p>Each player has its own physical screen space.</p>
+                </blockquote>
+                <p><img class="img-fluid" src="https://www.blessedsleepseeker.com/static/base/blog_articles/split_screen/mariokartsplitscreen.png"
+                        alt="Mario Kart 4 Player Split"></p>
+                <p>Well yeah, kinda obvious, it&#39;s called split-screen, because we split the physical screen... If we have 1 player,
+                    we do not split the screen. If we have 2 players, we will split the physical space in 2, if we have 3 players, we
+                    will split it in... 4 ??? What ?<br>This is for competitive integrity. If a player has a bigger space of the screen,
+                    he has an advantage over the others and I didn&#39;t want that, despite my game being hyper chaotic and not really
+                    competitive. Either way, I didn&#39;t want some players to feel like they got screwed cause they couldn&#39;t see as
+                    far as another lucky player. Althought, the idea of screwing players up on purpose by growing or shrinking their
+                    physical space on the screen in a coop game is funny... I&#39;ll write it down somewhere.<br>Also, this leads to a
+                    specific case that each split-screen game handle differently. What are we doing with this empty space if there
+                    isn&#39;t an even number of players ? In my case, I decided to leave it empty because gamejam time restriction are
+                    tight.</p>
+                <p><img class="img-fluid" src="https://www.blessedsleepseeker.com/static/base/blog_articles/split_screen/3player_split.png"
+                        alt="3 players split in Carrot of Chaos"></p>
+                <blockquote>
+                    <p>Each physical player&#39;s screen space should follow a specific player.</p>
+                </blockquote>
+                <p>Imagine you are going to a friend house to play Mario Kart 64, plug in your controller, pick up your favorite driver,
+                    and then... you have to drive using the minimap on player 1 screen because both split-screen follow player 1 ???
+                    This doesn&#39;t make any sense (which is why you&#39;ve never seen this), each player should have its own camera
+                    following them and being displayed in their physical screen space.</p>
+                <blockquote>
+                    <p>Players should be able to interact and play on the same level, but also the opposite might true, fuck ???</p>
+                </blockquote>
+                <p>Most splitscreen games are about interacting with your friends and doing silly things together. But some are about
+                    finishing a dedicated task in a separate level the fastest or whatever that make them in different levels. Either
+                    way, we want our system to be able to handle both situations.<br>For my games, I wanted my players to interact and
+                    be on the same level, so this is what I am going to talk about.</p>
+                <blockquote>
+                    <p>Rules are made to be broken (once you&#39;ve understood why they exist)</p>
+                </blockquote>
+                <p>This is what the basic implementation of split-screen should do. I am purposely leaving out a lot of fancy things
+                    that play with theses &quot;rules&quot;, like the ability to swap to other players POV once you&#39;ve finished a
+                    specific task, for simplicity sake, and also because I&#39;m very lazy.</p>
+                <h3 id="implementation-in-godot">Implementation In Godot</h3>
+                <p>It&#39;s gamedev time !</p>
+                <p>Same World Split-Screen in Godot 4 is quite simple :</p>
+                <ol>
+                    <li>Create a <a
+                            href="https://docs.godotengine.org/en/stable/classes/class_gridcontainer.html"><code>GridContainer</code></a>
+                        and set the Anchor Preset to <code>Full Rect</code>.<ol>
+                            <li>Tweak <code>GridContainer.columns</code>.</li>
+                            <li>Tweak the <code>GridContainer</code>&#39;s theme&#39;s parameters to adjust spacing to your liking.</li>
+                        </ol>
+                    </li>
+                    <li>Add X <a
+                            href="https://docs.godotengine.org/en/stable/classes/class_subviewportcontainer.html#class-subviewportcontainer"><code>SubViewportContainer</code></a>
+                        with each a <a
+                            href="https://docs.godotengine.org/en/stable/classes/class_subviewport.html#class-subviewport"><code>SubViewport</code></a>
+                        as a child.</li>
+                    <li>Add your level scene as a child of the first <code>SubViewport</code>.</li>
+                    <li>Inside each <code>SubViewport</code>, add a player with a camera attached and active.</li>
+                    <li>Set each <code>SubViewport.world_2d</code> to be the same as the one who host the level.</li>
+                </ol>
+                <p>That&#39;s it ! End of the talk, wrap it up boys, we had a good run. What ? Actually details how to do this ? Ok
+                    sure...</p>
+                <h4 id="subviewportcontainer-subviewport">SubViewportContainer &amp; SubViewport</h4>
+                <p>We will start by handling one player&#39;s own space !<br>I created a new scene with a
+                    <code>SubViewportContainer</code> as parent, a <code>SubViewport</code> and a <code>MarginContainer</code> as child.
+                    I then added a script to the <code>SubViewportContainer</code>, naming my new class <code>PlayerViewport</code>.</p>
+                <p><img src="https://www.blessedsleepseeker.com/static/base/blog_articles/split_screen/subviewportcontainer.png"
+                        alt="SubViewportContainer scene"></p>
+                <p>The <a
+                        href="https://docs.godotengine.org/en/stable/classes/class_subviewportcontainer.html#class-subviewportcontainer"><code>SubViewportContainer</code></a>
+                    is a control node (useful for automatic resizing and being manipulated by other controls !), which is used to host a
+                    <code>SubViewport</code> as a child.</p>
+                <p>The <a
+                        href="https://docs.godotengine.org/en/stable/classes/class_margincontainer.html"><code>MarginContainer</code></a>
+                    (promptly renamed M in my scene) is used to house all my UI element that every player should have on their own
+                    screen space. Think HP, Score, speed or bullets left...</p>
+                <p>The <a
+                        href="https://docs.godotengine.org/en/stable/classes/class_subviewport.html#class-subviewport"><code>SubViewport</code></a>
+                    is just here because this is the node that actually draw things. I tweaked a few options because my game is
+                    pixel-art and I wanted a transparent bg, but you shouldn&#39;t have to change anything.</p>
+                <p>The script is more interesting. I removed both the Parallax stuff that should be here, and the Player&#39;s UI stuff
+                    that shouldn&#39;t be here, it should be handled by a script in the <code>MarginContainer</code>.</p>
+                <pre><code class="lang-swift">class_name PlayerViewport
+                extends SubViewportContainer
+                
+                @export <span class="hljs-keyword">var</span> PLAYER_NBR: int = <span class="hljs-number">1</span>
+                @export <span class="hljs-keyword">var</span> player_scene = preload(<span class="hljs-string">"res://scenes/Character/Player.tscn"</span>)
+                @onready <span class="hljs-keyword">var</span> viewport: Viewport = $SubViewport
+                
+                <span class="hljs-keyword">var</span> player: Player
+                
+                func set_player_nbr<span class="hljs-function"><span class="hljs-params">(nbr: int)</span> -&gt;</span> void:
+                    PLAYER_NBR = nbr
+                    <span class="hljs-keyword">var</span> instance: Player = player_scene.instantiate()
+                    instance.PLAYER_NBR = PLAYER_NBR
+                    player = instance
+                    viewport.add_child(instance)
+                    this_is_where_i_connect_my_player_to_ui()
+                    this_is_where_i_update_my_ui_with_player_info()
+                
+                func set_level<span class="hljs-function"><span class="hljs-params">(level: Level)</span> -&gt;</span> World2D:
+                    viewport.add_child(level)
+                    <span class="hljs-keyword">return</span> viewport.world_2d
+                
+                func set_world<span class="hljs-function"><span class="hljs-params">(world: World2D)</span> -&gt;</span> void:
+                    viewport.world_2d = world
+                    this_is_where_i_instantiate_and_add_the_parallax()
+                </code></pre>
+                <p>Let&#39;s go over everything slowly :</p>
+                <pre><code class="lang-swift">class_name PlayerViewport
+                <span class="hljs-keyword">extends</span> SubViewportContainer
+                
+                <span class="hljs-meta">@export</span> <span class="hljs-keyword">var</span> PLAYER_NBR: <span class="hljs-built_in">int</span> = <span class="hljs-number">1</span>
+                <span class="hljs-meta">@export</span> <span class="hljs-keyword">var</span> player_scene = preload(<span class="hljs-string">"res://scenes/Character/Player.tscn"</span>)
+                <span class="hljs-meta">@onready</span> <span class="hljs-keyword">var</span> viewport: Viewport = $SubViewport
+                
+                <span class="hljs-keyword">var</span> player: Player
+                </code></pre>
+                <p>Here, I declare a bunch of variables and links to scene I will instantiate later with <code>preload()</code>.<br>The
+                    <code>PLAYER_NBR</code> is used to know which player is housed inside this viewport and to pass this information to
+                    the player (we will use this for control assignement later).
+                    The <code>player_scene</code> and <code>parallax_BG</code> are preloaded, and will be used once we set up our game.
+                    The <code>player</code> var is here to store our player. It is stored mostly for UI signals (which shouldn&#39;t be
+                    in this script).</p>
+                <pre><code class="lang-swift">func set_player_nbr(nbr: int) -&gt; void:
+                    PLAYER_NBR = nbr
+                    var instance: Player = player_scene.instantiate()
+                    instance.PLAYER_NBR = PLAYER_NBR
+                    player =<span class="hljs-built_in"> instance
+                </span>    viewport.add_child(instance)
+                    this_is_where_i_connect_my_player_to_ui()
+                    this_is_where_i_update_my_ui_with_player_info()
+                </code></pre>
+                <p><code>set_player_nbr()</code> is essentially a constructor. It is called once by the script building the
+                    split-screen. It will instantiate my player, set its player number, store it then add it to the scene. I then
+                    connect and update the UI here even tho I should do it elsewere...</p>
+                <pre><code class="lang-swift"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">set_level</span><span class="hljs-params">(level: Level)</span></span> -&gt; <span class="hljs-type">World2D</span>:
+                    viewport.add_child(level)
+                    <span class="hljs-keyword">return</span> viewport.world_2d
+                
+                <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">set_world</span><span class="hljs-params">(world: World2D)</span></span> -&gt; void:
+                    viewport.world_2d = world
+                    this_is_where_i_instantiate_and_add_the_parallax()
+                </code></pre>
+                <p><code>set_level()</code> is used to host the actual level geometry. This function is called only on the player
+                    1&#39;s viewport. It return a <code>World2D</code> object that will be passed to other
+                    <code>PlayerViewport.set_world()</code> functions.<br><code>set_world()</code> simply take the <code>World2D</code>
+                    and set it as their own <code>SubViewport.world_2d</code>. This function is called on every
+                    <code>PlayerViewport</code> except the first one.<br>This process ensure that the players added in the previous step
+                    are actually existing in the same universe and can interact together !</p>
+                <h4 id="gridcontainer">GridContainer</h4>
+                <p>Now that we have a space for every players, let&#39;s put them next to each others with our
+                    <code>GridContainer</code> !<br>I&#39;ve choosen to use a <a
+                        href="https://docs.godotengine.org/en/stable/classes/class_gridcontainer.html"><code>GridContainer</code></a>
+                    for a few reasons :</p>
+                <ul>
+                    <li>It&#39;s a control node with all the benefits they have (automatic resizing via anchoring for the control childs
+                        of the GC).</li>
+                    <li>It will split each space evently (remember competitive integrity ?).</li>
+                    <li>Columns handling for more than 4 players is really easy.</li>
+                </ul>
+                <p>Let&#39;s look at the <code>setup()</code> function, which is responsible for handling the instatiation of our
+                    <code>PlayerViewport</code>s.</p>
+                <pre><code class="lang-swift">class_name WorldHandler
+                <span class="hljs-keyword">extends</span> Node
+                
+                <span class="hljs-meta">@export</span> <span class="hljs-keyword">var</span> playerViewportScene = preload(<span class="hljs-string">"res://scenes/game_world/PlayerViewport.tscn"</span>)
+                <span class="hljs-meta">@onready</span> <span class="hljs-keyword">var</span> splitGrid: GridContainer = $SplitGrid
+                
+                <span class="hljs-meta">@export</span> <span class="hljs-keyword">var</span> player_count: <span class="hljs-built_in">int</span> = <span class="hljs-number">0</span>
+                <span class="hljs-meta">@onready</span> <span class="hljs-keyword">var</span> players: Array = []
+                
+                <span class="hljs-keyword">var</span> level: Level
+                
+                func setup():
+                    splitGrid.columns = (player_count / <span class="hljs-number">2</span>) + player_count % <span class="hljs-number">2</span>
+                
+                    <span class="hljs-keyword">var</span> levelWorld: World2D = <span class="hljs-keyword">null</span>
+                    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">0</span>, player_count):
+                        <span class="hljs-keyword">var</span> playerViewport: PlayerViewport = <span class="hljs-keyword">null</span>
+                        playerViewport = playerViewportScene.instantiate()
+                        splitGrid.add_child(playerViewport)
+                        <span class="hljs-keyword">if</span> i == <span class="hljs-number">0</span>:
+                            level = levelScene.instantiate()
+                            levelWorld = playerViewport.set_level(level)
+                        <span class="hljs-keyword">else</span>:
+                            playerViewport.set_world(levelWorld)
+                        playerViewport.set_player_nbr(i + <span class="hljs-number">1</span>)
+                        players.append(playerViewport.get_player())
+                </code></pre>
+                <h5 id="columns">Columns</h5>
+                <p>Here is my code that decide the number of columns the grid should have depending on player :</p>
+                <pre><code class="lang-swift">splitGrid.columns = (player_count / <span class="hljs-number">2</span>) + player_count % <span class="hljs-number">2</span>
+                </code></pre>
+                <p>For <code>GridContainer.columns</code>, 1 means that every player&#39;s space will be on a single column, 2 or more
+                    will add columns, making lines (confusing) of players, i don&#39;t know how to explain it better just press the
+                    button and see for yourself.</p>
+                <p>The logic behind is just &quot;add a column for every 2 players after the first one&quot;. So if we have 3 players,
+                    <code>(3 / 2) + 3 % 2 = 1 + 1 = 2</code>.<br><code>3 / 2 = 1</code> is because we are using <code>int</code> for our
+                    maths, and in Godot if you divide <code>int</code>, the engine just discard the decimal.</p>
+                <p>For the theme&#39;s parameters, I didn&#39;t change spacing at all, but you could add a divide to visually
+                    &quot;split&quot; the screen. Theming is an entire feature which I will not cover here, you can just change the
+                    property by overriding them in the editor !</p>
+                <p><img class="img-fluid" src="https://www.blessedsleepseeker.com/static/base/blog_articles/split_screen/gridcontainer.png"
+                        alt="GridContainer Editor Settings"></p>
+                <h5 id="split-screen-building-algorithm">Split Screen Building Algorithm</h5>
+                <pre><code class="lang-swift">var levelWorld: World2D = <span class="hljs-keyword">null</span>
+                <span class="hljs-keyword">for</span> i in range(0, player_count):
+                    var playerViewport: PlayerViewport = <span class="hljs-keyword">null</span>
+                    playerViewport = playerViewportScene.instantiate()
+                    splitGrid.add_child(playerViewport)
+                    <span class="hljs-keyword">if</span> i == 0:
+                        level = levelScene.instantiate()
+                        levelWorld = playerViewport.set_level(level)
+                    <span class="hljs-keyword">else</span>:
+                        playerViewport.set_world(levelWorld)
+                    playerViewport.set_player_nbr(i + 1)
+                    players.append(playerViewport.get_player())
+                </code></pre>
+                <p>We start by creating a <code>World2D</code> variable and set it to
+                    null.<br><code>for i in range(0, player_count)</code> : Loop the instantiation for every players.<br>Do you remember
+                    which <code>PlayerViewport</code> function we should call to store it ? It&#39;s <code>set_level()</code>. And then
+                    we will pass it to <code>PlayerViewport.set_world()</code> to synchronise our viewport 2D worlds. Pay attention to
+                    the fact that <code>levelScene</code> (which is actually my level handler, doing a lot more than being 2D geometry),
+                    is only instantiated once, <code>if i == 0:</code>. Once we go to the second player, we simply have to call
+                    <code>PlayerViewport.set_world()</code> instead !<br>Afterwards, I set the player number inside our
+                    <code>PlayerViewport</code> with i + 1 (because we start our for loop at 0), and append our player to an of players.
+                    I use this array for various things, like setting a spawnpoint in my level, my chaos modifiers which can shuffle
+                    things around, or checking if a player is the last one alive.</p>
+                <h3 id="split-screen-conclusion-and-going-further">Split-Screen Conclusion and Going Further</h3>
+                <p>That&#39;s it for the Split-Screen implementation ! As I said previously, this is only a basic implementation with
+                    holes and issues. We did not cover topics like what to do with the free space we have or how could you dynamically
+                    resize the <code>SubViewport</code> to troll your players.<br>For a gamejam game, though, it was good enough for me,
+                    and it still is.</p>
+                <p>I think design space for split-screen exist and that we could push and play with the concept further still ! Carrots
+                    of Chaos has a &quot;chaos&quot; system, designed to create variance and random event, and I thought of a chaos
+                    effect that would shuffle the players&#39;s screenspace around or change it&#39;s form from a rectangle to a
+                    circle... Countless ideas exist !</p>
+                <p>I also will repeat that my code has been cleaned and that I removed a lot of superfluous things here like the UI
+                    signals connections. You&#39;ll have to figure this for yourselves !</p>
+                <h2 id="part-one-conclusion">Part One Conclusion</h2>
+                <p>Thank you for reading up until this point ! This is part one of 2, and the subject of the second part will be
+                    dedicated to our players controls ! I have only one player scene and needed each instanted one to be properly
+                    controllable by each player.</p>
+                <p>I hope you&#39;ve enjoyed your time with me, and I&#39;ll see you in part 2 !</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

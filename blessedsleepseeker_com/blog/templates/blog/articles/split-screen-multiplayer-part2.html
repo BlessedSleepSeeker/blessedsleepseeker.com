@@ -1,0 +1,144 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% load humanize %}
+{% load markdown_extras %}
+{% block title %}
+{{ article.title }} - Blog
+{% endblock title %}
+{% block content %}
+<div class="d-flex align-content-center">
+    <div id="div-back-to-top" style="position: fixed;bottom: 20px;right: 20px;display: none;">
+        <a class="btn btn-outline-secondary ms-3 mt-1 " href="javascript:history.back()"><i class="bi bi-arrow-left"></i>{% translate " Return" %}</a>
+        <button type="button" class="ms-3 mt-1 btn btn-outline-secondary" id="btn-back-to-top" >
+            <i class="bi bi-arrow-up"></i>
+        </button>
+    </div>
+    <div class="container">
+        <div>
+            <h1 class="pb-2 border-bottom display-2">{{ article.title }}</h1>
+            <div class="my-3">
+                <div class="text-muted d-inline-flex" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="{{article.visible_starting|date:'d/m/Y - H:i e'}}">
+                    {% translate "Unveiled" %} {{article.visible_starting|naturaltime}}
+                </div>
+                <div class="text-muted">
+                    {% translate "Topics"%} :
+                    {% for tag in article.tags_formated %}
+                        <div class="badge rounded-pill bg-secondary mx-1 d-flex-inline align-content-center ">
+                            <a class="link-light text-decoration-none" href={% url 'blog:tags' tag %}>{{tag}}</a>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="mx-5">
+                <h1 id="-part-2-implementing-splitscreen-multiplayer-in-godot-4-a-tutorial">[PART 2] Implementing SplitScreen Multiplayer in Godot 4, a tutorial</h1>
+                  <ul>
+                    <li><a href="#part-2-implementing-splitscreen-multiplayer-in-godot-4-a-tutorial">
+                        [PART 2] Implementing SplitScreen Multiplayer in Godot 4, a tutorial</a>
+                      <ul>
+                        <li><a href="#multi-player">Multi-Player</a>
+                          <ul>
+                            <li><a href="#defining-actions">Defining Actions</a></li>
+                            <li><a href="#abstracting-actions-even-further">Abstracting Actions even further</a></li>
+                            <li><a href="#consuming-actions">Consuming Actions</a></li>
+                          </ul>
+                        </li>
+                        <li><a href="#conclusion">Conclusion</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                  <p>In the <a href="https://www.blessedsleepseeker.com/blog/split-screen-multiplayer-part1">last part</a>, we&#39;ve seen
+                    how I managed to create a modular split-screen and letting all players be in the same world. We&#39;re now gonna see
+                    how I managed to instance the same <em>player scene</em> in every <code>SubViewport</code> and still have each
+                    <em>real player</em> be able to play the game.</p>
+                  <h2 id="multi-player">Multi-Player</h2>
+                  <p>My solution takes advantage of various features of Godot or GDScript.</p>
+                  <p>The first one is <a
+                      href="https://docs.godotengine.org/en/stable/tutorials/inputs/input_examples.html"><strong>Actions</strong></a>.
+                    Actions allow us to abstract specific in-game actions like going left, jumping or shooting, making them decoupled from
+                    the actual keyboard or controller input. Once defined, an action can be checked with the help of the <a
+                      href="https://docs.godotengine.org/en/stable/classes/class_input.html">Input</a> singleton.</p>
+                  <p>The second feature is <a
+                      href="https://docs.godotengine.org/en/stable/tutorials/scripting/gdscript/gdscript_format_string.html"><strong>Format
+                        Strings</strong></a>, also known as <em>string interpolation</em> in other languages.</p>
+                  <p>The third feature is... <strong>Variables</strong> ?? Uhh ?? (Amazing reveal tbh)</p>
+                  <p>Ok, let&#39;s jump right in !</p>
+                  <h3 id="defining-actions">Defining Actions</h3>
+                  <p>Directly in the godot action panel, you are going to create actions for all of your players. You should follow a
+                    pattern of your choosing. Mine was first put <code>p</code>, then the player number, for example 1, followed by an
+                    underscore and the name of the action. For player 1, I created 5 actions : <code>p1_up</code>, <code>p1_down</code>,
+                    <code>p1_left</code>, <code>p1_right</code>, <code>p1_attack</code>. For player 2, the actions are <code>p2_up</code>,
+                    <code>p2_down</code>, <code>p2_left</code>, <code>p2_right</code>, <code>p2_attack</code> and so on...</p>
+                  <p><img src="https://docs.godotengine.org/en/stable/_images/07.input_map_tab.png" alt="godot action panel"></p>
+                  <p>I personnaly do this dynamically at runtime because I hate hardcoding things but this is beyond the scope of this
+                    tutorial. TLDR : Once I know how much players are in the game, I check if all actions for each players are created and
+                    have inputs set to them, and if not, I display a prompt to the user waiting for their input and save it.</p>
+                  <p>You can find more infos on how I did it <a
+                      href="https://github.com/BlessedSleepSeeker/CarrotsOfChaos/blob/main/game/autoloads/inputhandler.gd">here</a> and <a
+                      href="https://github.com/BlessedSleepSeeker/CarrotsOfChaos/blob/main/game/Scenes/Menu/settings/StartGameSettings.gd">there</a>.
+                  </p>
+                  <h3 id="abstracting-actions-even-further">Abstracting Actions even further</h3>
+                  <p>My player use a finite <em>state-machine</em> with a script dedicated to each state, but the inputs declarations are
+                    centralised in my player script. As with part one, I will shorten, cut and change my code as needed to make it simpler
+                    to understand.</p>
+                  <p>Let&#39;s keep in mind that each player get his <code>PLAYER_NBR</code> set right at instanciation with the right
+                    number. The player in the top left is player 1.</p>
+                  <pre><code class="lang-swift">class_name Player
+                  <span class="hljs-keyword">extends</span> CharacterBody2D
+                  
+                  <span class="hljs-keyword">var</span> PLAYER_NBR: <span class="hljs-built_in">int</span> = <span class="hljs-number">1</span>
+                  
+                  <span class="hljs-keyword">var</span> act_left: <span class="hljs-built_in">String</span> = <span class="hljs-string">"p%d_left"</span> % PLAYER_NBR
+                  <span class="hljs-keyword">var</span> act_right: <span class="hljs-built_in">String</span> = <span class="hljs-string">"p%d_right"</span> % PLAYER_NBR
+                  <span class="hljs-keyword">var</span> act_up: <span class="hljs-built_in">String</span> = <span class="hljs-string">"p%d_up"</span> % PLAYER_NBR
+                  <span class="hljs-keyword">var</span> act_down: <span class="hljs-built_in">String</span> = <span class="hljs-string">"p%d_down"</span> % PLAYER_NBR
+                  <span class="hljs-keyword">var</span> act_attack: <span class="hljs-built_in">String</span> = <span class="hljs-string">"p%d_attack"</span> % PLAYER_NBR
+                  
+                  func reassignControls() -&gt; <span class="hljs-keyword">void</span>:
+                      act_left = <span class="hljs-string">"p%d_left"</span> % PLAYER_NBR
+                      act_right = <span class="hljs-string">"p%d_right"</span> % PLAYER_NBR
+                      act_up = <span class="hljs-string">"p%d_up"</span> % PLAYER_NBR
+                      act_down = <span class="hljs-string">"p%d_down"</span> % PLAYER_NBR
+                      act_attack = <span class="hljs-string">"p%d_attack"</span> % PLAYER_NBR
+                  </code></pre>
+                  <p>We start by defining variables to store our actions names for each possible different input. I have only five
+                    actions, one for each cardinal directions, and one for attacking, but you could make more. Let&#39;s look at the right
+                    part of each declarations.</p>
+                  <p><code>&quot;p%d_left&quot; % PLAYER_NBR</code> is the <a
+                      href="https://docs.godotengine.org/en/stable/tutorials/scripting/gdscript/gdscript_format_string.html"><strong>Format
+                        Strings</strong></a> I&#39;ve talked about at the beginning, and this is were all the magic happen. With format
+                    string, you can simply add a <code>%</code> followed by a few specific letters (read the docs) and then replace both
+                    by another variable or constant. In our case, we want to add a number, so we add <code>%d</code> right after the
+                    <code>p</code>.<br>Let&#39;s manually resolve this operation ! First, resolve <code>PLAYER_NBR</code>. Since
+                    <code>PLAYER_NBR</code> is set as one, we can write our operation like this : <code>&quot;p%d_left&quot; % 1</code>.
+                    Now let&#39;s format our string, replacing <code>%d</code> with the value after <code>%</code> : <code>p1_left</code>.
+                    And that&#39;s it ! Remember our defined actions ? Now we have created a string variable with a defined action name
+                    inside.</p>
+                  <p>The function <code>reassignControls()</code> is doing the same thing, and should be called when the
+                    <code>PLAYER_NBR</code> is changed.</p>
+                  <h3 id="consuming-actions">Consuming Actions</h3>
+                  <pre><code class="lang-swift">func handle_input(_event: InputEvent) -&gt; <span class="hljs-keyword">void</span>:
+                    player.v_direction = Input.get_axis(player.act_left, player.act_right)
+                    <span class="hljs-keyword">if</span> Input.is_action_just_pressed(player.act_up):
+                      state_machine.transition_to(<span class="hljs-string">"JumpSquat"</span>)
+                    <span class="hljs-keyword">if</span> Input.is_action_just_pressed(player.act_attack):
+                      state_machine.transition_to(<span class="hljs-string">"Attack"</span>)
+                  </code></pre>
+                  <p>Now that we have dedicated variables holding actions names, we simply can pass this to our input handling function.
+                  </p>
+                  <p>My state machine is the one responsible for passing input data to the current state, so I have few reference to
+                    state.<br>There isn&#39;t much to do : instead of using <code>Input.is_action_pressed(&quot;p1_up&quot;)</code>, I
+                    simply pass <code>player.act_up</code> and I am done.</p>
+                  <h2 id="conclusion">Conclusion</h2>
+                  <p>As you can see, this part is very quick and not too complex. Abstracting actions with an additional holder variable
+                    is very quick, easy and imo should be done even if you do not think you&#39;re going to implement
+                    multiplayer.<br>Imagine that you have a state machine with say, 20 differents states and that your player actions
+                    needs to be renamed. If you do not have implemented abstraction, this mean a lot of boring work of find + replace. If
+                    you have abstracted actions, this is simply a one time change in your player script for each actions.</p>
+                  <p>I hope you liked this second part ! Bye :)</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
