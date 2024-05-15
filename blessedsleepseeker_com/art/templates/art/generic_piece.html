@@ -9,23 +9,23 @@
 {% block content %}
 <div class="pb-5 d-flex">
     {% get_current_language as LANGUAGE_CODE %}
-    <a class="btn btn-outline-secondary mx-5" href="{% url 'art:album' album.url %}"><i class="bi bi-arrow-left"></i> {% translate "Return to" %} {% if LANGUAGE_CODE == "en-us" %}{{album.name}}{% elif LANGUAGE_CODE == "fr" %}{{album.nameFR}}{% endif %}</a>
+    <a class="btn btn-outline-secondary mx-1" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="{% translate "Return to" %} {% if LANGUAGE_CODE == "en-us" %}{{album.name}}{% elif LANGUAGE_CODE == "fr" %}{{album.nameFR}}{% endif %}" href="{% url 'art:album' album.url %}"><i class="bi bi-arrow-bar-left"></i> </a>
 </div>
 <div class="pt-5 container">
     <div class="d-flex row align-items-center">
         {% if not is_random %}
         <div class="col d-flex row">
-            <a class="btn btn-outline-secondary" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="{% translate 'Prev' %}" href="{% url 'art:piece' album.url prev.url %}"><i class="bi bi-arrow-left-circle-fill"></i></a>
+            <a class="btn btn-outline-secondary mx-1" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="{% translate 'Prev' %}" href="{% url 'art:piece' album.url prev.url %}"><i class="bi bi-arrow-left-circle-fill"></i></a>
         </div>
         {% endif %}
-        <div class="{% if not is_random %}col-10{% endif %} d-flex justify-content-center">
+        <div class="{% if not is_random %}col-8{% endif %} d-flex justify-content-center">
             <button class="img-thumbnail" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="{% translate 'Click me !' %}">
                 <img src="{{ piece.file.url }}" data-bs-toggle="modal" data-bs-target="#pieceModal" >
             </button>
         </div>
         {% if not is_random %}
         <div class="col d-flex row">
-            <a class="btn btn-outline-secondary" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="{% translate 'Next' %}" href="{% url 'art:piece' album.url next.url %}"><i class="bi bi-arrow-right-circle-fill"></i></a>
+            <a class="btn btn-outline-secondary mx-1" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="{% translate 'Next' %}" href="{% url 'art:piece' album.url next.url %}"><i class="bi bi-arrow-right-circle-fill"></i></a>
         </div>
         {% endif %}
     </div>
