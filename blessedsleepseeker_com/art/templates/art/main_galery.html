@@ -4,7 +4,9 @@
 {% block title %}
 	Art
 {% endblock title %}
-
+{% block opengraph_type %}article{% endblock opengraph_type %}
+{% block opengraph_title %}Art Galery - Blessed Sleep Seeker{% endblock opengraph_title %}
+{% block opengraph_description %}Browse my Art !{{piece.authors}}{% endblock opengraph_description %}
 {% block content %}
 <h1 class="text-center display-1">{% translate "The Art Galery" %}</h1>
 <div class="d-flex justify-content-center py-3">

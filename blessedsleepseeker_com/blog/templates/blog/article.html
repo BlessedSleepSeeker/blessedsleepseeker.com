@@ -6,6 +6,10 @@
 {% block title %}
 {{ article.title }} - Blog
 {% endblock title %}
+{% block opengraph_type %}article{% endblock opengraph_type %}
+{% block opengraph_title %}{{ article.title }} - Blessed Sleep Seeker{% endblock opengraph_title %}
+{% block opengraph_description %}{{article.short_descriptionEN}}{% endblock opengraph_description %}
+
 {% block content %}
 <div class="d-flex align-content-center">
     <div class="container">

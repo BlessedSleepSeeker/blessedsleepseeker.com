@@ -6,6 +6,14 @@
 {% block title %}
 {{ piece.name }} - Art
 {% endblock title %}
+{% block opengraph_type %}article{% endblock opengraph_type %}
+{% block opengraph_title %}{{ piece.name }} - Blessed Sleep Seeker{% endblock opengraph_title %}
+{% block opengraph_description %}An art piece by {{piece.authors}}{% endblock opengraph_description %}
+{% block opengraph_image %}{{ piece.file.url }}{% endblock opengraph_image %}
+{% block opengraph_bonus %}
+<meta property="og:image:width" content="{{ piece.file.width }}">
+<meta property="og:image:height" content="{{ piece.file.height }}">
+{% endblock opengraph_bonus %}
 {% block content %}
 <div class="pb-5 d-flex">
     {% get_current_language as LANGUAGE_CODE %}

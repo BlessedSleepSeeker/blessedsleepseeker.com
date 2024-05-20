@@ -4,6 +4,9 @@
 {% block title %}
 	{{ album.name }} Galery - Art
 {% endblock title %}
+{% block opengraph_type %}article{% endblock opengraph_type %}
+{% block opengraph_title %}{{ album.name }} - Blessed Sleep Seeker{% endblock opengraph_title %}
+{% block opengraph_description %}Browse my {{album.name}} art !{% endblock opengraph_description %}
 {% block content %}
 <div class="d-flex justify-content-center mb-5">
 	{% get_current_language as LANGUAGE_CODE %}

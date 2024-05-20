@@ -6,7 +6,16 @@
     <title>{% block title %}{% endblock %} - Blessed Sleep Seeker</title>
 	  <link rel="shortcut icon" type="image/png" href="{% static 'base/8x8w400.png' %}"/>
     <meta name="robots" content="noindex">
-
+    <meta name="twitter:card" content="{% block twitter_card %}summary_large_image{% endblock twitter_card %}">
+    <meta property="og:url" content="{% block opengraph_url %}{{ request.path }}{% endblock opengraph_url %}">
+    <meta property="og:type" content="{% block opengraph_type %}website{% endblock opengraph_type %}">
+    <meta property="og:site_name" content="{% block opengraph_sitename %}Blessed Sleep Seeker{% endblock opengraph_sitename %}">
+    <meta property="og:title" content="{% block opengraph_title %}Blessed Sleep Seeker - A Personal Blog{% endblock opengraph_title %}">
+    <meta property="og:description" content="{% block opengraph_description %}
+    In my endless quest for Blessed Sleep, I've started creating things. This website is both a reminder to myself of all I've accomplished and a way to share it to you.
+    {% endblock opengraph_description %}">
+    <meta property="og:image" content="{{request.scheme}}://{{request.META.HTTP_HOST}}{% block opengraph_image %}{% endblock opengraph_image %}">
+    {% block opengraph_bonus %}{% endblock opengraph_bonus %}
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <!-- Bootstrap CSS & config -->
