@@ -27,6 +27,10 @@ class BlogFeed(Feed):
 
     def item_link(self, item):
         return reverse_lazy("blog:entry", args=[item.short_title])
+    
+    def item_pubdate(self):
+        last = Article.objects.all().order_by("-visible_starting").first()
+        return last.upload_date
 
 
 class ArtFeed(Feed):
@@ -61,6 +65,10 @@ class ArtFeed(Feed):
                 f"image/{item.file.name.split('.')[-1]}",
             )
         ]
+    
+    def item_pubdate(self):
+        last = Piece.objects.all().order_by("-visible_starting").first()
+        return last.upload_date
 
 
 class DevFeed(Feed):
@@ -79,6 +87,10 @@ class DevFeed(Feed):
 
     def item_link(self, item):
         return reverse_lazy("dev:project", args=[item.url])
+    
+    def item_pubdate(self):
+        last = DevProject.objects.all().order_by("-visible_starting").first()
+        return last.upload_date
 
 
 class DIYFeed(Feed):
@@ -97,3 +109,7 @@ class DIYFeed(Feed):
 
     def item_link(self, item):
         return reverse_lazy("diy:project", args=[item.url])
+
+    def item_pubdate(self):
+        last = DIYProject.objects.all().order_by("-visible_starting").first()
+        return last.upload_date
