@@ -20,7 +20,7 @@
 		{% for album, vignette in content %}
 			<div class="col d-flex align-self-stretch">
 				<a class="nav-link d-flex w-100" href="{% url 'art:album' album.url %}">
-					<div class="card shadow-sm hover-zoom-card w-100">
+					<div class="card shadow-sm hover-zoom-card w-100 {% cycle 'bg-titanium' 'bg-purple-paradise' 'bg-calm-darya' 'bg-forever-lost' %}">
 						{% if album.was_published_recently %}<span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">{% translate "?!" %}</span>{% endif %}
 						<img src="{{ vignette.file.url }}" class="img-fluid card-img-top {{ vignette.scaling_method }} ">
 						<div class="card-body">

@@ -17,7 +17,7 @@
 		{% for piece in page_obj %}
 			<div class="col">
 				<a class="nav-link" href="{% url 'art:piece' album.url piece.url %}">
-					<div class="card shadow-sm hover-zoom-card" style="">
+					<div class="card shadow-sm hover-zoom-card {% cycle 'bg-titanium' 'bg-purple-paradise' 'bg-calm-darya' 'bg-forever-lost' %}" style="">
 						<img src="{{ piece.file.url }}" class="img-fluid card-img-top {{ piece.scaling_method }}">
 						<div class="card-body">
 							{% if piece.was_published_recently %}<span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">{% translate "!?" %}</span>{% endif %}

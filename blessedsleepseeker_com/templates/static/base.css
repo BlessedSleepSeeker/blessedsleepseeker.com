@@ -74,3 +74,29 @@
 .smooth {
     image-rendering: smooth;
 }
+
+/*https://www.30secondsofcode.org/css/s/25-css-gradients/*/
+
+.bg-celestial {
+    background: linear-gradient(45deg, #c33764, #1d2671);
+}
+
+.bg-starfall {
+    background: linear-gradient(45deg, #f0c27b, #4b1248);
+}
+
+.bg-titanium {
+    background: linear-gradient(45deg, #283048, #859398);
+}
+
+.bg-purple-paradise {
+    background: linear-gradient(45deg, #1d2b64, #f8cdda);
+}
+
+.bg-calm-darya {
+    background: linear-gradient(45deg, #5f2c82, #49a09d);
+}
+
+.bg-forever-lost {
+    background: linear-gradient(to right, #5d4157, #a8caba);
+}

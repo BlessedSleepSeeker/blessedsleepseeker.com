@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.urls import include, path
 from django.conf import settings
 from django.conf.urls.static import static
+from django.views.generic.base import TemplateView
 
 urlpatterns = [
     path("", include("main.urls", namespace="main")),
@@ -29,6 +30,7 @@ urlpatterns = [
     path("rss/", include("rss.urls", namespace="rss")),
     path("admin/", admin.site.urls),
     path("i18n/", include("django.conf.urls.i18n"), name="set_language"),
+    path("robots.txt", TemplateView.as_view(template_name="robots.txt", content_type="text/plain")),
 ]
 
 if settings.DEBUG:
