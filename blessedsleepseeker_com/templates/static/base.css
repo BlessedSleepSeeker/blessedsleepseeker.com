@@ -55,10 +55,6 @@
     width: 15% !important;
 }
 
-.modal-piece {
-    transform: scale(2.0);
-}
-
 .auto {
     image-rendering: auto;
 }

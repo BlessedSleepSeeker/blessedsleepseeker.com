@@ -26,6 +26,8 @@ class Piece(models.Model):
     scaling_method = models.CharField(
         max_length=20, choices=scale_algorithm, default="pixelated"
     )
+    
+    modalScale = models.FloatField(default=2.0)
 
     @property
     def was_published_recently(self):

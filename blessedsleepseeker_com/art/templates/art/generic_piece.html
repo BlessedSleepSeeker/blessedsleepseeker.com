@@ -71,7 +71,7 @@
 {% block modal %}
     <div class="modal fade" id="pieceModal" tabindex="-1">
         <div class="modal-dialog modal-xl modal-dialog-centered d-flex justify-content-center">
-                <img src="{{ piece.file.url }}" class="modal-piece pixelated" style="">
+                <img src="{{ piece.file.url }}" class="modal-piece pixelated" style="max-width:100%;transform: scale({{ piece.modalScale | stringformat:".2f" }})">
         </div>
     </div>
 {% endblock modal %}

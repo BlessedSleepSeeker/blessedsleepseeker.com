@@ -15,13 +15,18 @@ def art_galery(request):
     page_nbr = request.GET.get("page")
     page_obj = paginator.get_page(page_nbr)
     content = []
+    recent_upload = False
     for album in page_obj:
         pieces = Piece.objects.filter(album=album)
         if pieces:
             content.append(tuple((album, random.choice(pieces))))
+        for piece in pieces:
+            if piece.was_published_recently == True:
+                recent_upload = True
     context = {
         "page_obj": page_obj,
         "content": content,
+        "recent_upload": recent_upload,
     }
     return render(request, "art/main_galery.html", context)
 
@@ -95,8 +100,14 @@ def scaled_piece_download(request, album_url, piece_url, size):
 
 def latest(request):
 
+    pieces = Piece.objects.all().order_by("-upload_date")
+    paginator = Paginator(pieces, ITEM_PER_PAGE)
+
+    page_nbr = request.GET.get("page")
+    page_obj = paginator.get_page(page_nbr)
     context = {
-        "pieces": Piece.objects.all().order_by("-upload_date")[:6],
+        "page_obj": page_obj,
+        "opengraph_random_pic": random.choice(Piece.objects.all()),
     }
     return render(request, "art/latest.html", context)
 

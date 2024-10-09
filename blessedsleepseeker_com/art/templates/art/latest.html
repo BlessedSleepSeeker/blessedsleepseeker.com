@@ -5,12 +5,12 @@
 	Art
 {% endblock title %}
 {% block opengraph_type %}article{% endblock opengraph_type %}
-{% block opengraph_title %}{{ piece.name }} - Blessed Sleep Seeker{% endblock opengraph_title %}
-{% block opengraph_description %}An art piece by {{piece.authors}}{% endblock opengraph_description %}
-{% block opengraph_image %}{{ piece.file.url }}{% endblock opengraph_image %}
+{% block opengraph_title %}Latest Drawings - Blessed Sleep Seeker{% endblock opengraph_title %}
+{% block opengraph_description %}The latest drawing from Seeker !{% endblock opengraph_description %}
+{% block opengraph_image %}{{ opengraph_random_pic.file.url }}{% endblock opengraph_image %}
 {% block opengraph_bonus %}
-<meta property="og:image:width" content="{{ piece.file.width }}">
-<meta property="og:image:height" content="{{ piece.file.height }}">
+<meta property="og:image:width" content="{{ opengraph_random_pic.file.width }}">
+<meta property="og:image:height" content="{{ opengraph_random_pic.file.height }}">
 {% endblock opengraph_bonus %}
 
 {% block content %}
@@ -23,7 +23,7 @@
         <div class="album py-5">
             <div class="container">
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-                    {% for piece in pieces %}
+                    {% for piece in page_obj %}
                         <div class="col">
                             <a class="nav-link" href="{% url 'art:piece' piece.album.url piece.url %}">
                             <div class="card shadow-sm hover-zoom-card" style="">

@@ -1,239 +1,198 @@
-// oneko.js: https://github.com/adryd325/oneko.js
+// Pokéneko v0.3 by https://james.nekoweb.org/
+// https://jamesschoch.github.io/Pokeneko/
 
-(function oneko() {
-  const isReducedMotion =
-    window.matchMedia(`(prefers-reduced-motion: reduce)`) === true ||
-    window.matchMedia(`(prefers-reduced-motion: reduce)`).matches === true;
+// Pokéneko is built using sprites from PDMCollab's Sprite Repository.
+// https://sprites.pmdcollab.org
 
-  if (isReducedMotion) return;
+// This snippet uses sprites from https://sprites.pmdcollab.org/#/0399
 
-  const nekoEl = document.createElement("div");
+var pokemon = {"pokedex":"0399","shiny":false,"animData":{"Walk":{"$":{},"Name":"Walk","Index":"0","FrameWidth":"32","FrameHeight":"32","Durations":{"$":{},"Duration":["8","10","8","10"]},"animURL":"https://jamesschoch.github.io/Pokeneko/sprite/0399/Walk-Anim.png"},"Idle":{"$":{},"Name":"Idle","Index":"7","FrameWidth":"32","FrameHeight":"32","Durations":{"$":{},"Duration":["20","14","20","14"]},"animURL":"https://jamesschoch.github.io/Pokeneko/sprite/0399/Idle-Anim.png"}}};
+var trackerjson;
+    pokemon.state = "none";
+    var walkAnimInterval, idleAnimInterval;
+    var dirlisting;
+    var distancePx = 0;
+    var CurrentMouseXPostion;
+    var CurrentMouseYPostion;
+    var scale = 2;
+    var rotation = 0;
+    var rotations = 8;
+    var state;
+    var laststate;
+    var frameCounter;
+    var animPlaying = false;
+    var mouseIdleTime = 0;
+    var anglevar;
 
-  let nekoPosX = 32;
-  let nekoPosY = 32;
+    var sprite = document.createElement("div");
+    sprite.id = "sprite";
+    sprite.style.position = "fixed";
+    sprite.style.zIndex = "1000000";
+    sprite.style.width = "64px";
+    sprite.style.height = "64px";
+    sprite.style.pointerEvents = "none";
+    sprite.style.top = "50%";
+    sprite.style.left = "50%";
 
-  let mousePosX = 0;
-  let mousePosY = 0;
+    document.body.appendChild(sprite);
 
-  let frameCount = 0;
-  let idleTime = 0;
-  let idleAnimation = null;
-  let idleAnimationFrame = 0;
-
-  const nekoSpeed = 10;
-  const spriteSets = {
-    idle: [[-3, -3]],
-    alert: [[-7, -3]],
-    scratchSelf: [
-      [-5, 0],
-      [-6, 0],
-      [-7, 0],
-    ],
-    scratchWallN: [
-      [0, 0],
-      [0, -1],
-    ],
-    scratchWallS: [
-      [-7, -1],
-      [-6, -2],
-    ],
-    scratchWallE: [
-      [-2, -2],
-      [-2, -3],
-    ],
-    scratchWallW: [
-      [-4, 0],
-      [-4, -1],
-    ],
-    tired: [[-3, -2]],
-    sleeping: [
-      [-2, 0],
-      [-2, -1],
-    ],
-    N: [
-      [-1, -2],
-      [-1, -3],
-    ],
-    NE: [
-      [0, -2],
-      [0, -3],
-    ],
-    E: [
-      [-3, 0],
-      [-3, -1],
-    ],
-    SE: [
-      [-5, -1],
-      [-5, -2],
-    ],
-    S: [
-      [-6, -3],
-      [-7, -2],
-    ],
-    SW: [
-      [-5, -3],
-      [-6, -1],
-    ],
-    W: [
-      [-4, -2],
-      [-4, -3],
-    ],
-    NW: [
-      [-1, 0],
-      [-1, -1],
-    ],
-  };
-
-  function init() {
-    nekoEl.id = "oneko";
-    nekoEl.ariaHidden = true;
-    nekoEl.style.width = "32px";
-    nekoEl.style.height = "32px";
-    nekoEl.style.position = "fixed";
-    nekoEl.style.pointerEvents = "none";
-    nekoEl.style.imageRendering = "pixelated";
-    nekoEl.style.left = `${nekoPosX - 16}px`;
-    nekoEl.style.top = `${nekoPosY - 16}px`;
-    nekoEl.style.zIndex = Number.MAX_VALUE;
-
-    let nekoFile = "/static/oneko/oneko.gif"
-    const curScript = document.currentScript
-    if (curScript && curScript.dataset.cat) {
-      nekoFile = curScript.dataset.cat
-    }
-    nekoEl.style.backgroundImage = `url(${nekoFile})`;
-
-    document.body.appendChild(nekoEl);
-
-    document.addEventListener("mousemove", function (event) {
-      mousePosX = event.clientX;
-      mousePosY = event.clientY;
-    });
-
-    window.requestAnimationFrame(onAnimationFrame);
-  }
-
-  let lastFrameTimestamp;
-
-  function onAnimationFrame(timestamp) {
-    // Stops execution if the neko element is removed from DOM
-    if (!nekoEl.isConnected) {
-      return;
-    }
-    if (!lastFrameTimestamp) {
-      lastFrameTimestamp = timestamp;
-    }
-    if (timestamp - lastFrameTimestamp > 100) {
-      lastFrameTimestamp = timestamp
-      frame()
-    }
-    window.requestAnimationFrame(onAnimationFrame);
-  }
-
-  function setSprite(name, frame) {
-    const sprite = spriteSets[name][frame % spriteSets[name].length];
-    nekoEl.style.backgroundPosition = `${sprite[0] * 32}px ${sprite[1] * 32}px`;
-  }
-
-  function resetIdleAnimation() {
-    idleAnimation = null;
-    idleAnimationFrame = 0;
-  }
-
-  function idle() {
-    idleTime += 1;
-
-    // every ~ 20 seconds
-    if (
-      idleTime > 10 &&
-      Math.floor(Math.random() * 200) == 0 &&
-      idleAnimation == null
-    ) {
-      let avalibleIdleAnimations = ["sleeping", "scratchSelf"];
-      if (nekoPosX < 32) {
-        avalibleIdleAnimations.push("scratchWallW");
-      }
-      if (nekoPosY < 32) {
-        avalibleIdleAnimations.push("scratchWallN");
-      }
-      if (nekoPosX > window.innerWidth - 32) {
-        avalibleIdleAnimations.push("scratchWallE");
-      }
-      if (nekoPosY > window.innerHeight - 32) {
-        avalibleIdleAnimations.push("scratchWallS");
-      }
-      idleAnimation =
-        avalibleIdleAnimations[
-          Math.floor(Math.random() * avalibleIdleAnimations.length)
-        ];
-    }
-
-    switch (idleAnimation) {
-      case "sleeping":
-        if (idleAnimationFrame < 8) {
-          setSprite("tired", 0);
-          break;
+    function getOffset(element) {
+        if (!element.getClientRects().length) {
+            return { top: 0, left: 0 };
         }
-        setSprite("sleeping", Math.floor(idleAnimationFrame / 4));
-        if (idleAnimationFrame > 192) {
-          resetIdleAnimation();
+
+        var rect = element.getBoundingClientRect();
+        var win = element.ownerDocument.defaultView;
+        return (
+            {
+                top: rect.top + win.pageYOffset,
+                left: rect.left + win.pageXOffset
+            });
+    }
+
+    function timerIncrement() {
+        mouseIdleTime = mouseIdleTime + 1;
+    }
+
+    function updateDistanceRotation() {
+        var spriteX = getOffset(document.getElementById("sprite")).left + 32;
+        var spriteY = getOffset(document.getElementById("sprite")).top + 32;
+        distancePx = distance(spriteX, spriteY, CurrentMouseXPostion, CurrentMouseYPostion);
+        anglevar = angle360(spriteX, spriteY, CurrentMouseXPostion, CurrentMouseYPostion);
+        if (anglevar > 67.5 && anglevar < 112.5) {
+            rotation = 0;
+        } else if (anglevar > 22.5 && anglevar < 67.5) {
+            rotation = 1;
+        } else if (anglevar > 337.5 || anglevar < 22.5) {
+            rotation = 2;
+        } else if (anglevar > 292.5 && anglevar < 337.5) {
+            rotation = 3;
+        } else if (anglevar > 247.5 && anglevar < 292.5) {
+            rotation = 4;
+        } else if (anglevar > 202.5 && anglevar < 247.5) {
+            rotation = 5;
+        } else if (anglevar > 157.5 && anglevar < 202.5) {
+            rotation = 6;
+        } else if (anglevar > 112.5 && anglevar < 157.5) {
+            rotation = 7;
         }
-        break;
-      case "scratchWallN":
-      case "scratchWallS":
-      case "scratchWallE":
-      case "scratchWallW":
-      case "scratchSelf":
-        setSprite(idleAnimation, idleAnimationFrame);
-        if (idleAnimationFrame > 9) {
-          resetIdleAnimation();
+    }
+
+    function addEvent(elm, evType, fn, useCapture) {
+        if (elm.addEventListener) {
+            elm.addEventListener(evType, fn, useCapture);
+            return true;
         }
-        break;
-      default:
-        setSprite("idle", 0);
-        return;
-    }
-    idleAnimationFrame += 1;
-  }
-
-  function frame() {
-    frameCount += 1;
-    const diffX = nekoPosX - mousePosX;
-    const diffY = nekoPosY - mousePosY;
-    const distance = Math.sqrt(diffX ** 2 + diffY ** 2);
-
-    if (distance < nekoSpeed || distance < 48) {
-      idle();
-      return;
+        else if (elm.attachEvent) {
+            var r = elm.attachEvent('on' + evType, fn);
+            return r;
+        }
+        else {
+            elm['on' + evType] = fn;
+        }
     }
 
-    idleAnimation = null;
-    idleAnimationFrame = 0;
-
-    if (idleTime > 1) {
-      setSprite("alert", 0);
-      // count down after being alerted before moving
-      idleTime = Math.min(idleTime, 7);
-      idleTime -= 1;
-      return;
+    document.onmousemove = function (event) {
+        CurrentMouseXPostion = event.pageX;
+        CurrentMouseYPostion = event.pageY;
+        updateDistanceRotation();
+        mouseIdleTime = 0;
     }
 
-    let direction;
-    direction = diffY / distance > 0.5 ? "N" : "";
-    direction += diffY / distance < -0.5 ? "S" : "";
-    direction += diffX / distance > 0.5 ? "W" : "";
-    direction += diffX / distance < -0.5 ? "E" : "";
-    setSprite(direction, frameCount);
+    function angle(cx, cy, ex, ey) {
+        var dy = ey - cy;
+        var dx = ex - cx;
+        var theta = Math.atan2(dy, dx);
+        theta *= 180 / Math.PI;
 
-    nekoPosX -= (diffX / distance) * nekoSpeed;
-    nekoPosY -= (diffY / distance) * nekoSpeed;
+        return theta;
+    }
 
-    nekoPosX = Math.min(Math.max(16, nekoPosX), window.innerWidth - 16);
-    nekoPosY = Math.min(Math.max(16, nekoPosY), window.innerHeight - 16);
+    function distance(cx, cy, ex, ey) {
+        var dx = cx - ex;
+        var dy = cy - ey;
+        return Math.sqrt(dx * dx + dy * dy);
+    }
 
-    nekoEl.style.left = `${nekoPosX - 16}px`;
-    nekoEl.style.top = `${nekoPosY - 16}px`;
-  }
+    function angle360(cx, cy, ex, ey) {
+        var theta = angle(cx, cy, ex, ey);
+        if (theta < 0) theta = 360 + theta;
+        return theta;
+    }
 
-  init();
-})();
+    function setSprite(animName, frame) {
+        var animData = pokemon.animData[animName];
+        var sprite = document.getElementById("sprite");
+        if (animName !== "Sleep") {
+            var rotations = 8;
+        } else {
+            var rotations = 1;
+        }
+        sprite.style.backgroundImage = "url(" + animData.animURL + ")";
+        sprite.style.backgroundSize = (animData.FrameWidth * scale * animData.Durations.Duration.length) + "px " + (animData.FrameHeight * scale * rotations) + "px";
+        sprite.style.width = animData.FrameWidth * scale + "px";
+        sprite.style.height = animData.FrameHeight * scale + "px";
+        sprite.style.backgroundPosition = (0 - ((animData.FrameWidth * (frame % animData.Durations.Duration.length)) * scale)) + "px " + (0 - ((rotation * animData.FrameHeight) * scale)) + "px";
+        sprite.style.imageRendering = "pixelated";
+
+    }
+
+    var runningAnim;
+    var runningAnimName = "";
+
+    function runAnim(animName) {
+        if (pokemon.pokedex) {
+            if (runningAnimName === animName) {
+                return;
+            } else {
+                clearInterval(runningAnim);
+                var frames = [];
+                for (var i = 0; i < pokemon.animData[animName].Durations.Duration.length; i++) {
+                    for (var j = 0; j < pokemon.animData[animName].Durations.Duration[i]; j++) {
+                        frames.push(i);
+                    }
+                }
+
+                runningAnimName = animName;
+                var i = 0;
+                runningAnim = setInterval(function () {
+                    setSprite(animName, frames[i]);
+                    i++;
+                    if (i == frames.length) {
+                        setSprite(animName, frames[i]);
+                        i = 0;
+                    }
+                }, 33);
+            }
+        }
+    }
+
+    var moveSprite = setInterval(function () {
+
+        if (pokemon.pokedex) {
+            if (distancePx >= 55) {
+                state = "Walk";
+                runAnim("Walk");
+
+            } else {
+                state = "Idle";
+                runAnim("Idle");
+            }
+            if (state == "Walk") {
+
+                var sprite = document.getElementById("sprite");
+                var spriteX = getOffset(document.getElementById("sprite")).left;
+                var spriteY = getOffset(document.getElementById("sprite")).top;
+
+                var angle = angle360(spriteX, spriteY, CurrentMouseXPostion, CurrentMouseYPostion);
+                var dx = Math.cos(angle * Math.PI / 180) * 4;
+                var dy = Math.sin(angle * Math.PI / 180) * 4;
+                sprite.style.left = spriteX + dx + "px";
+                sprite.style.top = spriteY + dy + "px";
+
+            }
+            updateDistanceRotation();
+
+            laststate = state;
+        }
+    }, 33);
